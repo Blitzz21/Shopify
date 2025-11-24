@@ -1,0 +1,36 @@
+=== WEBHOOK DEBUG ===
+Array
+(
+    [timestamp] => 2025-11-19 14:32:52
+    [topic] => 
+    [shop] => 
+    [hmac_header_received] => 
+    [hmac_header_exists] => NO
+    [raw_data_length] => 0
+    [raw_data_preview] => 
+    [all_headers] => Array
+        (
+            [HTTP_HOST] => localhost
+            [HTTP_CONNECTION] => keep-alive
+            [HTTP_PRAGMA] => no-cache
+            [HTTP_CACHE_CONTROL] => no-cache
+            [HTTP_SEC_CH_UA] => "Chromium";v="142", "Brave";v="142", "Not_A Brand";v="99"
+            [HTTP_SEC_CH_UA_MOBILE] => ?0
+            [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+            [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+            [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
+            [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8
+            [HTTP_SEC_GPC] => 1
+            [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+            [HTTP_SEC_FETCH_SITE] => none
+            [HTTP_SEC_FETCH_MODE] => navigate
+            [HTTP_SEC_FETCH_USER] => ?1
+            [HTTP_SEC_FETCH_DEST] => document
+            [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
+            [HTTP_COOKIE] => shopify_print_app=tt4iau1i5u8ugrjnb3qor7qddu
+        )
+
+)
+
+===================
+
