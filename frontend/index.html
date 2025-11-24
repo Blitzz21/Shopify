@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Custom Print Shop - Design and order your custom printed products">
+    <title>GameDayTees</title>
+    <link rel="icon" type="image/png" href="img/gdt-small-logo.png">
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <style>
+        /* Custom Color Palette */
+        :root {
+            --navy-dark: #0C2B4E;
+            --navy-medium: #1A3D64;
+            --navy-light: #1D546C;
+            --light-gray: #F4F4F4;
+            --white: #FFFFFF;
+        }
+        
+        /* Apply Poppins font */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-gray);
+        }
+        
+        /* Custom utility classes */
+        .bg-navy-dark { background-color: var(--navy-dark); }
+        .bg-navy-medium { background-color: var(--navy-medium); }
+        .bg-navy-light { background-color: var(--navy-light); }
+        .bg-light-gray { background-color: var(--light-gray); }
+        
+        .text-navy-dark { color: var(--navy-dark); }
+        .text-navy-medium { color: var(--navy-medium); }
+        .text-navy-light { color: var(--navy-light); }
+        
+        .border-navy-dark { border-color: var(--navy-dark); }
+        .border-navy-medium { border-color: var(--navy-medium); }
+        .border-navy-light { border-color: var(--navy-light); }
+        
+        /* Custom button styles */
+        .btn-primary {
+            background-color: var(--navy-medium);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--navy-dark);
+        }
+        
+        /* Gradient backgrounds */
+        .gradient-navy {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 overflow-x-hidden" style="font-family: 'Poppins', sans-serif;">
+    <!-- Enhanced Professional Navbar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-300 transition-all duration-300">
+        <nav class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-18">
+                <!-- Logo with Enhanced Hover Effect -->
+                <div class="flex items-center py-4">
+                    <a href="/" class="group relative flex items-center gap-3">
+                        <div class="relative">
+                            <img src="img/gdt-top-logo.svg" alt="Custom Print Shop"
+                                class="h-11 w-auto transition-all duration-300 group-hover:scale-105"
+                                width="150" height="70"
+                                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjcwIiB2aWV3Qm94PSIwIDAgMTUwIDcwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iNzAiIGZpbGw9IiMzQjgyRjYiLz48dGV4dCB4PSIyNSIgeT0iNDAiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iUG9wcGlucyIgZm9udC13ZWlnaHQ9IjYwMCIgZm9udC1zaXplPSIxNiI+Q3VzdG9tIFByaW50PC90ZXh0Pjwvc3ZnPg=='">
+                            <!-- Glow effect on hover -->
+                            <div class="absolute inset-0 bg-blue-400/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation with Active States -->
+                <div class="items-center hidden lg:flex lg:gap-1">
+                    <a href="#home" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">Home</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                    <a href="#products" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">Templates</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                    <a href="#how-it-works" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">How It Works</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                    <a href="#why-us" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">Why Us</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                    <a href="#faq" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">FAQs</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                    <a href="#contact" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">Contact</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                </div>
+
+                <!-- Right Actions with Enhanced Buttons -->
+                <div class="flex items-center gap-2">
+                    <!-- Mobile Menu Toggle -->
+                    <button id="mobile-menu-toggle" type="button" class="relative p-2.5 text-gray-700 border-2 border-gray-200 rounded-xl lg:hidden hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation menu</span>
+                        <svg data-icon="menu" class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg data-icon="close" class="hidden w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Search Button (Desktop) -->
+                    <button class="hidden lg:flex items-center justify-center p-2.5 text-gray-700 transition-all duration-200 rounded-xl hover:bg-blue-50 hover:text-blue-600 hover:scale-105 active:scale-95" title="Search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Wishlist Button (Desktop) -->
+                    <button class="hidden lg:flex items-center justify-center p-2.5 text-gray-700 transition-all duration-200 rounded-xl hover:bg-red-50 hover:text-red-600 hover:scale-105 active:scale-95 group" title="Wishlist">
+                        <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Enhanced Cart Button -->
+                    <button onclick="app.openCart()" class="relative flex items-center justify-center p-2.5 text-gray-700 transition-all duration-200 rounded-xl hover:bg-blue-50 hover:text-blue-600 hover:scale-105 active:scale-95 group" title="Shopping Cart">
+                        <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        <span id="cart-count" class="absolute -top-1 -right-1 flex items-center justify-center min-w-[1.25rem] h-5 px-1 text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-full shadow-lg ring-2 ring-white transform transition-transform group-hover:scale-110">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enhanced Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden overflow-hidden">
+                <div class="py-4 space-y-1 border-t border-gray-100 animate-slideDown">
+                    <!-- Mobile Navigation Links -->
+                    <a href="#home" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>Home</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#products" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>Templates</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#how-it-works" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>How It Works</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#why-us" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>Why Us</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#faq" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>FAQs</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>Contact</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Spacer to prevent content from hiding under fixed navbar -->
+    <div class="h-18"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden pt-24 pb-24">
+        <div class="absolute -top-24 left-0 w-80 h-80 bg-blue-200 rounded-full blur-[150px]" data-parallax="-0.1"></div>
+        <div class="absolute top-10 right-0 w-72 h-72 bg-orange-400/40 rounded-full blur-[180px]" data-parallax="0.08"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200 text-xs tracking-wider uppercase text-slate-500 animate-on-scroll" data-animate="fade-left">
+                    72h Polaris production
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                </div>
+                <div class="animate-on-scroll" data-animate="fade-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-[#222831]">
+                        Custom apparel engineered for young athletes
+                        <span class="text-blue-600 block">designed tonight &#183; worn this week</span>
+                    </h1>
+                    <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+                        Upload two action photos, choose a shirt, and our commercial Polaris press builds a gallery-grade print that survives rainouts, practices, and every wash. Parents get bragging rights. Athletes get confidence.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 animate-on-scroll" data-animate="fade-left">
+                    <a href="#products" class="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#222831] text-white font-semibold text-lg shadow-lg shadow-brand-200/60 btn-glow" data-ripple>
+                        Explore Templates
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="#how-it-works" class="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl border border-slate-200 bg-white text-slate-700 font-medium hover:border-blue-200">
+                        See the workflow
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 gap-6 text-sm text-center sm:grid-cols-3 sm:gap-8 sm:text-left animate-on-scroll" data-animate="fade-left">
+                    <div>
+                        <p class="text-3xl font-semibold text-ink"><span data-count="3">3</span> days</p>
+                        <p class="text-slate-500">Processing Time</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-semibold text-ink">High</p>
+                        <p class="text-slate-500">Customer Satisfaction</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-semibold text-ink">Many</p>
+                        <p class="text-slate-500">Teams Served</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative animate-on-scroll" data-animate="fade-right">
+                <div class="absolute -top-10 right-10 w-44 h-44 rounded-3xl bg-white shadow-2xl floating-accent" data-parallax="0.14"></div>
+                <div class="relative glass-panel rounded-[32px] p-8 space-y-6 tilt-hover">
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <div class="rounded-2xl border border-slate-100 bg-contain bg-center p-4 flex flex-col justify-between aspect-[4/5]" style="background-image: url('img/templates/voll1_sample.jpg');">
+                            <div>
+                                <p class="text-xs uppercase tracking-wide text-slate-400">Athlete</p>
+                                <p class="font-semibold text-xl text-[#393E46]">Smith</p>
+                            </div>
+                        </div>
+                        <div class="rounded-2xl border border-slate-100 bg-contain bg-center p-4 flex flex-col justify-between aspect-[4/5]" style="background-image: url('img/premium-tshirt.png');">
+                            <div>
+                                <p class="text-xs uppercase tracking-wide text-slate-500">Fabric</p>
+                                <p class="font-semibold text-xl text-[#393E46]">Gildan 64000</p>
+                            </div>
+                            <p class="text-xs text-slate-500">Short sleeve &#183; Jet black</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 p-4 flex flex-col gap-4 bg-white">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-slate-500">Output quality</p>
+                                <p class="text-2xl font-semibold text-[#393E46]">Polaris Pro &#183; 1200 DPI</p>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">Finalizing</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="variant-tab active" data-variant-btn="short">Short sleeve</button>
+                        </div>
+                        <div class="variant-panel active" data-variant-panel="short">
+                            <p class="text-sm text-slate-500">Soft premium cotton. Lighter for summer tournaments.</p>
+                            <div class="flex items-center justify-between mt-2">
+                                <p class="text-3xl font-semibold text-[#393E46]">$29.99</p>
+                                <span class="text-xs text-slate-500">Ships in 3 days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted -->
+    <section class="py-16 bg-white/80 border-y border-slate-200 relative overflow-hidden">
+        <div class="absolute inset-y-0 right-10 w-72 bg-gradient-to-b from-blue-100 to-transparent rounded-[34px]" data-parallax="0.05"></div>
+        <div class="max-w-6xl mx-auto px-6 text-center space-y-8 relative animate-on-scroll" data-animate="zoom">
+            <p class="text-xs font-semibold tracking-widest text-blue-600 uppercase">Trusted nationwide</p>
+            <p class="text-3xl font-semibold text-[#222831]">Youth sports programs <span class="text-blue-600">nationwide</span> trust our quality and service.</p>
+            <div class="grid grid-cols-1 gap-6 text-slate-500 text-sm uppercase tracking-wide sm:grid-cols-2 md:grid-cols-4">
+                <p>High schools</p>
+                <p>Club travel</p>
+                <p>AAU teams</p>
+                <p>Rec leagues</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Template Gallery Section -->
+    <section id="products" class="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+            <h2 class="mb-4 text-3xl font-bold text-gray-900" style="font-weight: 700;">
+                Choose Your T-Shirt Template
+            </h2>
+            <p class="text-lg text-gray-600" style="font-weight: 400;">
+                Select a design template to start customizing your premium T-shirt
+            </p>
+        </div>
+        
+        <!-- Template Grid -->
+        <div id="product-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <!-- Loading State -->
+            <div class="flex flex-col items-center justify-center py-16 col-span-full">
+                <div class="w-16 h-16 mb-4 border-b-4 border-blue-600 rounded-full animate-spin"></div>
+                <p class="text-lg text-gray-600" style="font-weight: 400;">Loading templates...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works - Interactive Story-Driven -->
+    <section id="how-it-works" class="relative py-24 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+        <!-- Background Decorative Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-on-scroll">
+                <div class="inline-flex items-center justify-center px-4 py-2 mb-6 text-xs font-semibold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-200">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Our Simple 4-Step Workflow
+                </div>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    From your phone to their pride
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Watch your athlete's best moments transform into premium printed shirts they'll wear with pride—all in just 3 days
+                </p>
+            </div>
+
+            <!-- Progress Overview -->
+            <div class="max-w-4xl mx-auto mb-20 animate-on-scroll">
+                <div class="relative">
+                    <!-- Progress Line -->
+                    <div class="absolute top-6 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-purple-200 to-green-200 rounded-full"></div>
+                    <div class="absolute top-6 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-full transform origin-left transition-transform duration-1000"></div>
+
+                    <!-- Progress Steps -->
+                    <div class="relative grid grid-cols-4 gap-4">
+                        <!-- Step 1 Indicator -->
+                        <div class="text-center">
+                            <div class="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg ring-4 ring-purple-100 transform transition-all duration-300 hover:scale-110">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-xs font-semibold text-gray-900">Pick Template</div>
+                        </div>
+
+                        <!-- Step 2 Indicator -->
+                        <div class="text-center">
+                            <div class="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg ring-4 ring-blue-100 transform transition-all duration-300 hover:scale-110">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-xs font-semibold text-gray-900">Upload Photos</div>
+                        </div>
+
+                        <!-- Step 3 Indicator -->
+                        <div class="text-center">
+                            <div class="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg ring-4 ring-orange-100 transform transition-all duration-300 hover:scale-110">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-xs font-semibold text-gray-900">We Print</div>
+                        </div>
+
+                        <!-- Step 4 Indicator -->
+                        <div class="text-center">
+                            <div class="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg ring-4 ring-green-100 transform transition-all duration-300 hover:scale-110">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="text-xs font-semibold text-gray-900">Delivered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Interactive Story Flow -->
+        <div class="space-y-32">
+            <!-- Step 1: Choose Template -->
+            <div class="relative group">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <!-- Left: Visual -->
+                    <div class="order-2 lg:order-1 animate-on-scroll">
+                        <div class="relative">
+                            <!-- Template Selection Mockup -->
+                            <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-2xl border border-purple-100 transform transition-transform duration-500 hover:scale-105">
+                                <div class="space-y-6">
+                                    <!-- Header -->
+                                    <div class="text-center pb-4 border-b border-purple-200">
+                                        <div class="text-sm font-semibold text-purple-600 mb-2">STEP 1</div>
+                                        <div class="text-lg font-bold text-gray-900">Select Your Design</div>
+                                    </div>
+
+                                    <!-- Template Options Grid -->
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <!-- Template Option 1 - Selected -->
+                                        <div class="relative group cursor-pointer">
+                                            <div class="bg-white rounded-xl p-3 shadow-lg border-2 border-purple-500 transform transition-all duration-300 hover:scale-105">
+                                                <div class="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden relative">
+                                                    <div class="absolute inset-0 bg-cover bg-center opacity-90" style="background-image: url('img/templates/voll1_sample.jpg');"></div>
+                                                </div>
+                                            </div>
+                                            <!-- Selected Indicator -->
+                                            <div class="absolute -top-2 -right-2 w-7 h-7 bg-purple-600 rounded-full flex items-center justify-center shadow-lg ring-4 ring-purple-100">
+                                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <!-- Template Option 2 -->
+                                        <div class="bg-white rounded-xl p-3 shadow-md border-2 border-gray-200 transform transition-all duration-300 hover:scale-105 hover:border-purple-300 cursor-pointer opacity-75 hover:opacity-100">
+                                            <div class="aspect-[3/4] rounded-lg bg-contain overflow-hidden relative" style="background-image: url('img/templates/bask1_sample.jpg');">
+                                            </div>
+                                        </div>
+
+                                        <!-- Template Option 3 -->
+                                        <div class="bg-white rounded-xl p-3 shadow-md border-2 border-gray-200 transform transition-all duration-300 hover:scale-105 hover:border-purple-300 cursor-pointer opacity-75 hover:opacity-100">
+                                            <div class="aspect-[3/4] rounded-lg bg-contain overflow-hidden relative" style="background-image: url('img/templates/hockey1_sample.jpg');">
+                                                <div class="absolute inset-0 flex items-center justify-center">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Template Option 4 -->
+                                        <div class="bg-white rounded-xl p-3 shadow-md border-2 border-gray-200 transform transition-all duration-300 hover:scale-105 hover:border-purple-300 cursor-pointer opacity-75 hover:opacity-100">
+                                            <div class="aspect-[3/4] rounded-lg bg-contain overflow-hidden relative" style="background-image: url('img/templates/foot1_sample.jpg');">
+                                                <div class="absolute inset-0 flex items-center justify-center">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Floating Template Count Badge -->
+                            <div class="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl p-4 border-2 border-purple-200 animate-on-scroll transform transition-all duration-300 hover:scale-110">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-purple-600">12+</div>
+                                    <div class="text-xs text-gray-600">Templates</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Story Content -->
+                    <div class="order-1 lg:order-2 space-y-6">
+                        <div class="inline-flex w-fit items-center gap-3 px-5 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full font-bold shadow-lg shadow-purple-500/50 animate-on-scroll transform transition-all duration-300 hover:shadow-xl hover:scale-105">
+                            <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-lg font-bold">01</div>
+                            <span>Pick Your Perfect Template</span>
+                        </div>
+
+                        <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight animate-on-scroll">
+                            Choose a design that showcases your athlete's best moments
+                        </h3>
+
+                        <div class="space-y-4 text-lg text-gray-600 leading-relaxed animate-on-scroll">
+                            <p>
+                                <span class="font-semibold text-gray-900">Every athlete is unique.</span> That's why we offer multiple professionally-designed templates to perfectly showcase your photos.
+                            </p>
+                            <p>
+                                Whether you want a bold action shot, a classic portrait layout, or a dynamic collage—we've got the perfect design waiting for you.
+                            </p>
+                        </div>
+
+                        <!-- Template Features -->
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100/50 border-2 border-purple-200 rounded-2xl p-6 space-y-4 animate-on-scroll backdrop-blur-sm">
+                            <div class="flex items-center gap-2 mb-4">
+                                <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div class="font-bold text-gray-900">Template Features</div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3 group">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-gray-900 mb-1">12+ Professional Designs</div>
+                                        <div class="text-sm text-gray-600">From classic to modern, find the perfect style for your athlete</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 group">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-gray-900 mb-1">Instant Preview</div>
+                                        <div class="text-sm text-gray-600">See exactly how your photos will look on the shirt</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 group">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-gray-900 mb-1">Easy to Change</div>
+                                        <div class="text-sm text-gray-600">Switch templates anytime before checkout—no commitment</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Flow Arrow -->
+                <div class="hidden lg:block absolute left-1/2 -bottom-16 transform -translate-x-1/2 animate-on-scroll z-10">
+                    <div class="flex flex-col items-center">
+                        <div class="w-0.5 h-16 bg-gradient-to-b from-purple-600 to-blue-600"></div>
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center shadow-lg ring-4 ring-white">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Upload Photos -->
+            <div class="relative group">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <!-- Left: Visual -->
+                    <div class="order-2 lg:order-1 animate-on-scroll">
+                        <div class="relative">
+                            <!-- Phone Mockup -->
+                            <div class="relative mx-auto max-w-sm transform transition-transform duration-500 hover:scale-105">
+                                <!-- Phone Frame -->
+                                <div class="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl ring-1 ring-gray-800">
+                                    <!-- Notch -->
+                                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl z-10"></div>
+
+                                    <!-- Screen -->
+                                    <div class="relative bg-white rounded-[2.5rem] overflow-hidden">
+                                        <div class="aspect-[9/16] bg-gradient-to-br from-blue-50 via-blue-50 to-blue-100 p-6 pt-10">
+                                            <!-- Upload Interface -->
+                                            <div class="h-full flex flex-col">
+                                                <!-- Header -->
+                                                <div class="text-center mb-4">
+                                                    <div class="text-xs font-bold text-blue-600 mb-1">Upload Photos</div>
+                                                    <div class="text-[10px] text-gray-500">Step 2 of 4</div>
+                                                </div>
+
+                                                <!-- Photo Cards -->
+                                                <div class="space-y-3 flex-1">
+                                                    <!-- Photo 1 with animation -->
+                                                    <div class="bg-white rounded-xl p-3 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                                                        <div class="relative rounded-lg border-2 border-slate-100 h-48 bg-contain bg-no-repeat bg-center overflow-hidden" style="background-image: url('img/youthpose.png');">
+                                                            <div class="absolute top-1 right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center ring-2 ring-white">
+                                                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-2 flex items-center justify-between">
+                                                            <span class="text-[10px] font-medium text-gray-700">Photo 1: Portrait</span>
+                                                            <span class="text-[9px] text-green-600 font-semibold">Uploaded</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Photo 2 with animation -->
+                                                    <div class="bg-white rounded-xl p-3 shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                                                        <div class="relative rounded-lg border-2 border-slate-100 h-48 bg-contain bg-no-repeat bg-center overflow-hidden" style="background-image: url('img/youthaction.png');">
+                                                            <div class="absolute top-1 right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center ring-2 ring-white">
+                                                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-2 flex items-center justify-between">
+                                                            <span class="text-[10px] font-medium text-gray-700">Photo 2: Action</span>
+                                                            <span class="text-[9px] text-green-600 font-semibold">Uploaded</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Floating Photo Count Badge -->
+                            <div class="absolute -top-4 -right-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-xl p-4 border-2 border-blue-300 ring-4 ring-blue-100 animate-on-scroll transform transition-all duration-300 hover:scale-110">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-white">2</div>
+                                    <div class="text-xs text-blue-100 font-semibold">Photos</div>
+                                </div>
+                            </div>
+
+                            <!-- Upload Time Badge -->
+                            <div class="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-3 border border-gray-200 animate-on-scroll">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                    </svg>
+                                    <div class="text-xs">
+                                        <div class="font-bold text-gray-900">30 sec</div>
+                                        <div class="text-gray-500 text-[10px]">to upload</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Story Content -->
+                    <div class="order-1 lg:order-2 space-y-6">
+                        <div class="inline-flex w-fit items-center gap-3 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full font-bold shadow-lg shadow-blue-500/50 animate-on-scroll transform transition-all duration-300 hover:shadow-xl hover:scale-105">
+                            <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-lg font-bold">02</div>
+                            <span>You Capture the Moment</span>
+                        </div>
+
+                        <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight animate-on-scroll">
+                            Upload your athlete's best moments
+                        </h3>
+
+                        <div class="space-y-4 text-lg text-gray-600 leading-relaxed animate-on-scroll">
+                            <p>
+                                <span class="font-semibold text-gray-900">You're already taking the photos.</span> That amazing diving catch. The championship celebration. The determined face during warm-ups.
+                            </p>
+                            <p>
+                                Simply upload 2 photos and watch them transform into a premium shirt your athlete will wear with pride.
+                            </p>
+                        </div>
+
+                        <!-- Photo Requirements -->
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100/50 border-2 border-blue-200 rounded-2xl p-6 space-y-4 animate-on-scroll backdrop-blur-sm">
+                            <div class="flex items-center gap-2 mb-4">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div class="font-bold text-gray-900">Photo Requirements</div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3 group">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-gray-900 mb-1">Action shots work best</div>
+                                        <div class="text-sm text-gray-600">Your athlete in the game, making a play, or celebrating</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 group">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-gray-900 mb-1">2 photos per shirt</div>
+                                        <div class="text-sm text-gray-600">Mix and match different moments from the season</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 group">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="font-semibold text-gray-900 mb-1">Clear & well-lit photos</div>
+                                        <div class="text-sm text-gray-600">The better the photo, the better the print quality</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Flow Arrow -->
+                <div class="hidden lg:block absolute left-1/2 -bottom-16 transform -translate-x-1/2 animate-on-scroll z-10">
+                    <div class="flex flex-col items-center">
+                        <div class="w-0.5 h-16 bg-gradient-to-b from-blue-600 to-orange-600"></div>
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-orange-600 rounded-full flex items-center justify-center shadow-lg ring-4 ring-white">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: The Magic -->
+            <div class="relative group">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <!-- Left: Story Content -->
+                    <div class="space-y-6">
+                        <div class="inline-flex w-fit items-center gap-3 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full font-bold shadow-lg shadow-orange-500/50 animate-on-scroll transform transition-all duration-300 hover:shadow-xl hover:scale-105">
+                            <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-lg font-bold">03</div>
+                            <span>We Print with Premium Quality</span>
+                        </div>
+
+                        <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight animate-on-scroll">
+                            Our million-dollar Polaris press works its magic
+                        </h3>
+
+                        <div class="space-y-4 text-lg text-gray-600 animate-on-scroll">
+                            <p>
+                                <span class="font-semibold text-gray-900">This isn't a cheap home printer.</span> We use professional-grade equipment that major brands trust for their premium products.
+                            </p>
+                            <p>
+                                Your photos are printed on soft, comfortable Gildan 64000 cotton shirts with the highest quality imprints available.
+                            </p>
+                        </div>
+
+                        <!-- Quality Features -->
+                        <div class="grid sm:grid-cols-2 gap-4 animate-on-scroll">
+                            <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+                                <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 8V4h10v4M5 8h14a2 2 0 0 1 2 2v6H3v-6a2 2 0 0 1 2-2zm2 10v2h10v-2" />
+                                    </svg>
+                                </div>
+                                <div class="font-bold text-gray-900 mb-2">Polaris Press</div>
+                                <div class="text-sm text-gray-600">Million-dollar commercial printing equipment</div>
+                            </div>
+                            <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+                                <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 4.5 12 6l3-1.5 3 2.5v3h-2v10H8V10H6V7l3-2.5Z" />
+                                    </svg>
+                                </div>
+                                <div class="font-bold text-gray-900 mb-2">Gildan 64000</div>
+                                <div class="text-sm text-gray-600">Premium soft cotton shirts</div>
+                            </div>
+                            <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-500 flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3.5 7 11a5 5 0 1 0 10 0z" />
+                                    </svg>
+                                </div>
+                                <div class="font-bold text-gray-900 mb-2">Vibrant Colors</div>
+                                <div class="text-sm text-gray-600">Colors that pop and last</div>
+                            </div>
+                            <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+                                <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-500 flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3 20 7v5c0 5-3.5 9.3-8 9.8C7.5 21.3 4 17 4 12V7z" />
+                                    </svg>
+                                </div>
+                                <div class="font-bold text-gray-900 mb-2">Durable Print</div>
+                                <div class="text-sm text-gray-600">Won't fade or crack with washing</div>
+                            </div>
+                        </div>
+
+                        <!-- Comparison -->
+                        <div class="bg-green-50 border-2 border-green-200 rounded-2xl p-6 animate-on-scroll">
+                            <div class="flex items-start gap-3 mb-3">
+                                <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <div>
+                                    <div class="font-bold text-gray-900 mb-1">Why Polaris Press matters</div>
+                                    <div class="text-sm text-gray-600">The same quality major sportswear brands use. Your athlete deserves professional-grade printing, not heat-transfer or cheap screen printing.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Visual -->
+                    <div class="relative animate-on-scroll">
+                        <!-- Printing Press Visualization -->
+                        <div class="bg-white rounded-2xl shadow-2xl p-8 border border-gray-200">
+                            <div class="space-y-6">
+                                <!-- Before -->
+                                <div>
+                                    <div class="text-sm font-semibold text-gray-500 mb-3">YOUR PHOTOS</div>
+                                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                        <div class="rounded-2xl border shadow-sm border-slate-100 bg-contain bg-no-repeat bg-center p-4 flex flex-col justify-between aspect-[4/3]" style="background-image: url('img/youthaction.png');">
+                                        </div>
+                                        <div class="rounded-2xl border shadow-sm border-slate-100 bg-contain bg-no-repeat bg-center p-4 flex flex-col justify-between aspect-[4/3]" style="background-image: url('img/youthpose.png');">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Arrow -->
+                                <div class="flex justify-center animate-on-scroll">
+                                    <div class="flex flex-col items-center gap-2">
+                                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                        </svg>
+                                        <div class="text-sm font-bold text-blue-600">POLARIS PRESS</div>
+                                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <!-- After -->
+                                <div class="animate-on-scroll">
+                                    <div class="text-sm font-semibold text-gray-500 mb-3">PREMIUM PRINTED SHIRT</div>
+                                    <div class="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 sm:p-8 flex items-center justify-center relative overflow-hidden shadow-2xl">
+                                        <div class="rounded-2xl border border-slate-100 bg-cover bg-no-repeat bg-center p-10 sm:p-16 lg:p-32 flex flex-col justify-between w-full h-full" style="background-image: url('img/mock-ups/sample3-mockup.png');"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Flow Arrow -->
+                <div class="hidden lg:block absolute left-1/2 -bottom-16 transform -translate-x-1/2 animate-on-scroll z-10">
+                    <div class="flex flex-col items-center">
+                        <div class="w-0.5 h-16 bg-gradient-to-b from-orange-600 to-green-600"></div>
+                        <div class="w-10 h-10 bg-gradient-to-br from-orange-600 to-green-600 rounded-full flex items-center justify-center shadow-lg ring-4 ring-white">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: The Pride -->
+            <div class="relative group">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <!-- Left: Visual -->
+                    <div class="order-2 lg:order-1 animate-on-scroll">
+                        <div class="relative">
+                            <!-- Delivery Visualization -->
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 relative overflow-hidden">
+                                <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,0.05) 20px, rgba(0,0,0,0.05) 40px);"></div>
+                                
+                                <div class="relative space-y-8">
+                                    <!-- Timeline -->
+                                    <div class="space-y-6">
+                                        <div class="flex items-center gap-4">
+                                            <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                                                Day 1
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="bg-white rounded-xl p-4 shadow-lg">
+                                                    <div class="font-semibold text-gray-900 flex items-center gap-2">
+                                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                                        </svg>
+                                                        Photos Submitted
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center gap-4">
+                                            <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                                                Day 2
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="bg-white rounded-xl p-4 shadow-lg">
+                                                    <div class="font-semibold text-gray-900 flex items-center gap-2">
+                                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                                                        </svg>
+                                                        Printing Complete
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center gap-4">
+                                            <div class="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">
+                                                Day 3
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="bg-white rounded-xl p-4 shadow-lg border-2 border-green-500">
+                                                    <div class="font-semibold text-gray-900 flex items-center gap-2">
+                                                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                                        </svg>
+                                                        Delivered!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Happy Kid -->
+                                    <div class="bg-white rounded-2xl p-6 shadow-xl text-center">
+                                        <div class="mb-4 flex justify-center">
+                                            <svg class="w-16 h-16 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                                <circle cx="12" cy="12" r="10" fill="#FCD34D"/>
+                                                <circle cx="9" cy="9" r="1.5" fill="#1F2937"/>
+                                                <circle cx="15" cy="9" r="1.5" fill="#1F2937"/>
+                                                <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#1F2937" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                                            </svg>
+                                        </div>
+                                        <div class="font-bold text-gray-900 text-lg mb-2">Your athlete's reaction</div>
+                                        <div class="text-sm text-gray-600">"This is so cool! Can I wear it to school tomorrow?"</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Speed Badge -->
+                            <div class="absolute -top-4 left-0 sm:-left-4 bg-blue-600 text-white rounded-2xl shadow-xl p-5">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold">3</div>
+                                    <div class="text-xs">Days</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Story Content -->
+                    <div class="order-1 lg:order-2 space-y-6">
+                        <div class="inline-flex w-fit items-center gap-3 px-5 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full font-bold shadow-lg shadow-green-500/50 animate-on-scroll transform transition-all duration-300 hover:shadow-xl hover:scale-105">
+                            <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-lg font-bold">04</div>
+                            <span>They Wear It with Pride</span>
+                        </div>
+
+                        <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight animate-on-scroll">
+                            Fast delivery. Instant smiles.
+                        </h3>
+
+                        <div class="space-y-4 text-lg text-gray-600 animate-on-scroll">
+                            <p>
+                                <span class="font-semibold text-gray-900">Just 3 days from submission to doorstep.</span> Fast enough that your athlete can wear it to the next game, practice, or team event.
+                            </p>
+                            <p>
+                                Watch their face light up when they see themselves on a professional-quality shirt. They'll want to wear it everywhere.
+                            </p>
+                        </div>
+
+                        <!-- Where They'll Wear It -->
+                        <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 space-y-4 animate-on-scroll">
+                            <div class="font-bold text-gray-900 mb-3">Where you can wear it:</div>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <div class="flex items-center gap-2 text-gray-700">
+                                    <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                    <span>To school</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700">
+                                    <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                    <span>At practice</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700">
+                                    <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                    <span>Game days</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700">
+                                    <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                    <span>With friends</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700">
+                                    <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                    <span>Team events</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700">
+                                    <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                    <span>Everywhere!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-on-scroll">
+                <div class="text-xs font-semibold tracking-widest text-blue-600 uppercase mb-4 animate-on-scroll">
+                    Why GameDay Tees
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    Why parents choose us
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    We're not just another t-shirt company. Here's what sets us apart.
+                </p>
+            </div>
+
+            <!-- Comparison Grid -->
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <!-- Feature 1 -->
+                <div class="glass-panel bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border-2 border-blue-200 animate-on-scroll">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-4">Professional-Grade Equipment</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Our million-dollar Polaris press is the same quality major sportswear brands use. Not a cheap heat press or screen printer.
+                    </p>
+                    <div class="bg-white rounded-xl p-4 border border-blue-200">
+                        <div class="text-sm font-semibold text-gray-900 mb-2">What this means for you:</div>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Vibrant, long-lasting colors</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Won't crack or peel</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Sharp, clear photo quality</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-panel bg-gradient-to-br from-orange-50 to-white rounded-2xl p-8 border-2 border-orange-200 animate-on-scroll">
+                    <h3 class="text-2xl font-bold text-orange-400 mb-4">Lightning-Fast Turnaround</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        3-day delivery means your athlete can wear their custom shirt to the next game. Most competitors take 7-14 days.
+                    </p>
+                    <div class="bg-white rounded-xl p-4 border border-orange-200">
+                        <div class="text-sm font-semibold text-gray-900 mb-2">Speed comparison:</div>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-900 font-semibold">GameDay Tees</span>
+                                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full font-bold">3 days</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-600">Other companies</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full">7-14 days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-panel bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 border-2 border-purple-200 animate-on-scroll">
+                    <h3 class="text-2xl font-bold text-purple-400 mb-4">Youth Sports Specialists</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        We focus exclusively on youth sports (ages 6-18). We understand what kids love and what parents need.
+                    </p>
+                    <div class="bg-white rounded-xl p-4 border border-purple-200">
+                        <div class="text-sm font-semibold text-gray-900 mb-2">Perfect for:</div>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Season highlights</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Championship memories</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Birthday gifts</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="bg-gray-900 rounded-2xl p-12 text-white animate-on-scroll">
+                <div class="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 md:grid-cols-4">
+                    <div>
+                        <div class="text-4xl font-bold mb-2">Growing</div>
+                        <div class="text-gray-400">Customer Base</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2" data-count="3">3 Days</div>
+                        <div class="text-gray-400">Turnaround Time</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2 flex items-center justify-center">
+                            <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 36 36"><path fill="#FFAC33" d="M27.287 34.627c-.404 0-.806-.124-1.152-.371L18 28.422l-8.135 5.834a1.97 1.97 0 0 1-2.312-.008a1.971 1.971 0 0 1-.721-2.194l3.034-9.792l-8.062-5.681a1.98 1.98 0 0 1-.708-2.203a1.978 1.978 0 0 1 1.866-1.363L12.947 13l3.179-9.549a1.976 1.976 0 0 1 3.749 0L23 13l10.036.015a1.975 1.975 0 0 1 1.159 3.566l-8.062 5.681l3.034 9.792a1.97 1.97 0 0 1-.72 2.194a1.957 1.957 0 0 1-1.16.379z"/></svg>
+                            <span>Highly Rated</span>
+                        </div>
+                        <div class="text-gray-400">By Customers</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">$<span  data-count="1">1</span>M+</div>
+                        <div class="text-gray-400">Polaris Press Value</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="py-24 bg-white border-y border-slate-200 relative overflow-hidden animate-on-scroll">
+        <div class="absolute -bottom-20 left-0 w-96 h-96 bg-blue-200 rounded-full blur-[160px]" data-parallax="-0.08"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative">
+            <div class="space-y-8 animate-on-scroll" data-animate="fade-right">
+                <p class="text-xs font-semibold tracking-widest text-blue-600 uppercase">Production Lab</p>
+                <h2 class="text-4xl font-semibold text-[#222831]">Engineered to outperform every team fundraiser shirt</h2>
+                <p class="text-slate-600">Every print run passes through a 26-point inspection. We calibrate color, stretch-test seams, and flash cure inks for washable longevity.</p>
+                <div class="space-y-5">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white shadow text-blue-600 font-semibold flex items-center justify-center">A</div>
+                        <div>
+                            <p class="font-semibold text-lg text-[#222831]">Gildan 64000 base</p>
+                            <p class="text-slate-600">Better drape, less shrink, thicker collar. Youth XS through Adult XL covered.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white shadow text-orange-400 font-semibold flex items-center justify-center">B</div>
+                        <div>
+                            <p class="font-semibold text-lg text-[#222831]">72-hour ship promise</p>
+                            <p class="text-slate-600">Rush workflow with daily courier pickups. If we miss, you keep the shirt + refund.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid gap-6">
+                <div class="glass-panel rounded-3xl p-6 animate-on-scroll" data-animate="fade-left">
+                    <p class="text-sm text-slate-500">Turnaround dashboard</p>
+                    <p class="text-5xl font-semibold text-[#222831] mt-4" data-count="72">72h</p>
+                    <p class="text-slate-500">Avg ship speed &#183; last 90 days</p>
+                </div>
+                <div class="rounded-3xl border border-white/60 bg-white/80 p-6 shadow-lg animate-on-scroll" data-animate="fade-left">
+                    <p class="text-[#222831] font-semibold text-lg">What you get</p>
+                    <ul class="mt-4 space-y-3 text-slate-600">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Dual-photo composition</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Team pricing at 10+ units</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Quality prints that don't crack or fade</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 flex flex-wrap gap-3 text-sm">
+                        <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700">Short sleeve $29.99</span>
+                    </div>
+                    <div class="mt-6">
+                        <p class="text-xs uppercase tracking-widest text-slate-400 mb-3">Live capacity</p>
+                        <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-blue-500 to-accent rounded-full" style="width:75%" data-parallax="0.03"></div>
+                        </div>
+                        <p class="text-slate-500 text-xs mt-2">75% of production slots claimed this week.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- FAQ & Highlights -->
+    <section id="faq" class="py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 lg:gap-16">
+            <div class="animate-on-scroll" data-animate="fade-right">
+                <p class="text-xs font-semibold tracking-widest text-blue-500 uppercase mb-6">Guarantees</p>
+                <h2 class="text-4xl font-semibold text-[#222831] mb-4">No cracking. No peeling. No excuses.</h2>
+                <p class="text-slate-600 mb-10">Our guarantee is simple: if the shirt fades or the timeline slips, we reprint and refund. That's why teams keep their orders with us season after season.</p>
+                <div class="space-y-4">
+                    <div class="glass-panel rounded-2xl p-5 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-slate-500">Team bundles</p>
+                            <p class="text-xl font-semibold text-[#222831]">10-24 shirts = 10% off</p>
+                        </div>
+                        <span class="text-slate-500 text-sm">Scale pricing</span>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-5 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-slate-500">White glove rush</p>
+                            <p class="text-xl font-semibold text-[#222831]">Weekend tournaments covered</p>
+                        </div>
+                        <span class="text-slate-500 text-sm">Text us "rush"</span>
+                    </div>
+                </div>
+                <div class="mt-8 p-5 bg-slate-50 rounded-2xl border border-slate-200 animate-on-scroll" data-animate="fade-up">
+                    <p class="text-sm font-semibold text-[#222831] mb-2">Interactive timeline</p>
+                    <div class="flex items-center gap-4">
+                        <div class="flex flex-col items-center text-slate-500">
+                            <span class="stat-dot"></span>
+                            <span class="text-xs mt-2">Upload</span>
+                        </div>
+                        <div class="flex-1 h-1 bg-slate-200 relative">
+                            <div class="absolute inset-y-0 left-0 bg-blue-500 h-full rounded-full" id="timeline-progress"></div>
+                        </div>
+                        <div class="flex flex-col items-center text-slate-500">
+                            <span class="stat-dot bg-accent"></span>
+                            <span class="text-xs mt-2">Delivery</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3" id="timeline-label">Step 01 : Upload photos</p>
+                    <div class="flex gap-2 mt-4">
+                        <button class="variant-tab active" data-timeline="1">Upload</button>
+                        <button class="variant-tab" data-timeline="2">Proof</button>
+                        <button class="variant-tab" data-timeline="3">Ship</button>
+                    </div>
+                </div>
+            </div>
+            <div class="animate-on-scroll" data-animate="fade-left">
+                <p class="text-xs font-semibold tracking-widest text-blue-500 uppercase mb-6">FAQ</p>
+                <div class="space-y-4">
+                    <details class="glass-panel rounded-2xl p-6" open>
+                        <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center text-[#222831]">
+                            How do I send photos?
+                            <span class="text-slate-400 text-xl">+</span>
+                        </summary>
+                        <p class="text-slate-600 mt-4">Use the secure uploader at checkout. iPhone and Android friendly. You'll get instant confirmation once our design desk receives them.</p>
+                    </details>
+                    <details class="glass-panel rounded-2xl p-6">
+                        <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center text-[#222831]">
+                            Can I approve before printing?
+                            <span class="text-slate-400 text-xl">+</span>
+                        </summary>
+                        <p class="text-slate-600 mt-4">Yes. We send a mobile-ready proof within six business hours. Reply with tweaks and we adjust within the same day.</p>
+                    </details>
+                    <details class="glass-panel rounded-2xl p-6">
+                        <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center text-[#222831]">
+                            Do prints last through seasons?
+                            <span class="text-slate-400 text-xl">+</span>
+                        </summary>
+                        <p class="text-slate-600 mt-4">Polaris inks sink into the fibers&#8212;no vinyl layer to crack. We've washed samples 60+ times without fade.</p>
+                    </details>
+                    <details class="glass-panel rounded-2xl p-6">
+                        <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center text-[#222831]">
+                            What about whole teams?
+                            <span class="text-slate-400 text-xl">+</span>
+                        </summary>
+                        <p class="text-slate-600 mt-4">We assign you a project manager, sync on roster names, and stage all proofs for a single approval. Bulk pricing triggers automatically.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-100 via-white to-blue-200"></div>
+        <div class="absolute inset-0" data-parallax="-0.03" style="background-image: radial-gradient(circle at 20% 20%, rgba(59,130,246,0.3), transparent 45%), radial-gradient(circle at 80% 20%, rgba(249,115,22,0.25), transparent 40%);"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative animate-on-scroll" data-animate="fade-up">
+            <p class="text-xs uppercase tracking-widest text-blue-600 mb-4">Ready?</p>
+            <h2 class="text-4xl sm:text-5xl font-semibold text-ink mb-6">Upload two photos. Lock in their legacy.</h2>
+            <p class="text-slate-600 text-lg mb-10">Your story-driven shirt arrives in 72 hours or it&#8217;s free. That&#8217;s the GameDay promise.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full bg-[#222831] text-white font-semibold text-lg hover:bg-blue-700 transition btn-glow" data-ripple>
+                    Start the upload
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
+                    </svg>
+                </a>
+                <a href="tel:7654494861" class="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full border border-slate-200 bg-white text-slate-700 hover:border-blue-200" data-ripple>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2 5.5a3 3 0 013-3h1.1a2 2 0 011.95 1.55l.43 1.94a2 2 0 01-.95 2.14l-.9.54a13.5 13.5 0 006.3 6.3l.55-.9a2 2 0 012.13-.95l1.95.43A2 2 0 0119.5 16v1.5a3 3 0 01-3 3h-.75C8.57 20.5 3.5 15.43 3.5 9.25V9a3 3 0 013-3H7" />
+                    </svg>
+                    Talk to a designer
+                </a>
+            </div>
+            <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Money-back guarantee</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Secure uploader</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Team pricing available</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto transition-transform duration-300 transform translate-x-full bg-white shadow-2xl sm:w-96">
+        <div class="p-6">
+            <!-- Cart Header -->
+            <div class="flex items-center justify-between pb-4 mb-6 border-b">
+                <h3 class="text-2xl font-bold text-gray-900" style="font-weight: 700;">Your Cart</h3>
+                <button onclick="app.closeCart()" class="text-gray-400 transition hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Cart Items -->
+            <div id="cart-items" class="mb-6 space-y-4">
+                <div class="py-8 text-center text-gray-500">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                    <p style="font-weight: 400;">Your cart is empty</p>
+                </div>
+            </div>
+            
+            <!-- Cart Footer -->
+            <div class="pt-4 border-t">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-lg font-semibold" style="font-weight: 600;">Total:</span>
+                    <span id="cart-total" class="text-2xl font-bold text-blue-600" style="font-weight: 700;">$0.00</span>
+                </div>
+                <button id="checkout-button" onclick="app.checkout()" class="w-full px-6 py-4 text-lg font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed" disabled style="font-weight: 600;">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 z-40 hidden bg-black bg-opacity-50" onclick="app.closeCart()"></div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black bg-opacity-50">
+        <div class="min-h-screen px-4 py-8">
+            <div class="max-w-6xl mx-auto my-8 bg-white rounded-lg shadow-2xl">
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between p-6 border-b">
+                    <h2 id="modal-product-name" class="text-2xl font-bold text-gray-900" style="font-weight: 700;">Product Details</h2>
+                    <button onclick="app.closeProductModal()" class="text-gray-400 transition hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="p-6">
+                    <div class="grid grid-cols-1 gap-8 lg:grid-cols-5">
+                        <!-- Left Column: Preview Display (60% width) -->
+                        <div class="lg:col-span-3">
+                            <!-- Preview Placeholder -->
+                            <div id="preview-placeholder" class="flex flex-col items-center justify-center min-h-[700px] p-8 text-center bg-gray-50 rounded-lg border-2 border-gray-200">
+                                <svg class="w-20 h-20 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="mb-2 text-lg font-semibold text-gray-600" style="font-weight: 600;">Template Preview</p>
+                                <p class="text-sm text-gray-500" style="font-weight: 400;">Choose a template to see how it looks on the T-shirt</p>
+                            </div>
+
+                            <!-- Preview Display with Toggle -->
+                            <div id="template-previews" class="hidden">
+                                <div class="bg-white rounded-lg border-2 border-gray-200 overflow-hidden">
+                                    <!-- Preview Header with Toggle Button -->
+                                    <div class="p-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                                        <h4 id="preview-title" class="text-sm font-semibold text-gray-700" style="font-weight: 600;">Template Design</h4>
+                                        <button id="preview-toggle-btn" onclick="app.togglePreview()" 
+                                            class="px-4 py-2 text-sm font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" 
+                                            style="font-weight: 600;">
+                                            <div class="flex items-center space-x-2">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                                </svg>
+                                                <span id="toggle-btn-text">Preview Mock-up</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Template Artwork Preview -->
+                                    <div id="template-design-preview" class="p-8">
+                                        <div class="flex items-center justify-center min-h-[550px] bg-white rounded-lg">
+                                            <img id="template-art-img" class="object-contain max-w-full max-h-[550px] mx-auto" alt="Template Artwork">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Mock-up Preview (Hidden by default) -->
+                                    <div id="mockup-preview" class="hidden p-8">
+                                        <div class="flex items-center justify-center min-h-[550px] bg-white rounded-lg">
+                                            <img id="design-preview-img" class="object-contain max-w-full max-h-[550px] mx-auto" alt="Template on T-Shirt">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Product Info & Actions (40% width) -->
+                        <div class="lg:col-span-2">
+                            <div class="mb-6">
+                                <h3 id="modal-product-title" class="mb-2 text-3xl font-bold text-gray-900" style="font-weight: 700;"></h3>
+                                <p id="modal-product-description" class="mb-4 text-gray-600" style="font-weight: 400;"></p>
+                                
+                                <!-- Product Details -->
+                                <div class="p-4 mb-6 rounded-lg bg-gray-50">
+                                    <h4 class="mb-3 font-semibold text-gray-900" style="font-weight: 600;">Product Specifications</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600" style="font-weight: 400;">Print Area:</span>
+                                            <span id="print-area-size" class="font-semibold text-gray-900" style="font-weight: 600;"></span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600" style="font-weight: 400;">Min DPI:</span>
+                                            <span id="min-dpi" class="font-semibold text-gray-900" style="font-weight: 600;"></span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600" style="font-weight: 400;">Max File Size:</span>
+                                            <span id="max-file-size" class="font-semibold text-gray-900" style="font-weight: 600;"></span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600" style="font-weight: 400;">Allowed Formats:</span>
+                                            <span class="font-semibold text-gray-900" style="font-weight: 600;">PNG (with transparency)</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Size Selection -->
+                                <div class="p-4 mb-6 rounded-lg bg-white border border-gray-200">
+                                    <h4 class="mb-4 font-semibold text-gray-900 flex items-center gap-2" style="font-weight: 600;">
+                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                                        </svg>
+                                        Select Size
+                                    </h4>
+
+                                    <!-- Kids Sizes -->
+                                    <div class="mb-4">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                            <span class="text-sm font-medium text-gray-700">Kids Sizes</span>
+                                        </div>
+                                        <div class="grid grid-cols-4 gap-2">
+                                            <label class="relative cursor-pointer group">
+                                                <input type="radio" name="size-option" value="kids-xs" class="peer sr-only">
+                                                <div class="px-3 py-2.5 text-center text-sm font-semibold border-2 border-gray-200 rounded-lg transition-all peer-checked:border-purple-600 peer-checked:bg-purple-50 peer-checked:text-purple-700 hover:border-purple-300 hover:bg-purple-25 group-hover:shadow-sm">
+                                                    XS
+                                                </div>
+                                                <div class="absolute top-1 right-1 hidden peer-checked:block">
+                                                    <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
+                                            <label class="relative cursor-pointer group">
+                                                <input type="radio" name="size-option" value="kids-s" class="peer sr-only">
+                                                <div class="px-3 py-2.5 text-center text-sm font-semibold border-2 border-gray-200 rounded-lg transition-all peer-checked:border-purple-600 peer-checked:bg-purple-50 peer-checked:text-purple-700 hover:border-purple-300 hover:bg-purple-25 group-hover:shadow-sm">
+                                                    S
+                                                </div>
+                                                <div class="absolute top-1 right-1 hidden peer-checked:block">
+                                                    <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
+                                            <label class="relative cursor-pointer group">
+                                                <input type="radio" name="size-option" value="kids-m" class="peer sr-only">
+                                                <div class="px-3 py-2.5 text-center text-sm font-semibold border-2 border-gray-200 rounded-lg transition-all peer-checked:border-purple-600 peer-checked:bg-purple-50 peer-checked:text-purple-700 hover:border-purple-300 hover:bg-purple-25 group-hover:shadow-sm">
+                                                    M
+                                                </div>
+                                                <div class="absolute top-1 right-1 hidden peer-checked:block">
+                                                    <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
+                                            <label class="relative cursor-pointer group">
+                                                <input type="radio" name="size-option" value="kids-l" class="peer sr-only">
+                                                <div class="px-3 py-2.5 text-center text-sm font-semibold border-2 border-gray-200 rounded-lg transition-all peer-checked:border-purple-600 peer-checked:bg-purple-50 peer-checked:text-purple-700 hover:border-purple-300 hover:bg-purple-25 group-hover:shadow-sm">
+                                                    L
+                                                </div>
+                                                <div class="absolute top-1 right-1 hidden peer-checked:block">
+                                                    <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Adult Sizes -->
+                                    <div>
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                            </svg>
+                                            <span class="text-sm font-medium text-gray-700">Adult Sizes</span>
+                                        </div>
+                                        <div class="grid grid-cols-5 gap-2">
+                                            <label class="relative cursor-pointer group">
+                                                <input type="radio" name="size-option" value="adult-xs" class="peer sr-only">
+                                                <div class="px-3 py-2.5 text-center text-sm font-semibold border-2 border-gray-200 rounded-lg transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 hover:border-blue-300 hover:bg-blue-25 group-hover:shadow-sm">
+                                                    XS
+                                                </div>
+                                                <div class="absolute top-1 right-1 hidden peer-checked:block">
+                                                    <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
+                                            <label class="relative cursor-pointer group">
+                                                <input type="radio" name="size-option" value="adult-s" class="peer sr-only">
+                                                <div class="px-3 py-2.5 text-center text-sm font-semibold border-2 border-gray-200 rounded-lg transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 hover:border-blue-300 hover:bg-blue-25 group-hover:shadow-sm">
+                                                    S
+                                                </div>
+                                                <div class="absolute top-1 right-1 hidden peer-checked:block">
+                                                    <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
+                                            <label class="relative cursor-pointer group">
+                                                <input type="radio" name="size-option" value="adult-m" class="peer sr-only" checked>
+                                                <div class="px-3 py-2.5 text-center text-sm font-semibold border-2 border-gray-200 rounded-lg transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 hover:border-blue-300 hover:bg-blue-25 group-hover:shadow-sm">
+                                                    M
+                                                </div>
+                                                <div class="absolute top-1 right-1 hidden peer-checked:block">
+                                                    <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
+                                            <label class="relative cursor-pointer group">
+                                                <input type="radio" name="size-option" value="adult-l" class="peer sr-only">
+                                                <div class="px-3 py-2.5 text-center text-sm font-semibold border-2 border-gray-200 rounded-lg transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 hover:border-blue-300 hover:bg-blue-25 group-hover:shadow-sm">
+                                                    L
+                                                </div>
+                                                <div class="absolute top-1 right-1 hidden peer-checked:block">
+                                                    <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
+                                            <label class="relative cursor-pointer group">
+                                                <input type="radio" name="size-option" value="adult-xl" class="peer sr-only">
+                                                <div class="px-3 py-2.5 text-center text-sm font-semibold border-2 border-gray-200 rounded-lg transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 hover:border-blue-300 hover:bg-blue-25 group-hover:shadow-sm">
+                                                    XL
+                                                </div>
+                                                <div class="absolute top-1 right-1 hidden peer-checked:block">
+                                                    <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <!-- XXL size on a new row for better spacing -->
+                                        <div class="grid grid-cols-5 gap-2 mt-2">
+                                            <label class="relative cursor-pointer group">
+                                                <input type="radio" name="size-option" value="adult-xxl" class="peer sr-only">
+                                                <div class="px-3 py-2.5 text-center text-sm font-semibold border-2 border-gray-200 rounded-lg transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 hover:border-blue-300 hover:bg-blue-25 group-hover:shadow-sm">
+                                                    XXL
+                                                </div>
+                                                <div class="absolute top-1 right-1 hidden peer-checked:block">
+                                                    <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Price -->
+                                <div class="mb-6">
+                                    <div class="flex items-baseline space-x-2">
+                                        <span class="text-4xl font-bold text-blue-600" id="modal-product-price" style="font-weight: 700;">$0.00</span>
+                                        <span class="text-gray-500 text-sm" style="font-weight: 400;">based on selected quality</span>
+                                    </div>
+                                </div>
+
+                                <!-- Design Requirements Info -->
+                                <div class="p-4 mb-6 border border-blue-200 rounded-lg bg-blue-50">
+                                    <div class="flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <div class="text-sm text-blue-800">
+                                            <p class="mb-1 font-semibold" style="font-weight: 600;">Design Requirements:</p>
+                                            <ul class="space-y-1 text-blue-700 list-disc list-inside">
+                                                <li style="font-weight: 400;">PNG format with transparent background</li>
+                                                <li style="font-weight: 400;">Minimum resolution: <span id="required-dpi-text"></span> DPI</li>
+                                                <li style="font-weight: 400;">Recommended size: <span id="recommended-size-text"></span> pixels</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Template Customizer CTA -->
+                                <div class="mb-6">
+                                    <a href="template-customizer.html" class="flex items-center justify-center w-full gap-2 px-6 py-3 text-sm font-semibold text-blue-600 transition border border-blue-200 rounded-lg bg-white hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L7.5 20.5H4v-3.5L16.732 3.732z" />
+                                        </svg>
+                                        <span>Edit template layout</span>
+                                    </a>
+                                    <p class="mt-2 text-xs text-slate-500 text-center">Open the advanced template studio to adjust photo layering, typography, and color blocking before uploading.</p>
+                                </div>
+
+                                <!-- File Upload Area -->
+                                <div class="hidden p-5 mb-6 transition border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:border-blue-500 bg-gray-50 hover:bg-blue-50" id="upload-area">
+                                    <input type="file" id="design-file-input" accept="image/png" class="hidden">
+                                    <label for="design-file-input" class="cursor-pointer">
+                                        <div class="text-center">
+                                            <svg class="w-8 h-8 mx-auto mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                            </svg>
+                                            <p class="mb-1 text-sm font-semibold text-gray-700" style="font-weight: 600;">Upload Your Design</p>
+                                            <p class="mb-2 text-xs text-gray-500" style="font-weight: 400;">PNG files with transparent background</p>
+                                            <p class="text-xs text-blue-600" style="font-weight: 500;">Click or drag to upload</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div id="upload-progress" class="hidden mb-6">
+                                    <div class="h-2 bg-gray-200 rounded-full">
+                                        <div id="progress-bar" class="h-2 transition-all bg-blue-600 rounded-full" style="width: 0%"></div>
+                                    </div>
+                                    <p id="upload-status" class="mt-2 text-sm text-center text-gray-600" style="font-weight: 400;">Uploading...</p>
+                                </div>
+                                <div id="uploaded-file-info" class="hidden p-4 mb-6 border border-green-200 rounded-lg bg-green-50">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                            <div>
+                                                <p id="uploaded-filename" class="text-sm font-semibold text-gray-900" style="font-weight: 600;"></p>
+                                                <p id="uploaded-filesize" class="text-xs text-gray-600" style="font-weight: 400;"></p>
+                                            </div>
+                                        </div>
+                                        <button onclick="app.removeUploadedDesign()" class="text-red-500 hover:text-red-700">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Add to Cart Button -->
+                                <button id="add-to-cart-btn" onclick="app.addProductToCart()" 
+                                    class="flex items-center justify-center w-full px-6 py-4 space-x-2 text-lg font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed" 
+                                    disabled style="font-weight: 600;">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                    <span>Add to Cart</span>
+                                </button>
+                                <p id="cart-button-hint" class="hidden mt-2 text-sm text-center text-gray-500" style="font-weight: 400;">Upload a design to continue</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 text-sm text-slate-600">
+            <div class="animate-on-scroll" data-animate="fade-right">
+                <p class="text-ink font-semibold text-lg mb-3">GameDay Tees</p>
+                <p>Precision-built apparel studio for youth sports.</p>
+                <div class="mt-4 space-y-1">
+                    <a href="tel:7654494861" class="block hover:text-ink">765.449.4861</a>
+                    <a href="mailto:info@precisionsgraphics.com" class="block hover:text-ink">info@precisionsgraphics.com</a>
+                </div>
+            </div>
+            <div class="animate-on-scroll" data-animate="fade-up">
+                <p class="text-gray-900 font-semibold mb-3">Explore</p>
+                <ul class="space-y-2">
+                    <li><a href="#how-it-works" class="hover:text-gray-900">Workflow</a></li>
+                    <li><a href="#process" class="hover:text-gray-900">Production Lab</a></li>
+                    <li><a href="#faq" class="hover:text-gray-900">Guarantee</a></li>
+                </ul>
+            </div>
+            <div class="animate-on-scroll" data-animate="fade-up">
+                <p class="text-gray-900 font-semibold mb-3">Support</p>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-gray-900">Track order</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Size guide</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Returns</a></li>
+                </ul>
+            </div>
+            <div class="animate-on-scroll" data-animate="fade-left">
+                <p class="text-gray-900 font-semibold mb-3">Social</p>
+                <div class="flex gap-4 text-slate-500">
+                    <a href="#" class="hover:text-gray-900">Instagram</a>
+                    <a href="#" class="hover:text-gray-900">TikTok</a>
+                    <a href="#" class="hover:text-gray-900">YouTube</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 mt-10 text-center text-xs text-slate-500 animate-on-scroll" data-animate="fade-up">
+            &#169; 2025 Gamedaytees, Inc. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/shopify-api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/new.js"></script>
+    <script>
+        (function () {
+            // Mobile Menu Toggle
+            const toggle = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            if (!toggle || !menu) return;
+
+            const openIcon = toggle.querySelector('[data-icon="menu"]');
+            const closeIcon = toggle.querySelector('[data-icon="close"]');
+            const setMenuState = (shouldOpen) => {
+                menu.classList.toggle('hidden', !shouldOpen);
+                toggle.setAttribute('aria-expanded', shouldOpen.toString());
+                if (openIcon && closeIcon) {
+                    openIcon.classList.toggle('hidden', shouldOpen);
+                    closeIcon.classList.toggle('hidden', !shouldOpen);
+                }
+            };
+
+            toggle.addEventListener('click', () => {
+                const isOpen = !menu.classList.contains('hidden');
+                setMenuState(!isOpen);
+            });
+
+            menu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => setMenuState(false));
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !menu.classList.contains('hidden')) {
+                    setMenuState(false);
+                }
+            });
+
+            // Enhanced Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            let lastScrollTop = 0;
+            let ticking = false;
+
+            const updateNavbarOnScroll = () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Add shadow and adjust background when scrolled
+                if (scrollTop > 10) {
+                    navbar.classList.add('shadow-lg', 'shadow-gray-200/50');
+                    navbar.classList.remove('border-b', 'border-gray-100');
+                } else {
+                    navbar.classList.remove('shadow-lg', 'shadow-gray-200/50');
+                    navbar.classList.add('border-b', 'border-gray-100');
+                }
+
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                ticking = false;
+            };
+
+            const requestTick = () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateNavbarOnScroll);
+                    ticking = true;
+                }
+            };
+
+            window.addEventListener('scroll', requestTick, { passive: true });
+
+            // Active Link Highlighting
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            const sections = document.querySelectorAll('section[id]');
+
+            const highlightNavLink = () => {
+                const scrollY = window.pageYOffset;
+
+                sections.forEach(section => {
+                    const sectionHeight = section.offsetHeight;
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionId = section.getAttribute('id');
+
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active', 'text-blue-600', 'bg-blue-50');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active', 'text-blue-600', 'bg-blue-50');
+                            }
+                        });
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', highlightNavLink, { passive: true });
+            highlightNavLink(); // Initial call
+
+            // Smooth Scroll for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || href === '#start') return;
+
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

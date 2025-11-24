@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Print Station – Polaris</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-100 min-h-screen">
+  <div class="max-w-6xl mx-auto py-8 px-4">
+    <header class="mb-6 flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-slate-800">Print Station – Polaris</h1>
+        <p class="text-sm text-slate-500">
+          View print jobs, generate print-ready files, and update statuses.
+        </p>
+      </div>
+      <button
+        id="refreshBtn"
+        class="flex items-center gap-2 rounded-lg bg-slate-800 text-white px-4 py-2 text-sm hover:bg-slate-700 active:scale-[0.98] transition-all"
+      >
+        <i class="fas fa-rotate text-xs"></i>
+        Refresh
+      </button>
+    </header>
+
+    <!-- Filters -->
+    <section class="mb-4 flex flex-wrap gap-3 items-center">
+      <div class="flex items-center gap-2">
+        <label for="statusFilter" class="text-sm font-medium text-slate-700">
+          Status:
+        </label>
+        <select
+          id="statusFilter"
+          class="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-500"
+        >
+          <option value="">All</option>
+          <option value="queued">Queued</option>
+          <option value="preparing">Preparing</option>
+          <option value="ready_to_print">Ready to Print</option>
+          <option value="printing">Printing</option>
+          <option value="printed">Printed</option>
+          <option value="shipped">Shipped</option>
+          <option value="failed">Failed</option>
+        </select>
+      </div>
+
+      <span id="jobCount" class="text-sm text-slate-500">
+        Loading jobs…
+      </span>
+    </section>
+
+    <!-- Jobs Table -->
+    <section class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead class="bg-slate-50 border-b border-slate-200">
+            <tr>
+              <th class="px-4 py-2 text-left font-semibold text-slate-600">Job</th>
+              <th class="px-4 py-2 text-left font-semibold text-slate-600">Order</th>
+              <th class="px-4 py-2 text-left font-semibold text-slate-600">Product</th>
+              <th class="px-4 py-2 text-left font-semibold text-slate-600">Qty</th>
+              <th class="px-4 py-2 text-left font-semibold text-slate-600">Status</th>
+              <th class="px-4 py-2 text-left font-semibold text-slate-600">Design</th>
+              <th class="px-4 py-2 text-left font-semibold text-slate-600">Print File</th>
+              <th class="px-4 py-2 text-left font-semibold text-slate-600">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="jobsTableBody" class="divide-y divide-slate-100">
+            <!-- Filled via JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <div id="emptyState" class="hidden p-6 text-center text-sm text-slate-500">
+        <i class="fas fa-inbox text-3xl text-slate-300 mb-2"></i>
+        <p>No jobs found for this filter.</p>
+      </div>
+
+      <div id="loadingState" class="p-4 text-sm text-slate-500 text-center">
+        <i class="fas fa-spinner fa-spin text-lg text-slate-400 mb-2"></i>
+        <p>Loading jobs...</p>
+      </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+      <div class="bg-white rounded-lg max-w-4xl max-h-[90vh] w-full mx-4 flex flex-col">
+        <!-- Header -->
+        <div class="flex justify-between items-center p-4 border-b">
+          <h3 id="modalTitle" class="text-lg font-semibold text-slate-800">Design Preview</h3>
+          <button onclick="closeImageModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <!-- Image Content -->
+        <div class="flex-1 overflow-auto bg-slate-900 flex items-center justify-center p-4">
+          <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain">
+        </div>
+        
+        <!-- Footer -->
+        <div class="p-4 border-t flex justify-between items-center">
+          <a id="modalDownload" href="" download class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            <i class="fas fa-download mr-2"></i>Download
+          </a>
+          <button onclick="closeImageModal()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast / message -->
+    <div
+      id="toast"
+      class="fixed bottom-4 right-4 hidden rounded-lg bg-slate-900 text-white text-sm px-4 py-3 shadow-lg z-50"
+    ></div>
+  </div>
+
+  <script>
+    const API_BASE = "../backend/api";
+    const jobsTableBody = document.getElementById("jobsTableBody");
+    const statusFilter = document.getElementById("statusFilter");
+    const loadingState = document.getElementById("loadingState");
+    const emptyState = document.getElementById("emptyState");
+    const jobCountEl = document.getElementById("jobCount");
+    const toastEl = document.getElementById("toast");
+    const refreshBtn = document.getElementById("refreshBtn");
+
+    // FIXED: Better thumbnail URL generation - strips Windows paths
+    function getThumbnailUrl(design) {
+      if (!design) return '';
+      
+      console.log('🔍 Getting thumbnail for design:', design);
+      
+      // Helper function to extract filename from any path format
+      function extractFilename(path) {
+        if (!path) return null;
+        // Remove Windows drive letters and convert to filename only
+        const cleanPath = path.replace(/^[A-Z]:[\\\/]/i, '').replace(/\\/g, '/');
+        const parts = cleanPath.split('/');
+        return parts[parts.length - 1]; // Get last part (filename)
+      }
+      
+      // Extract filenames from various fields
+      const thumbnailFilename = extractFilename(design.preview_path || design.preview_url);
+      const designFilename = extractFilename(design.file_path);
+      
+      console.log('📁 Extracted thumbnail filename:', thumbnailFilename);
+      console.log('📁 Extracted design filename:', designFilename);
+      
+      // Try multiple path variations
+      const possiblePaths = [
+        // Using extracted thumbnail filename
+        thumbnailFilename ? `../uploads/thumbnails/${thumbnailFilename}` : null,
+        thumbnailFilename ? `../backend/uploads/thumbnails/${thumbnailFilename}` : null,
+        
+        // Using stored_filename with thumb_ prefix
+        design.stored_filename ? `../uploads/thumbnails/thumb_${design.stored_filename}` : null,
+        design.stored_filename ? `../backend/uploads/thumbnails/thumb_${design.stored_filename}` : null,
+        
+        // Fallback to API endpoint
+        design.id ? `${API_BASE}/download-thumbnail.php?design_id=${design.id}` : null
+      ];
+      
+      // Return first non-null path
+      const url = possiblePaths.find(path => path !== null) || '';
+      console.log('✅ Using thumbnail URL:', url);
+      return url;
+    }
+
+    // Get full-size image URL - strips Windows paths, falls back to thumbnail
+    function getFullImageUrl(design) {
+      if (!design) return '';
+      
+      // Helper function to extract filename from any path format
+      function extractFilename(path) {
+        if (!path) return null;
+        const cleanPath = path.replace(/^[A-Z]:[\\\/]/i, '').replace(/\\/g, '/');
+        const parts = cleanPath.split('/');
+        return parts[parts.length - 1];
+      }
+      
+      const designFilename = extractFilename(design.file_path);
+      const thumbnailFilename = extractFilename(design.preview_path);
+      
+      // If no design file, try to derive from thumbnail (remove thumb_ prefix)
+      const derivedFilename = thumbnailFilename ? thumbnailFilename.replace('thumb_', '') : null;
+      
+      const possiblePaths = [
+        // Using extracted design filename
+        designFilename ? `../uploads/designs/${designFilename}` : null,
+        designFilename ? `../backend/uploads/designs/${designFilename}` : null,
+        
+        // Try derived filename from thumbnail
+        derivedFilename ? `../uploads/designs/${derivedFilename}` : null,
+        derivedFilename ? `../backend/uploads/designs/${derivedFilename}` : null,
+        
+        // Using stored_filename
+        design.stored_filename ? `../uploads/designs/${design.stored_filename}` : null,
+        design.stored_filename ? `../backend/uploads/designs/${design.stored_filename}` : null,
+        
+        // Fallback to thumbnail if no design file
+        thumbnailFilename ? `../uploads/thumbnails/${thumbnailFilename}` : null,
+        thumbnailFilename ? `../backend/uploads/thumbnails/${thumbnailFilename}` : null,
+        
+        // Fallback to API
+        design.id ? `${API_BASE}/download-design.php?design_id=${design.id}` : null
+      ];
+      
+      const url = possiblePaths.find(path => path !== null) || '';
+      console.log('🖼️ Full image URL:', url);
+      return url;
+    }
+
+    // FIXED: Thumbnail HTML with proper click handling
+    function getThumbnailHTML(design, jobId) {
+      if (!design || !design.id) {
+        return `
+          <div class="flex flex-col items-center justify-center w-16 h-16 bg-slate-100 rounded border-2 border-dashed border-slate-300">
+            <i class="fas fa-image text-slate-400 text-lg mb-1"></i>
+            <span class="text-xs text-slate-500">No preview</span>
+          </div>
+        `;
+      }
+
+      const thumbnailUrl = getThumbnailUrl(design);
+      const fullImageUrl = getFullImageUrl(design);
+      const filename = design.original_filename || 'Design preview';
+      
+      if (!thumbnailUrl) {
+        return `
+          <div class="flex flex-col items-center justify-center w-16 h-16 bg-slate-100 rounded border-2 border-dashed border-slate-300">
+            <i class="fas fa-times-circle text-slate-400 text-lg mb-1"></i>
+            <span class="text-xs text-slate-500">No image</span>
+          </div>
+        `;
+      }
+      
+      return `
+        <div class="relative group cursor-pointer" onclick="openImageModal('${fullImageUrl}', '${filename.replace(/'/g, "\\'")}')">
+          <img 
+            src="${thumbnailUrl}" 
+            alt="${filename}"
+            class="w-16 h-16 object-cover rounded-lg border-2 border-slate-200 hover:border-sky-400 transition-all duration-200 shadow-sm group-hover:shadow-md group-hover:scale-105"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            loading="lazy"
+          >
+          <div class="hidden flex-col items-center justify-center w-16 h-16 bg-red-50 rounded-lg border-2 border-dashed border-red-200">
+            <i class="fas fa-exclamation-triangle text-red-400 text-sm mb-1"></i>
+            <span class="text-xs text-red-500">Load error</span>
+          </div>
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 rounded-lg transition-all duration-200 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
+            <i class="fas fa-expand text-white text-sm bg-black bg-opacity-50 rounded-full w-6 h-6 flex items-center justify-center"></i>
+          </div>
+        </div>
+      `;
+    }
+
+    // FIXED: Simple modal functions
+    function openImageModal(imageUrl, filename) {
+      console.log('🔄 Opening modal with:', { imageUrl, filename });
+      
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDownload = document.getElementById('modalDownload');
+      
+      // Set image and title
+      modalImage.src = imageUrl;
+      modalImage.alt = filename;
+      modalTitle.textContent = filename;
+      modalDownload.href = imageUrl;
+      modalDownload.download = filename;
+      
+      // Show modal
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      
+      console.log('✅ Modal opened');
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      console.log('✅ Modal closed');
+    }
+
+    // Close modal on ESC key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeImageModal();
+      }
+    });
+
+    // Close modal when clicking outside
+    document.getElementById('imageModal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closeImageModal();
+      }
+    });
+
+    function showToast(message, type = "info") {
+      toastEl.textContent = message;
+      toastEl.classList.remove("hidden");
+      toastEl.classList.remove("bg-red-600", "bg-emerald-600", "bg-slate-900");
+      if (type === "error") toastEl.classList.add("bg-red-600");
+      else if (type === "success") toastEl.classList.add("bg-emerald-600");
+      else toastEl.classList.add("bg-slate-900");
+
+      setTimeout(() => {
+        toastEl.classList.add("hidden");
+      }, 3000);
+    }
+
+    async function loadJobs() {
+      loadingState.classList.remove("hidden");
+      emptyState.classList.add("hidden");
+      jobsTableBody.innerHTML = "";
+      jobCountEl.textContent = "Loading jobs…";
+
+      const status = statusFilter.value;
+      let url = `${API_BASE}/print-jobs.php`;
+      if (status) {
+        url += `?status=${encodeURIComponent(status)}`;
+      }
+
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+
+        console.log('📊 Jobs loaded:', json);
+
+        if (!json.success) {
+          showToast(json.message || "Failed to load jobs", "error");
+          loadingState.classList.add("hidden");
+          jobCountEl.textContent = "Error loading jobs";
+          return;
+        }
+
+        const jobs = json.data.jobs || [];
+        jobCountEl.textContent = `${jobs.length} job(s)`;
+
+        if (jobs.length === 0) {
+          emptyState.classList.remove("hidden");
+        }
+
+        jobs.forEach(job => renderJobRow(job));
+      } catch (err) {
+        console.error('❌ Error loading jobs:', err);
+        showToast("Network error while loading jobs", "error");
+        jobCountEl.textContent = "Network error";
+      } finally {
+        loadingState.classList.add("hidden");
+      }
+    }
+
+    function renderJobRow(job) {
+      const tr = document.createElement("tr");
+      const hasPrintFile = !!job.print_file_url;
+
+      tr.innerHTML = `
+        <td class="px-4 py-3 align-top">
+          <div class="font-semibold text-slate-800">#${job.id}</div>
+          <div class="text-xs text-slate-400">${job.created_at || ""}</div>
+        </td>
+        <td class="px-4 py-3 align-top">
+          <div class="text-slate-800">${job.order.shopify_order_num || "-"}</div>
+          <div class="text-xs text-slate-500">${job.order.shopify_order_id || ""}</div>
+        </td>
+        <td class="px-4 py-3 align-top">
+          <div class="text-slate-800">${job.product.name}</div>
+          <div class="text-xs text-slate-500">${job.product.product_type || ""}</div>
+        </td>
+        <td class="px-4 py-3 align-top">
+          <div class="text-slate-800">${job.order_item.quantity}</div>
+        </td>
+        <td class="px-4 py-3 align-top">
+          <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${statusBadgeClass(job.status)}">
+            ${job.status}
+          </span>
+        </td>
+        <td class="px-4 py-3 align-top">
+          ${getThumbnailHTML(job.design, job.id)}
+        </td>
+        <td class="px-4 py-3 align-top">
+          ${
+            hasPrintFile
+              ? `<a href="${API_BASE}/download-print-file.php?job_id=${job.id}" target="_blank" class="text-xs text-emerald-600 hover:underline font-medium">
+                   <i class="fas fa-download mr-1"></i>Download
+                 </a>`
+              : `<span class="text-xs text-slate-400">
+                   <i class="fas fa-clock mr-1"></i>Not generated
+                 </span>`
+          }
+        </td>
+        <td class="px-4 py-3 align-top">
+          <div class="flex flex-wrap gap-2">
+            ${
+              !hasPrintFile
+                ? `<button
+                     class="px-3 py-1 rounded-md bg-slate-800 text-white text-xs hover:bg-slate-700 transition-colors flex items-center gap-1"
+                     data-action="generate"
+                     data-id="${job.id}"
+                   >
+                     <i class="fas fa-gear text-xs"></i>
+                     Generate
+                   </button>`
+                : ""
+            }
+            <button
+              class="px-3 py-1 rounded-md bg-slate-100 text-slate-700 text-xs hover:bg-slate-200 transition-colors flex items-center gap-1"
+              data-action="status"
+              data-status="printing"
+              data-id="${job.id}"
+            >
+              <i class="fas fa-print text-xs"></i>
+              Printing
+            </button>
+            <button
+              class="px-3 py-1 rounded-md bg-slate-100 text-slate-700 text-xs hover:bg-slate-200 transition-colors flex items-center gap-1"
+              data-action="status"
+              data-status="printed"
+              data-id="${job.id}"
+            >
+              <i class="fas fa-check text-xs"></i>
+              Printed
+            </button>
+            <button
+              class="px-3 py-1 rounded-md bg-emerald-600 text-white text-xs hover:bg-emerald-500 transition-colors flex items-center gap-1"
+              data-action="status"
+              data-status="shipped"
+              data-id="${job.id}"
+            >
+              <i class="fas fa-truck text-xs"></i>
+              Shipped
+            </button>
+          </div>
+        </td>
+      `;
+
+      // Attach event listeners to buttons
+      tr.querySelectorAll("button[data-action]").forEach(btn => {
+        const action = btn.getAttribute("data-action");
+        const jobId = parseInt(btn.getAttribute("data-id"), 10);
+
+        if (action === "generate") {
+          btn.addEventListener("click", () => handleGenerateFile(jobId, btn));
+        } else if (action === "status") {
+          const newStatus = btn.getAttribute("data-status");
+          btn.addEventListener("click", () => handleUpdateStatus(jobId, newStatus));
+        }
+      });
+
+      jobsTableBody.appendChild(tr);
+    }
+
+    function statusBadgeClass(status) {
+      switch (status) {
+        case "queued":
+          return "bg-slate-100 text-slate-700";
+        case "preparing":
+        case "ready_to_print":
+          return "bg-amber-100 text-amber-700";
+        case "printing":
+          return "bg-sky-100 text-sky-700";
+        case "printed":
+          return "bg-indigo-100 text-indigo-700";
+        case "shipped":
+          return "bg-emerald-100 text-emerald-700";
+        case "failed":
+          return "bg-red-100 text-red-700";
+        default:
+          return "bg-slate-100 text-slate-700";
+      }
+    }
+
+    async function handleGenerateFile(jobId, button) {
+      button.disabled = true;
+      button.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i>Generating...';
+
+      try {
+        const res = await fetch(`${API_BASE}/print-jobs.php`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "generate_file",
+            job_id: jobId
+          })
+        });
+
+        const json = await res.json();
+
+        if (!json.success) {
+          showToast(json.message || "Failed to generate file", "error");
+        } else {
+          showToast("Print file generated", "success");
+          await loadJobs();
+        }
+      } catch (err) {
+        console.error(err);
+        showToast("Network error during file generation", "error");
+      } finally {
+        button.disabled = false;
+        button.innerHTML = '<i class="fas fa-gear text-xs"></i>Generate';
+      }
+    }
+
+    async function handleUpdateStatus(jobId, newStatus) {
+      try {
+        const res = await fetch(`${API_BASE}/print-jobs.php`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            job_id: jobId,
+            status: newStatus
+          })
+        });
+
+        const json = await res.json();
+
+        if (!json.success) {
+          showToast(json.message || "Failed to update status", "error");
+        } else {
+          showToast(`Status updated to ${newStatus}`, "success");
+          await loadJobs();
+        }
+      } catch (err) {
+        console.error(err);
+        showToast("Network error updating status", "error");
+      }
+    }
+
+    // Events
+    statusFilter.addEventListener("change", loadJobs);
+    refreshBtn.addEventListener("click", loadJobs);
+
+    // Initial load
+    loadJobs();
+  </script>
+</body>
+</html>

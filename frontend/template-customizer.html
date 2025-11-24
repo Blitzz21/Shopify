@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Customizer | GameDayTees</title>
+    <link rel="icon" type="image/png" href="img/gdt-small-logo.png">
+    <meta name="description" content="Personalize colors, names, and artwork for your template before it hits the press.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .hero-accent { position: absolute; border-radius: 50%; filter: blur(160px); opacity: 0.45; }
+        .panel { border: 1px solid rgba(15,23,42,0.08); box-shadow: 0 24px 60px rgba(15,23,42,0.12); }
+        .control-label { letter-spacing: 0.08em; }
+        .input-shell { transition: box-shadow 0.2s ease, border-color 0.2s ease; }
+        .input-shell:focus-within { border-color: #2563eb; box-shadow: 0 10px 30px rgba(37,99,235,0.12); }
+        .swatch { border: 1px solid rgba(15,23,42,0.08); }
+        .dropzone { border: 1.5px dashed rgba(15,23,42,0.16); transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
+        .dropzone.is-dragover { border-color: #2563eb; background: rgba(37,99,235,0.05); box-shadow: 0 12px 30px rgba(37,99,235,0.12); }
+    </style>
+</head>
+<body>
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-300 transition-all duration-300">
+        <nav class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-18">
+                <!-- Logo with Enhanced Hover Effect -->
+                <div class="flex items-center py-4">
+                    <a href="/" class="group relative flex items-center gap-3">
+                        <div class="relative">
+                            <img src="img/gdt-top-logo.svg" alt="Custom Print Shop"
+                                class="h-11 w-auto transition-all duration-300 group-hover:scale-105"
+                                width="150" height="70"
+                                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjcwIiB2aWV3Qm94PSIwIDAgMTUwIDcwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iNzAiIGZpbGw9IiMzQjgyRjYiLz48dGV4dCB4PSIyNSIgeT0iNDAiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iUG9wcGlucyIgZm9udC13ZWlnaHQ9IjYwMCIgZm9udC1zaXplPSIxNiI+Q3VzdG9tIFByaW50PC90ZXh0Pjwvc3ZnPg=='">
+                            <!-- Glow effect on hover -->
+                            <div class="absolute inset-0 bg-blue-400/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation with Active States -->
+                <div class="items-center hidden lg:flex lg:gap-1">
+                    <a href="#home" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">Home</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                    <a href="#products" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">Templates</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                    <a href="#how-it-works" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">How It Works</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                    <a href="#why-us" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">Why Us</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                    <a href="#faq" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">FAQs</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                    <a href="#contact" class="nav-link group relative px-4 py-2.5 text-sm font-semibold text-gray-700 transition-all duration-200 rounded-xl hover:text-blue-600 hover:bg-blue-50">
+                        <span class="relative z-10">Contact</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    </a>
+                </div>
+
+                <!-- Right Actions with Enhanced Buttons -->
+                <div class="flex items-center gap-2">
+                    <!-- Mobile Menu Toggle -->
+                    <button id="mobile-menu-toggle" type="button" class="relative p-2.5 text-gray-700 border-2 border-gray-200 rounded-xl lg:hidden hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation menu</span>
+                        <svg data-icon="menu" class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg data-icon="close" class="hidden w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Search Button (Desktop) -->
+                    <button class="hidden lg:flex items-center justify-center p-2.5 text-gray-700 transition-all duration-200 rounded-xl hover:bg-blue-50 hover:text-blue-600 hover:scale-105 active:scale-95" title="Search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Wishlist Button (Desktop) -->
+                    <button class="hidden lg:flex items-center justify-center p-2.5 text-gray-700 transition-all duration-200 rounded-xl hover:bg-red-50 hover:text-red-600 hover:scale-105 active:scale-95 group" title="Wishlist">
+                        <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Enhanced Cart Button -->
+                    <button onclick="app.openCart()" class="relative flex items-center justify-center p-2.5 text-gray-700 transition-all duration-200 rounded-xl hover:bg-blue-50 hover:text-blue-600 hover:scale-105 active:scale-95 group" title="Shopping Cart">
+                        <svg class="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        <span id="cart-count" class="absolute -top-1 -right-1 flex items-center justify-center min-w-[1.25rem] h-5 px-1 text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-full shadow-lg ring-2 ring-white transform transition-transform group-hover:scale-110">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enhanced Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden overflow-hidden">
+                <div class="py-4 space-y-1 border-t border-gray-100 animate-slideDown">
+                    <!-- Mobile Navigation Links -->
+                    <a href="#home" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>Home</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#products" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>Templates</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#how-it-works" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>How It Works</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#why-us" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>Why Us</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#faq" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>FAQs</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="mobile-nav-link flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 group">
+                        <span>Contact</span>
+                        <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="flex mx-auto mt-8 md:mt-16 lg:mt-18 py-16 pb-28 bg-gradient-to-b from-slate-50 via-white to-slate-100">
+        <div class="px-4 sm:px-6 space-y-10 overflow-y-hidden">
+            <section class="grid gap-8 md:grid-cols-1 xl:grid-cols-[1.1fr_1.2fr] max-w-7xl mx-auto">
+                <div class="workspace-panel h-fit rounded-[32px] px-2 py-4 md:p-8 text-white relative overflow-hidden bg-slate-900" id="template-preview-panel">
+                    <div class="flex flex-col md:flex-row items-center justify-between mb-6">
+                        <div class="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs uppercase tracking-[0.3em]">Preview</div>
+                        <div class="flex gap-2">
+                            <button class="toolbar-button px-2 py-2 rounded-full text-xs font-semibold transition" data-preview-angle="front" aria-pressed="true">Front</button>
+                            <button class="toolbar-button px-2 py-2 rounded-full text-xs font-semibold transition" data-preview-angle="back" aria-pressed="false">Back</button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-[28px] p-6 sm:p-8 flex flex-col gap-6 overflow-hidden">
+                        <div class="flex flex-col md:flex-row items-center justify-between text-sm text-slate-600">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                <span class="font-semibold text-slate-800">Live fidelity</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-slate-500">
+                                <span>Template:</span>
+                                <span id="template-badge" class="px-2 py-1 rounded-full bg-slate-100 text-slate-700 font-semibold">Basketball Template 1</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center gap-6">
+                            <div class="bg-slate-50 rounded-3xl p-2 shadow-inner w-full flex justify-center overflow-hidden">
+                                <img id="preview-image" src="img/mock-ups/sample3-mockup.png" alt="Template preview" class="w-48 m:w-64 max-w-full object-contain drop-shadow-xl">
+                            </div>
+                            <div class="flex flex-wrap gap-3 justify-center">
+                                <button class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide border border-slate-200 text-slate-700 hover:border-blue-300 transition">Change background</button>
+                                <button class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide border border-slate-200 text-slate-700 hover:border-blue-300 transition">Hide background</button>
+                                <button class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wide bg-slate-900 text-white shadow-lg">Download design</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="control-card rounded-3xl bg-white p-6 space-y-4">
+                        <div class="flex flex-col md:flex-row items-center justify-between">
+                            <div>
+                                <p class="text-xs uppercase tracking-[0.4em] text-blue-600 control-label">Step 1</p>
+                                <h2 class="text-xl font-semibold">Select School Color</h2>
+                            </div>
+                            <span id="primary-swatch" class="w-10 h-10 rounded-full swatch" style="background: linear-gradient(135deg,#FDD100,#fbbf24);"></span>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-3 items-center">
+                            <div class="flex-1 input-shell border border-slate-200 rounded-xl px-4 py-3 bg-white flex items-center gap-3">
+                                <input id="primary-color-text" type="text" class="w-full focus:outline-none text-sm" placeholder="#FDD100" value="#FDD100">
+                                <input id="primary-color-picker" type="color" class="w-10 h-10 rounded-lg border border-slate-200" value="#fdd100">
+                            </div>
+                            <button class="px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition" id="apply-primary">Select</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="space-y-2">
+                                <label class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Font Fill Color</label>
+                                <div class="flex gap-2 items-center input-shell border border-slate-200 rounded-lg px-3 py-2 bg-white">
+                                    <input id="fill-color-text" type="text" class="flex-1 focus:outline-none text-sm" value="#FFFFFF">
+                                    <input id="fill-color-picker" type="color" class="w-10 h-10 rounded-lg border border-slate-200" value="#ffffff">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Font Outline Color</label>
+                                <div class="flex gap-2 items-center input-shell border border-slate-200 rounded-lg px-3 py-2 bg-white">
+                                    <input id="outline-color-text" type="text" class="flex-1 focus:outline-none text-sm" value="#000000">
+                                    <input id="outline-color-picker" type="color" class="w-10 h-10 rounded-lg border border-slate-200" value="#000000">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-card rounded-3xl bg-white p-6 space-y-4">
+                        <div class="flex flex-col md:flex-row items-center justify-between">
+                            <div>
+                                <p class="text-xs uppercase tracking-[0.4em] text-blue-600 control-label">Step 2</p>
+                                <h2 class="text-xl font-semibold">Enter personalization</h2>
+                            </div>
+                            <span class="text-xs text-slate-500">Applies instantly</span>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Last name</label>
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <input type="text" class="flex-1 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Smith">
+                                <button class="px-4 py-3 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition">Apply</button>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-xs font-semibold text-slate-500 uppercase tracking-wide">School name (optional)</label>
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <input type="text" class="flex-1 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="School Name">
+                                <button class="px-4 py-3 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition">Apply</button>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Team name (optional)</label>
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <input type="text" class="flex-1 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Knights">
+                                <button class="px-4 py-3 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-card rounded-3xl bg-white p-6 space-y-4">
+                        <div class="flex flex-col md:flex-row items-center justify-between">
+                            <div>
+                                <p class="text-xs uppercase tracking-[0.4em] text-blue-600 control-label">Step 3</p>
+                                <h2 class="text-xl font-semibold">Upload your image</h2>
+                            </div>
+                            <span class="text-xs text-slate-500">PNG preferred</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="dropzone rounded-xl px-4 py-5 bg-slate-50" data-dropzone="primary">
+                                <p class="text-sm font-semibold text-slate-800">Upload image 1</p>
+                                <p class="text-xs text-slate-500" data-dropzone-label="primary-label">Drop PNG here or click to browse</p>
+                                <input type="file" accept="image/png,image/*" class="sr-only" data-dropzone-input="primary">
+                            </div>
+                            <div class="dropzone rounded-xl px-4 py-5 bg-white" data-dropzone="secondary">
+                                <p class="text-sm font-semibold text-slate-800">Upload image 2 (optional)</p>
+                                <p class="text-xs text-slate-500" data-dropzone-label="secondary-label">Drop PNG here or click to browse</p>
+                                <input type="file" accept="image/png,image/*" class="sr-only" data-dropzone-input="secondary">
+                            </div>
+                            <div class="dropzone rounded-xl px-4 py-5 bg-white" data-dropzone="logo">
+                                <p class="text-sm font-semibold text-slate-800">Upload logo image (optional)</p>
+                                <p class="text-xs text-slate-500" data-dropzone-label="logo-label">Drop PNG here or click to browse</p>
+                                <input type="file" accept="image/png,image/*" class="sr-only" data-dropzone-input="logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel rounded-3xl bg-white p-6 sm:p-8 border border-slate-100 shadow-lg flex flex-col md:flex-row md:items-center gap-6">
+                <div class="inline-flex justify-center items-center w-full gap-3">
+                    <button class="px-5 py-3 md:px-8 md:py-6 lg:px-12 lg:text-lg rounded-2xl border border-slate-200 text-sm font-semibold text-slate-700 hover:border-blue-300 transition">Save draft</button>
+                    <button class="px-5 py-3 md:px-8 md:py-6 lg:px-12 lg:text-lg rounded-2xl bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition">Sync to cart</button>
+                </div>
+            </section>
+
+            <section class="panel rounded-[32px] bg-white p-6 sm:p-8 relative overflow-hidden">
+                <div class="absolute inset-0 pointer-events-none opacity-30" style="background: radial-gradient(circle at 20% 20%, rgba(59,130,246,0.25), transparent 45%), radial-gradient(circle at 80% 10%, rgba(249,115,22,0.22), transparent 40%);"></div>
+                <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
+                    <div class="flex-1 space-y-3">
+                        <p class="text-xs uppercase tracking-[0.4em] text-blue-600">Template studio</p>
+                        <h1 class="text-3xl sm:text-4xl font-semibold text-slate-900">Personalize your design before it hits the press</h1>
+                        <p class="text-slate-600 max-w-2xl">Match school colors, lock in names, and upload layered assets. Real-time preview keeps parents and coaches aligned, so approvals move fast.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="rounded-2xl border border-slate-200 p-4 bg-slate-50">
+                            <p class="text-sm text-slate-500">Revision budget</p>
+                            <p class="text-2xl font-semibold text-slate-900">Unlimited</p>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 p-4 bg-slate-50">
+                            <p class="text-sm text-slate-500">Template</p>
+                            <p id="template-name-display" class="text-2xl font-semibold text-slate-900">Basketball Template 1</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="border-t border-slate-200 py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 text-sm text-slate-600">
+            <div>
+                <p class="text-ink font-semibold text-lg mb-3">GameDay Tees</p>
+                <p>Precision-built apparel studio for youth sports.</p>
+                <div class="mt-4 space-y-1">
+                    <a href="tel:7654494861" class="block hover:text-ink">765.449.4861</a>
+                    <a href="mailto:info@precisionsgraphics.com" class="block hover:text-ink">info@precisionsgraphics.com</a>
+                </div>
+            </div>
+            <div>
+                <p class="text-gray-900 font-semibold mb-3">Explore</p>
+                <ul class="space-y-2">
+                    <li><a href="#how-it-works" class="hover:text-gray-900">Workflow</a></li>
+                    <li><a href="#process" class="hover:text-gray-900">Production Lab</a></li>
+                    <li><a href="#faq" class="hover:text-gray-900">Guarantee</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-gray-900 font-semibold mb-3">Support</p>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-gray-900">Track order</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Size guide</a></li>
+                    <li><a href="#" class="hover:text-gray-900">Returns</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-gray-900 font-semibold mb-3">Social</p>
+                <div class="flex gap-4 text-slate-500">
+                    <a href="#" class="hover:text-gray-900">Instagram</a>
+                    <a href="#" class="hover:text-gray-900">TikTok</a>
+                    <a href="#" class="hover:text-gray-900">YouTube</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 mt-10 text-center text-xs text-slate-500" data-animate="fade-up">
+            &#169; 2025 Gamedaytees, Inc. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        (() => {
+            const toggle = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            if (!toggle || !menu) return;
+
+            const openIcon = toggle.querySelector('[data-icon="menu"]');
+            const closeIcon = toggle.querySelector('[data-icon="close"]');
+            const setMenuState = (shouldOpen) => {
+                menu.classList.toggle('hidden', !shouldOpen);
+                toggle.setAttribute('aria-expanded', shouldOpen.toString());
+                if (openIcon && closeIcon) {
+                    openIcon.classList.toggle('hidden', shouldOpen);
+                    closeIcon.classList.toggle('hidden', !shouldOpen);
+                }
+            };
+
+            toggle.addEventListener('click', () => {
+                const isOpen = !menu.classList.contains('hidden');
+                setMenuState(!isOpen);
+            });
+
+            menu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => setMenuState(false));
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !menu.classList.contains('hidden')) {
+                    setMenuState(false);
+                }
+            });
+        })();
+    </script>
+    <script>
+        (() => {
+            const templateNameDisplay = document.getElementById('template-name-display');
+            const templateBadge = document.getElementById('template-badge');
+            const previewImage = document.getElementById('preview-image');
+            const primarySwatch = document.getElementById('primary-swatch');
+            const primaryPicker = document.getElementById('primary-color-picker');
+            const primaryText = document.getElementById('primary-color-text');
+            const fillPicker = document.getElementById('fill-color-picker');
+            const fillText = document.getElementById('fill-color-text');
+            const outlinePicker = document.getElementById('outline-color-picker');
+            const outlineText = document.getElementById('outline-color-text');
+            const applyPrimary = document.getElementById('apply-primary');
+
+            const templates = {
+                rise: { name: 'Basketball Template 1', image: 'img/mock-ups/sample3-mockup.png' },
+                friday: { name: 'Friday Lights', image: 'img/templates/voll1_sample.jpg' },
+                classic: { name: 'Classic Stripe', image: 'img/premium-tshirt.png' }
+            };
+
+            const setPrimary = (hex) => {
+                primarySwatch.style.background = `linear-gradient(135deg, ${hex}, ${hex})`;
+            };
+
+            applyPrimary.addEventListener('click', () => {
+                setPrimary(primaryText.value || '#FDD100');
+            });
+
+            primaryPicker.addEventListener('input', (e) => {
+                primaryText.value = e.target.value.toUpperCase();
+                setPrimary(e.target.value);
+            });
+
+            fillPicker.addEventListener('input', (e) => {
+                fillText.value = e.target.value.toUpperCase();
+            });
+            outlinePicker.addEventListener('input', (e) => {
+                outlineText.value = e.target.value.toUpperCase();
+            });
+
+            const params = new URLSearchParams(window.location.search);
+            const selectedTemplate = params.get('template') || 'rise';
+            const tpl = templates[selectedTemplate] || templates.rise;
+            templateNameDisplay.textContent = tpl.name;
+            templateBadge.textContent = tpl.name;
+            previewImage.src = tpl.image;
+        })();
+    </script>
+    <script>
+        (() => {
+            const dropzones = document.querySelectorAll('[data-dropzone]');
+
+            const handleFiles = (zone, file) => {
+                const label = zone.querySelector('[data-dropzone-label]');
+                if (file) {
+                    label.textContent = file.name;
+                    label.classList.add('text-blue-600', 'font-semibold');
+                }
+            };
+
+            dropzones.forEach((zone) => {
+                const input = zone.querySelector('input[type="file"]');
+
+                zone.addEventListener('click', () => input.click());
+
+                zone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    zone.classList.add('is-dragover');
+                });
+                zone.addEventListener('dragleave', () => zone.classList.remove('is-dragover'));
+                zone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    zone.classList.remove('is-dragover');
+                    const file = e.dataTransfer.files[0];
+                    if (file) {
+                        handleFiles(zone, file);
+                    }
+                });
+
+                input.addEventListener('change', () => {
+                    const file = input.files[0];
+                    handleFiles(zone, file);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

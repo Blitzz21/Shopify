@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameDay Tees &#183; Custom Sports Apparel in 3 Days</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef5ff',
+                            100: '#dbe9ff',
+                            200: '#b8d2ff',
+                            300: '#93b9ff',
+                            400: '#6293fb',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e3a8a',
+                            900: '#152554'
+                        },
+                        accent: '#f97316',
+                        ink: '#0f172a'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #f5f7fb; color: #0f172a; }
+        .noise-overlay {
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none"%3E%3Crect width="1" height="1" fill="rgba(15,23,42,0.05)"/%3E%3C/svg%3E');
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        .glass-panel {
+            backdrop-filter: blur(18px);
+            background: rgba(255,255,255,0.95);
+            border: 1px solid rgba(15,23,42,0.08);
+            box-shadow: 0 25px 60px rgba(15,23,42,0.08);
+        }
+        .floating-accent { animation: float 10s ease-in-out infinite; }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+        .tilt-hover {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .tilt-hover:hover {
+            transform: translateY(-8px) rotateX(1deg) rotateY(-1deg);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.25);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .animate-on-scroll[data-animate="fade-left"] { transform: translateX(-40px); }
+        .animate-on-scroll[data-animate="fade-right"] { transform: translateX(40px); }
+        .animate-on-scroll[data-animate="zoom"] { transform: scale(0.92); }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translate(0,0) scale(1);
+        }
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .btn-glow::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 65%);
+            transition: opacity 0.3s ease;
+        }
+        .btn-glow:hover { transform: translateY(-2px); }
+        .btn-glow:hover::after { opacity: 1; }
+        .variant-tab {
+            flex: 1;
+            padding: 0.65rem 1rem;
+            border-radius: 999px;
+            border: 1px solid rgba(15,23,42,0.1);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #475569;
+            background: #fff;
+            transition: all 0.25s ease;
+        }
+        .variant-tab.active {
+            background: linear-gradient(120deg, #2563eb, #3b82f6);
+            color: #fff;
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
+            border-color: transparent;
+        }
+        .variant-panel { display: none; }
+        .variant-panel.active { display: block; }
+        .stat-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            display: inline-block;
+            background: #3b82f6;
+        }
+        [data-ripple] {
+            position: relative;
+            overflow: hidden;
+        }
+        [data-ripple] span.ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            background: rgba(255,255,255,0.45);
+        }
+        @keyframes ripple {
+            to { transform: scale(4); opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-on-scroll, .tilt-hover, .floating-accent { transition: none; animation: none; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white" id="top">
+
+    <div class="fixed inset-0 -z-20 bg-gradient-to-br from-white via-brand-50 to-white"></div>
+    <div class="fixed inset-0 -z-10 noise-overlay"></div>
+
+    <!-- Announcement Bar -->
+    <div class="bg-gradient-to-r from-brand-500/90 via-brand-400/90 to-accent/90 text-white text-sm py-2 text-center font-semibold animate-on-scroll is-visible">
+        <span>Limited launch bonus: 20% off first order with code FIRST20 &#183; 3-day turnaround guaranteed</span>
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="#top" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white font-bold">GT</div>
+                    <div>
+                        <p class="font-semibold text-lg text-ink">GameDay Tees</p>
+                        <p class="text-xs text-slate-500">Polaris Press Studio</p>
+                    </div>
+                </a>
+                <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600">
+                    <a href="#how-it-works" class="hover:text-ink transition">How it works</a>
+                    <a href="#why-us" class="hover:text-ink transition">Why us</a>
+                    <a href="#process" class="hover:text-ink transition">Production</a>
+                    <a href="#faq" class="hover:text-ink transition">FAQ</a>
+                    <a href="#testimonials" class="hover:text-ink transition">Stories</a>
+                </nav>
+                <div class="flex items-center gap-5">
+                    <a href="tel:7654494861" class="hidden sm:block text-sm tracking-wide text-slate-500">765.449.4861</a>
+                    <a href="#start" class="px-5 py-2 rounded-full bg-ink text-white font-semibold text-sm hover:bg-brand-800 transition" data-ripple>Start Order</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero with parallax -->
+        <section class="relative overflow-hidden pt-24 pb-24">
+            <div class="absolute -top-24 -left-10 w-80 h-80 bg-brand-200 rounded-full blur-[150px]" data-parallax="-0.1"></div>
+            <div class="absolute top-10 right-0 w-72 h-72 bg-accent/40 rounded-full blur-[180px]" data-parallax="0.08"></div>
+            <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200 text-xs tracking-[0.25em] uppercase text-slate-500 animate-on-scroll" data-animate="fade-right">
+                        72h Polaris production
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                    </div>
+                    <div class="animate-on-scroll" data-animate="fade-right">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-ink">
+                            Custom apparel engineered for young athletes
+                            <span class="text-brand-600 block">designed tonight &#183; worn this week</span>
+                        </h1>
+                        <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+                            Upload two action photos, choose a shirt, and our commercial Polaris press builds a gallery-grade print that survives rainouts, practices, and every wash. Parents get bragging rights. Athletes get confidence.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 animate-on-scroll" data-animate="fade-right">
+                        <a href="#start" class="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-ink text-white font-semibold text-lg shadow-lg shadow-brand-200/60 btn-glow" data-ripple>
+                            Submit photos
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="#how-it-works" class="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl border border-slate-200 bg-white text-slate-700 font-medium hover:border-brand-200">
+                            See the workflow
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 text-sm animate-on-scroll" data-animate="fade-right">
+                        <div>
+                            <p class="text-3xl font-semibold text-ink" data-count="72">72</p>
+                            <p class="text-slate-500">Average ship time (hrs)</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-semibold text-ink" data-count="98">98</p>
+                            <p class="text-slate-500">Reorder rate %</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-semibold text-ink" data-count="312">312</p>
+                            <p class="text-slate-500">Teams suited up</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative animate-on-scroll" data-animate="fade-left">
+                    <div class="absolute -top-10 right-10 w-44 h-44 rounded-3xl bg-white shadow-2xl floating-accent" data-parallax="0.14"></div>
+                    <div class="relative glass-panel rounded-[32px] p-8 space-y-6 tilt-hover">
+                        <div class="flex items-center justify-between text-sm text-slate-500">
+                            <span>Polaris control</span>
+                            <span>Live queue &#183; 3 jobs</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl border border-slate-100 bg-white p-4 flex flex-col justify-between aspect-[4/5]">
+                                <div>
+                                    <p class="text-xs uppercase tracking-wide text-slate-400">Athlete</p>
+                                    <p class="font-semibold text-xl text-ink">Sasha | #24</p>
+                                </div>
+                                <p class="text-xs text-slate-400">Dual photo blend &#183; Neon fade</p>
+                            </div>
+                            <div class="rounded-2xl border border-slate-100 bg-brand-50 p-4 flex flex-col justify-between aspect-[4/5]">
+                                <div>
+                                    <p class="text-xs uppercase tracking-wide text-slate-500">Fabric</p>
+                                    <p class="font-semibold text-xl text-ink">Gildan 64000</p>
+                                </div>
+                                <p class="text-xs text-slate-500">Long sleeve &#183; Jet black</p>
+                            </div>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 p-4 flex flex-col gap-4 bg-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-slate-500">Output quality</p>
+                                    <p class="text-2xl font-semibold text-ink">Polaris Pro &#183; 1200 DPI</p>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 text-brand-700">Finalizing</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <button class="variant-tab active" data-variant-btn="short">Short sleeve</button>
+                                <button class="variant-tab" data-variant-btn="long">Long sleeve</button>
+                            </div>
+                            <div class="variant-panel active" data-variant-panel="short">
+                                <p class="text-sm text-slate-500">Soft premium cotton. Lighter for summer tournaments.</p>
+                                <div class="flex items-center justify-between mt-2">
+                                    <p class="text-3xl font-semibold text-ink">$29.99</p>
+                                    <span class="text-xs text-slate-500">Ships in 3 days</span>
+                                </div>
+                            </div>
+                            <div class="variant-panel" data-variant-panel="long">
+                                <p class="text-sm text-slate-500">Layer-ready warmth with ribbed cuffs and zero shrink.</p>
+                                <div class="flex items-center justify-between mt-2">
+                                    <p class="text-3xl font-semibold text-ink">$34.99</p>
+                                    <span class="text-xs text-slate-500">Ships in 3 days</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted -->
+        <section id="why-us" class="py-16 bg-white/80 border-y border-slate-200 relative overflow-hidden">
+            <div class="absolute inset-y-0 right-10 w-72 bg-gradient-to-b from-brand-100 to-transparent rounded-[34px]" data-parallax="0.05"></div>
+            <div class="max-w-6xl mx-auto px-6 text-center space-y-8 relative animate-on-scroll" data-animate="zoom">
+                <p class="text-xs font-semibold tracking-[0.4em] text-brand-600 uppercase">Trusted nationwide</p>
+                <p class="text-3xl font-semibold text-ink">Youth programs from <span class="text-brand-600">Chicago</span> to <span class="text-accent">Phoenix</span> rely on our studio.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-slate-500 text-sm uppercase tracking-[0.35em]">
+                    <p>High schools</p>
+                    <p>Club travel</p>
+                    <p>AAU teams</p>
+                    <p>Rec leagues</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section id="how-it-works" class="py-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <p class="text-center text-xs font-semibold tracking-[0.4em] text-brand-500 uppercase mb-4 animate-on-scroll">Workflow</p>
+                <h2 class="text-4xl font-semibold text-center text-ink mb-4 animate-on-scroll">Three moves from phone gallery to sideline flex</h2>
+                <p class="text-center text-slate-600 max-w-3xl mx-auto mb-16 animate-on-scroll" data-animate="fade-up">A proven pipeline built by designers who live in youth sports photography and apparel production.</p>
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="glass-panel rounded-3xl p-8 animate-on-scroll" data-animate="fade-right">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl font-semibold mb-6">01</div>
+                        <h3 class="text-2xl font-semibold text-ink mb-3">Capture + upload</h3>
+                        <p class="text-slate-600">Drop two high-energy photos (front + action). Add jersey number, name, and choose short or long sleeve.</p>
+                        <ul class="mt-6 space-y-2 text-sm text-slate-500">
+                            <li>&#8226; Guided uploader keeps quality high</li>
+                            <li>&#8226; Built-in crop + lighting tips</li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel rounded-3xl p-8 animate-on-scroll" data-animate="fade-up">
+                        <div class="w-12 h-12 rounded-2xl bg-accent/15 text-accent flex items-center justify-center text-xl font-semibold mb-6">02</div>
+                        <h3 class="text-2xl font-semibold text-ink mb-3">Design + approval</h3>
+                        <p class="text-slate-600">Our creative lead composes the layout and color treatment. Approve on mobile. Unlimited tweaks until it feels perfect.</p>
+                        <ul class="mt-6 space-y-2 text-sm text-slate-500">
+                            <li>&#8226; Dual-photo layering system</li>
+                            <li>&#8226; Real-time proof sent in 6 hours</li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel rounded-3xl p-8 animate-on-scroll" data-animate="fade-left">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center text-xl font-semibold mb-6">03</div>
+                        <h3 class="text-2xl font-semibold text-ink mb-3">Polaris press</h3>
+                        <p class="text-slate-600">We color-calibrate to your photos and run the job on our million-dollar Polaris press. Shirts leave within three days.</p>
+                        <ul class="mt-6 space-y-2 text-sm text-slate-500">
+                            <li>&#8226; Commercial-grade inks</li>
+                            <li>&#8226; Shipping confirmation + tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section id="process" class="py-24 bg-brand-50/60 border-y border-slate-200 relative overflow-hidden">
+            <div class="absolute -bottom-20 -left-10 w-96 h-96 bg-brand-200 rounded-full blur-[160px]" data-parallax="-0.08"></div>
+            <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative">
+                <div class="space-y-8 animate-on-scroll" data-animate="fade-right">
+                    <p class="text-xs font-semibold tracking-[0.4em] text-brand-600 uppercase">Production Lab</p>
+                    <h2 class="text-4xl font-semibold text-ink">Engineered to outperform every team fundraiser shirt</h2>
+                    <p class="text-slate-600">Every print run passes through a 26-point inspection. We calibrate color, stretch-test seams, and flash cure inks for washable longevity.</p>
+                    <div class="space-y-5">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-white shadow text-brand-600 font-semibold flex items-center justify-center">A</div>
+                            <div>
+                                <p class="font-semibold text-lg text-ink">Gildan 64000 base</p>
+                                <p class="text-slate-600">Better drape, less shrink, thicker collar. Youth XS through Adult XL covered.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-white shadow text-accent font-semibold flex items-center justify-center">B</div>
+                            <div>
+                                <p class="font-semibold text-lg text-ink">Color scientist team</p>
+                                <p class="text-slate-600">We remix tones so skin looks natural and uniforms pop without neon blowout.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-white shadow text-ink font-semibold flex items-center justify-center">C</div>
+                            <div>
+                                <p class="font-semibold text-lg text-ink">72-hour ship promise</p>
+                                <p class="text-slate-600">Rush workflow with daily courier pickups. If we miss, you keep the shirt + refund.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid gap-6">
+                    <div class="glass-panel rounded-3xl p-6 animate-on-scroll" data-animate="fade-left">
+                        <p class="text-sm text-slate-500">Turnaround dashboard</p>
+                        <p class="text-5xl font-semibold text-ink mt-4" data-count="72">72h</p>
+                        <p class="text-slate-500">Avg ship speed &#183; last 90 days</p>
+                        <div class="mt-6 grid grid-cols-3 gap-4 text-center text-sm text-slate-600">
+                            <div>
+                                <p class="text-2xl text-ink font-semibold" data-count="1240">1,240</p>
+                                <p>Shirts</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl text-ink font-semibold" data-count="24">24</p>
+                                <p>Sports</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl text-ink font-semibold" data-count="0">0</p>
+                                <p>Missed deadlines</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-3xl border border-white/60 bg-white/80 p-6 shadow-lg animate-on-scroll" data-animate="fade-left">
+                        <p class="text-ink font-semibold text-lg">What you get</p>
+                        <ul class="mt-4 space-y-3 text-slate-600">
+                            <li>&#8226; Dual-photo composition</li>
+                            <li>&#8226; Choice of sleeve length and color</li>
+                            <li>&#8226; Team pricing at 10+ units</li>
+                            <li>&#8226; Dedicated designer chat</li>
+                        </ul>
+                        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+                            <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-700">Short sleeve $29.99</span>
+                            <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-700">Long sleeve $34.99</span>
+                        </div>
+                        <div class="mt-6">
+                            <p class="text-xs uppercase tracking-[0.4em] text-slate-400 mb-3">Live capacity</p>
+                            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-brand-500 to-accent rounded-full" style="width:75%" data-parallax="0.03"></div>
+                            </div>
+                            <p class="text-slate-500 text-xs mt-2">75% of production slots claimed this week.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FAQ & Highlights -->
+        <section id="faq" class="py-24">
+            <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+                <div class="animate-on-scroll" data-animate="fade-right">
+                    <p class="text-xs font-semibold tracking-[0.4em] text-brand-500 uppercase mb-6">Guarantees</p>
+                    <h2 class="text-4xl font-semibold text-ink mb-4">No cracking. No peeling. No excuses.</h2>
+                    <p class="text-slate-600 mb-10">Our guarantee is simple: if the shirt fades or the timeline slips, we reprint and refund. That's why teams keep their orders with us season after season.</p>
+                    <div class="space-y-4">
+                        <div class="glass-panel rounded-2xl p-5 flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-slate-500">Team bundles</p>
+                                <p class="text-xl font-semibold text-ink">10-24 shirts = 10% off</p>
+                            </div>
+                            <span class="text-slate-500 text-sm">Scale pricing</span>
+                        </div>
+                        <div class="glass-panel rounded-2xl p-5 flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-slate-500">White glove rush</p>
+                                <p class="text-xl font-semibold text-ink">Weekend tournaments covered</p>
+                            </div>
+                            <span class="text-slate-500 text-sm">Text us "rush"</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-5 bg-slate-50 rounded-2xl border border-slate-200 animate-on-scroll" data-animate="fade-up">
+                        <p class="text-sm font-semibold text-ink mb-2">Interactive timeline</p>
+                        <div class="flex items-center gap-4">
+                            <div class="flex flex-col items-center text-slate-500">
+                                <span class="stat-dot"></span>
+                                <span class="text-xs mt-2">Upload</span>
+                            </div>
+                            <div class="flex-1 h-1 bg-slate-200 relative">
+                                <div class="absolute inset-y-0 left-0 bg-brand-500 h-full rounded-full" id="timeline-progress"></div>
+                            </div>
+                            <div class="flex flex-col items-center text-slate-500">
+                                <span class="stat-dot bg-accent"></span>
+                                <span class="text-xs mt-2">Delivery</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-3" id="timeline-label">Step 01 &#183; Upload photos</p>
+                        <div class="flex gap-2 mt-4">
+                            <button class="variant-tab active" data-timeline="1">Upload</button>
+                            <button class="variant-tab" data-timeline="2">Proof</button>
+                            <button class="variant-tab" data-timeline="3">Ship</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-on-scroll" data-animate="fade-left">
+                    <p class="text-xs font-semibold tracking-[0.4em] text-brand-500 uppercase mb-6">FAQ</p>
+                    <div class="space-y-4">
+                        <details class="glass-panel rounded-2xl p-6" open>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center text-ink">
+                                How do I send photos?
+                                <span class="text-slate-400 text-xl">+</span>
+                            </summary>
+                            <p class="text-slate-600 mt-4">Use the secure uploader at checkout. iPhone and Android friendly. You'll get instant confirmation once our design desk receives them.</p>
+                        </details>
+                        <details class="glass-panel rounded-2xl p-6">
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center text-ink">
+                                Can I approve before printing?
+                                <span class="text-slate-400 text-xl">+</span>
+                            </summary>
+                            <p class="text-slate-600 mt-4">Yes. We send a mobile-ready proof within six business hours. Reply with tweaks and we adjust within the same day.</p>
+                        </details>
+                        <details class="glass-panel rounded-2xl p-6">
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center text-ink">
+                                Do prints last through seasons?
+                                <span class="text-slate-400 text-xl">+</span>
+                            </summary>
+                            <p class="text-slate-600 mt-4">Polaris inks sink into the fibers&#8212;no vinyl layer to crack. We've washed samples 60+ times without fade.</p>
+                        </details>
+                        <details class="glass-panel rounded-2xl p-6">
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center text-ink">
+                                What about whole teams?
+                                <span class="text-slate-400 text-xl">+</span>
+                            </summary>
+                            <p class="text-slate-600 mt-4">We assign you a project manager, sync on roster names, and stage all proofs for a single approval. Bulk pricing triggers automatically.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-24 bg-white border-y border-slate-200 relative overflow-hidden">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[640px] h-[640px] bg-gradient-to-b from-brand-100/80 to-transparent blur-[200px]" data-parallax="0.04"></div>
+            <div class="max-w-6xl mx-auto px-6 text-center relative">
+                <p class="text-xs font-semibold tracking-[0.4em] text-brand-500 uppercase mb-4 animate-on-scroll">Testimonials</p>
+                <h2 class="text-4xl font-semibold text-ink mb-4 animate-on-scroll" data-animate="fade-up">Parents + coaches who made the switch</h2>
+                <p class="text-slate-600 max-w-3xl mx-auto mb-10 animate-on-scroll" data-animate="fade-up">4.9/5 average rating across 2,000+ orders. Here&#8217;s what they tell us.</p>
+                <div class="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll" data-animate="zoom">
+                    <button class="variant-tab active" data-testimonial-filter="all">All</button>
+                    <button class="variant-tab" data-testimonial-filter="parents">Parents</button>
+                    <button class="variant-tab" data-testimonial-filter="coaches">Coaches</button>
+                    <button class="variant-tab" data-testimonial-filter="athletes">Athletes</button>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <article class="glass-panel rounded-3xl p-8 flex flex-col gap-6 animate-on-scroll" data-animate="fade-right" data-testimonial="parents">
+                        <div class="flex gap-1 text-accent text-xl">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="text-slate-700 italic">&#8220;My daughter wore her shirt to state finals the next week. Colors look cinematic, not cheesy clipart. Customer service is elite.&#8221;</p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center font-semibold text-brand-700">KT</div>
+                            <div>
+                                <p class="font-semibold text-ink">Kara T.</p>
+                                <p class="text-sm text-slate-500">Volleyball mom &#183; Texas</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="glass-panel rounded-3xl p-8 flex flex-col gap-6 animate-on-scroll" data-animate="fade-up" data-testimonial="coaches">
+                        <div class="flex gap-1 text-accent text-xl">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="text-slate-700 italic">&#8220;Ordered 18 shirts for senior night. Proofs arrived same day, shirts two days later. Players felt like pros walking into the gym.&#8221;</p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center font-semibold text-brand-700">CR</div>
+                            <div>
+                                <p class="font-semibold text-ink">Coach Reynolds</p>
+                                <p class="text-sm text-slate-500">Basketball &#183; Indiana</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="glass-panel rounded-3xl p-8 flex flex-col gap-6 animate-on-scroll" data-animate="fade-left" data-testimonial="athletes">
+                        <div class="flex gap-1 text-accent text-xl">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="text-slate-700 italic">&#8220;Finally a youth brand that understands style. The layering effect looks like a Nike campaign. Already back for baseball season.&#8221;</p>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center font-semibold text-accent">MJ</div>
+                            <div>
+                                <p class="font-semibold text-ink">Marcus J.</p>
+                                <p class="text-sm text-slate-500">HS football &#183; Ohio</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="start" class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-100 via-white to-brand-200"></div>
+            <div class="absolute inset-0" data-parallax="-0.03" style="background-image: radial-gradient(circle at 20% 20%, rgba(59,130,246,0.3), transparent 45%), radial-gradient(circle at 80% 20%, rgba(249,115,22,0.25), transparent 40%);"></div>
+            <div class="max-w-4xl mx-auto px-6 text-center relative animate-on-scroll" data-animate="fade-up">
+                <p class="text-xs uppercase tracking-[0.4em] text-brand-600 mb-4">Ready?</p>
+                <h2 class="text-4xl sm:text-5xl font-semibold text-ink mb-6">Upload two photos. Lock in their legacy.</h2>
+                <p class="text-slate-600 text-lg mb-10">Your story-driven shirt arrives in 72 hours or it&#8217;s free. That&#8217;s the GameDay promise.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#" class="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full bg-ink text-white font-semibold text-lg hover:bg-brand-700 transition btn-glow" data-ripple>
+                        Start the upload
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="tel:7654494861" class="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full border border-slate-200 bg-white text-slate-700 hover:border-brand-200" data-ripple>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2 5.5a3 3 0 013-3h1.1a2 2 0 011.95 1.55l.43 1.94a2 2 0 01-.95 2.14l-.9.54a13.5 13.5 0 006.3 6.3l.55-.9a2 2 0 012.13-.95l1.95.43A2 2 0 0119.5 16v1.5a3 3 0 01-3 3h-.75C8.57 20.5 3.5 15.43 3.5 9.25V9a3 3 0 013-3H7" />
+                        </svg>
+                        Talk to a designer
+                    </a>
+                </div>
+                <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+                    <p>&#8226; Money-back guarantee</p>
+                    <p>&#8226; Secure uploader</p>
+                    <p>&#8226; Team pricing available</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-200 py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-10 text-sm text-slate-600">
+            <div class="animate-on-scroll" data-animate="fade-right">
+                <p class="text-ink font-semibold text-lg mb-3">GameDay Tees</p>
+                <p>Precision-built apparel studio for youth sports.</p>
+                <div class="mt-4 space-y-1">
+                    <a href="tel:7654494861" class="block hover:text-ink">765.449.4861</a>
+                    <a href="mailto:info@precisionsgraphics.com" class="block hover:text-ink">info@precisionsgraphics.com</a>
+                </div>
+            </div>
+            <div class="animate-on-scroll" data-animate="fade-up">
+                <p class="text-ink font-semibold mb-3">Explore</p>
+                <ul class="space-y-2">
+                    <li><a href="#how-it-works" class="hover:text-ink">Workflow</a></li>
+                    <li><a href="#process" class="hover:text-ink">Production Lab</a></li>
+                    <li><a href="#faq" class="hover:text-ink">Guarantee</a></li>
+                </ul>
+            </div>
+            <div class="animate-on-scroll" data-animate="fade-up">
+                <p class="text-ink font-semibold mb-3">Support</p>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-ink">Track order</a></li>
+                    <li><a href="#" class="hover:text-ink">Size guide</a></li>
+                    <li><a href="#" class="hover:text-ink">Returns</a></li>
+                </ul>
+            </div>
+            <div class="animate-on-scroll" data-animate="fade-left">
+                <p class="text-ink font-semibold mb-3">Social</p>
+                <div class="flex gap-4 text-slate-500">
+                    <a href="#" class="hover:text-ink">Instagram</a>
+                    <a href="#" class="hover:text-ink">TikTok</a>
+                    <a href="#" class="hover:text-ink">YouTube</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 mt-10 text-center text-xs text-slate-500 animate-on-scroll" data-animate="fade-up">
+            &#169; 2025 Precisions Graphics, Inc. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const parallaxItems = document.querySelectorAll('[data-parallax]');
+        const updateParallax = () => {
+            const scrollY = window.pageYOffset;
+            parallaxItems.forEach((el) => {
+                const speed = parseFloat(el.dataset.parallax || 0);
+                el.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
+            });
+        };
+        window.addEventListener('scroll', updateParallax, { passive: true });
+        window.addEventListener('load', updateParallax);
+
+        const revealItems = document.querySelectorAll('.animate-on-scroll');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        revealItems.forEach((item) => revealObserver.observe(item));
+
+        const counters = document.querySelectorAll('[data-count]');
+        const animateCount = (el) => {
+            const target = parseFloat(el.dataset.count);
+            const duration = 1200;
+            const suffix = el.textContent.replace(/[0-9.,]/g, '');
+            const startValue = 0;
+            const startTime = performance.now();
+            const update = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(startValue + (target - startValue) * progress);
+                el.textContent = suffix ? `${current}${suffix}` : `${current}`;
+                if (progress < 1) requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        };
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateCount(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach((counter) => counterObserver.observe(counter));
+
+        const variantButtons = document.querySelectorAll('[data-variant-btn]');
+        const variantPanels = document.querySelectorAll('[data-variant-panel]');
+        variantButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const variant = btn.dataset.variantBtn;
+                variantButtons.forEach((b) => b.classList.toggle('active', b === btn));
+                variantPanels.forEach((panel) => {
+                    panel.classList.toggle('active', panel.dataset.variantPanel === variant);
+                });
+            });
+        });
+
+        const testimonialButtons = document.querySelectorAll('[data-testimonial-filter]');
+        const testimonialCards = document.querySelectorAll('[data-testimonial]');
+        testimonialButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                testimonialButtons.forEach((btn) => btn.classList.toggle('active', btn === button));
+                const filter = button.dataset.testimonialFilter;
+                testimonialCards.forEach((card) => {
+                    const type = card.dataset.testimonial;
+                    card.style.display = (filter === 'all' || type === filter) ? 'flex' : 'none';
+                });
+            });
+        });
+
+        const rippleButtons = document.querySelectorAll('[data-ripple]');
+        rippleButtons.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple-effect');
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+                ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+                btn.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        const timelineButtons = document.querySelectorAll('[data-timeline]');
+        const progressBar = document.getElementById('timeline-progress');
+        const timelineLabel = document.getElementById('timeline-label');
+        const timelineCopy = {
+            1: { label: 'Step 01 &#183; Upload photos', width: '10%' },
+            2: { label: 'Step 02 &#183; Approve your proof', width: '50%' },
+            3: { label: 'Step 03 &#183; Delivery day', width: '100%' }
+        };
+        timelineButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const id = btn.dataset.timeline;
+                timelineButtons.forEach((b) => b.classList.toggle('active', b === btn));
+                progressBar.style.width = timelineCopy[id].width;
+                timelineLabel.textContent = timelineCopy[id].label;
+            });
+        });
+    </script>
+
+</body>
+</html>

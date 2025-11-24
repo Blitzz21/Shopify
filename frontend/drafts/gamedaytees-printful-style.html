@@ -1,0 +1,2358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameDay Tees - Professional Custom Sports Apparel Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Clean fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Smooth hover lift */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white text-gray-900">
+    
+    <!-- Top Announcement Bar -->
+    <div class="bg-primary-600 text-white py-2.5 text-center text-sm font-medium">
+        <div class="max-w-7xl mx-auto px-4">
+            🎉 <span class="font-semibold">Limited Time:</span> Get 20% off your first order with code <span class="font-bold">FIRST20</span>
+        </div>
+    </div>
+
+    <!-- Clean Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <span class="text-xl font-bold text-gray-900">GameDay Tees</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <li><a href="#products" class="text-gray-600 hover:text-gray-900 transition-colors">Products</a></li>
+                    <li><a href="#how-it-works" class="text-gray-600 hover:text-gray-900 transition-colors">How it works</a></li>
+                    <li><a href="#pricing" class="text-gray-600 hover:text-gray-900 transition-colors">Pricing</a></li>
+                    <li><a href="#portfolio" class="text-gray-600 hover:text-gray-900 transition-colors">Portfolio</a></li>
+                </ul>
+
+                <!-- CTA Buttons -->
+                <div class="flex items-center gap-4">
+                    <a href="#contact" class="hidden sm:inline-block text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
+                        Contact
+                    </a>
+                    <a href="#start" class="px-5 py-2.5 bg-primary-600 text-white rounded-lg text-sm font-semibold hover:bg-primary-700 transition-colors">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Printful/Gelato Style -->
+    <section class="relative pt-16 pb-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8">
+                    <!-- Trust Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm font-medium text-green-700">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                        Premium Polaris Press Printing
+                    </div>
+
+                    <!-- Main Headline -->
+                    <div>
+                        <h1 class="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                            Custom sports shirts for young athletes
+                            <span class="block text-primary-600">printed in just 3 days</span>
+                        </h1>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Submit 2 photos of your athlete. We print them on premium Gildan shirts using our million-dollar Polaris press. Highest quality. Fastest turnaround.
+                        </p>
+                    </div>
+
+                    <!-- CTA Section -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#start" class="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700 transition-all hover:shadow-lg">
+                            Submit photos now
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                        <a href="#how-it-works" class="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:border-gray-400 transition-all">
+                            How it works
+                        </a>
+                    </div>
+
+                    <!-- Stats Row -->
+                    <div class="flex flex-wrap gap-8 pt-4">
+                        <div>
+                            <div class="text-3xl font-bold text-gray-900">3 Days</div>
+                            <div class="text-sm text-gray-600">Fast turnaround</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-gray-900">Premium</div>
+                            <div class="text-sm text-gray-600">Polaris press quality</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-gray-900">Ages 6-18</div>
+                            <div class="text-sm text-gray-600">Youth sports focus</div>
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="flex items-start gap-3 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                        <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/>
+                        </svg>
+                        <div class="text-sm text-gray-700">
+                            <span class="font-semibold">Available products:</span> Gildan 64000 short sleeve & long sleeve cotton shirts
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual - Product Showcase -->
+                <div class="relative">
+                    <div class="relative bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+                        <!-- Main Product Display -->
+                        <div class="aspect-[3/4] bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center text-white relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px);"></div>
+                            <div class="relative text-center space-y-6 p-8">
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="aspect-square bg-white/20 rounded-lg flex items-center justify-center text-5xl backdrop-blur-sm">
+                                        📸
+                                    </div>
+                                    <div class="aspect-square bg-white/20 rounded-lg flex items-center justify-center text-5xl backdrop-blur-sm">
+                                        📸
+                                    </div>
+                                </div>
+                                <div class="text-center space-y-2">
+                                    <div class="text-2xl font-bold">YOUR ATHLETE</div>
+                                    <div class="text-lg opacity-90">2 PHOTOS = 1 SHIRT</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quality Badge -->
+                        <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 px-6 py-3 bg-white rounded-full shadow-lg border border-gray-200">
+                            <div class="flex items-center gap-2 text-sm font-semibold text-gray-900">
+                                <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                Polaris Press Quality
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Feature Cards -->
+                    <div class="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-4 border border-gray-100">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div class="text-sm">
+                                <div class="font-semibold text-gray-900">3 Days</div>
+                                <div class="text-gray-600">Fast delivery</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Cloud - Trust Section -->
+    <section class="py-12 bg-white border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-sm font-semibold text-gray-500 mb-4">SERVING YOUTH SPORTS NATIONWIDE</p>
+            <p class="text-center text-xs text-gray-400 mb-8">100,000+ schools • 14-20 sports each • Millions of youth teams</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-50">
+                <div class="text-2xl font-bold text-gray-400">High Schools</div>
+                <div class="text-2xl font-bold text-gray-400">Youth Leagues</div>
+                <div class="text-2xl font-bold text-gray-400">Travel Teams</div>
+                <div class="text-2xl font-bold text-gray-400">Rec Sports</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Storytelling Section - Emotional Connection -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Story Content -->
+                <div class="space-y-8">
+                    <div class="inline-block px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold">
+                        For Parents
+                    </div>
+                    
+                    <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
+                        Celebrate your athlete's moment with a premium keepsake
+                    </h2>
+                    
+                    <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+                        <p>
+                            <span class="font-semibold text-gray-900">You've watched every practice.</span> Every early morning drive. Every game. You've captured those perfect moments on your phone—the diving catch, the winning goal, the championship celebration.
+                        </p>
+                        
+                        <p>
+                            <span class="font-semibold text-gray-900">Now turn those photos into something special.</span> Something your athlete will wear with pride to school, to practice, to games. A shirt that says "this is who I am" without words.
+                        </p>
+                        
+                        <p>
+                            Just send us 2 sports photos. We print them on <span class="font-semibold text-primary-600">premium Gildan cotton shirts</span> using our million-dollar Polaris press—the same quality major brands use. Ready in just 3 days.
+                        </p>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-6 bg-gray-50 rounded-xl border border-gray-200">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-gray-900 font-medium mb-1">
+                                "My son wears his GameDay shirt every chance he gets. The quality is incredible—way better than the cheap team shirts we usually order."
+                            </p>
+                            <p class="text-sm text-gray-600">— Jennifer T., Soccer Mom</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Story -->
+                <div class="relative">
+                    <!-- Main Story Image -->
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="aspect-[4/5] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                            <!-- Photo Placeholder with Story -->
+                            <div class="text-center p-8 space-y-6">
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div class="aspect-square bg-white rounded-xl flex items-center justify-center text-5xl shadow-lg">
+                                        📸
+                                    </div>
+                                    <div class="aspect-square bg-white rounded-xl flex items-center justify-center text-5xl shadow-lg">
+                                        📸
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-xl font-bold text-gray-900">2 Sports Photos</p>
+                                    <p class="text-gray-600">Becomes</p>
+                                    <p class="text-xl font-bold text-primary-600">Premium Printed Shirt</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Stats -->
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-gray-900 mb-1">Ages 6-18</div>
+                            <div class="text-sm text-gray-600">Youth Sports</div>
+                        </div>
+                    </div>
+
+                    <div class="absolute -top-6 -right-6 bg-primary-600 text-white rounded-xl shadow-lg p-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold mb-1">3 Days</div>
+                            <div class="text-sm opacity-90">Fast Printing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Journey Section - 3-Part Story -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">From your moment to your masterpiece</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Three steps. One incredible transformation.
+                </p>
+            </div>
+
+            <!-- Story Journey Cards -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Chapter 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 relative">
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold shadow-lg">
+                        1
+                    </div>
+                    <div class="mb-6">
+                        <div class="text-5xl mb-4">📷</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">The Moment</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        You've got the photo. That perfect shot where everything came together. The sweat, the sacrifice, the victory—all captured in one frame.
+                    </p>
+                    <p class="text-sm font-semibold text-primary-600">
+                        → You upload it to us
+                    </p>
+                </div>
+
+                <!-- Chapter 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 relative">
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold shadow-lg">
+                        2
+                    </div>
+                    <div class="mb-6">
+                        <div class="text-5xl mb-4">✨</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">The Magic</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Our designers don't just trace. They study your pose, your expression, your jersey. They capture the essence of who you are as an athlete.
+                    </p>
+                    <p class="text-sm font-semibold text-primary-600">
+                        → They create your character
+                    </p>
+                </div>
+
+                <!-- Chapter 3 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 relative">
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold shadow-lg">
+                        3
+                    </div>
+                    <div class="mb-6">
+                        <div class="text-5xl mb-4">🎉</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">The Legend</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Now your moment lives on. Not just in a photo album, but on premium apparel. Every time you wear it, you tell your story without saying a word.
+                    </p>
+                    <p class="text-sm font-semibold text-primary-600">
+                        → You inspire others
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Stories Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Real athletes. Real stories.</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    See how we've helped athletes celebrate their defining moments
+                </p>
+            </div>
+
+            <!-- Story Cards -->
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <!-- Story 1 -->
+                <div class="space-y-6">
+                    <div class="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-7xl mb-4">🏀</div>
+                            <div class="text-3xl font-bold">JOHNSON #12</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">The Championship Shot</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            "Three seconds left. Down by one. The ball found me in the corner. Swish. State champions. My teammates designed these shirts for our whole team. Now we all wear that moment."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600">
+                                MJ
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Marcus Johnson</p>
+                                <p class="text-sm text-gray-600">Point Guard, State Champions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="space-y-6">
+                    <div class="aspect-video bg-gradient-to-br from-red-500 to-red-700 rounded-2xl flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-7xl mb-4">🏈</div>
+                            <div class="text-3xl font-bold">MARTINEZ #7</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Senior Night Celebration</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            "My parents ordered this for my senior night. Four years of 5 AM practices, countless games, and finally—a design that captures it all. I'll wear this long after graduation."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center font-bold text-red-600">
+                                AM
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Alex Martinez</p>
+                                <p class="text-sm text-gray-600">Quarterback, 4-Year Starter</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center">
+                <p class="text-xl text-gray-900 font-semibold mb-6">
+                    What's your story?
+                </p>
+                <a href="#start" class="inline-flex items-center px-8 py-4 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700 transition-all hover:shadow-lg">
+                    Start telling it today
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works - Interactive Story-Driven -->
+    <section id="how-it-works" class="py-24 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <div class="inline-block px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold mb-4">
+                    Simple 3-Step Process
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    From your phone to their pride
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Watch your athlete's best moments transform into premium printed shirts they'll wear with pride
+                </p>
+            </div>
+
+            <!-- Interactive Story Flow -->
+            <div class="space-y-32">
+                <!-- Step 1: The Moment -->
+                <div class="relative">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left: Visual -->
+                        <div class="order-2 lg:order-1">
+                            <div class="relative">
+                                <!-- Phone Mockup -->
+                                <div class="relative mx-auto max-w-sm">
+                                    <div class="bg-gray-900 rounded-[3rem] p-4 shadow-2xl">
+                                        <div class="bg-white rounded-[2.5rem] overflow-hidden">
+                                            <div class="aspect-[9/16] bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-8">
+                                                <div class="space-y-6 text-center">
+                                                    <div class="text-6xl">📱</div>
+                                                    <div class="space-y-3">
+                                                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                                                            <div class="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl mb-3 flex items-center justify-center text-white text-4xl">
+                                                                🏀
+                                                            </div>
+                                                            <div class="text-xs text-gray-600">Photo 1: Action Shot</div>
+                                                        </div>
+                                                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                                                            <div class="aspect-video bg-gradient-to-br from-green-500 to-green-700 rounded-xl mb-3 flex items-center justify-center text-white text-4xl">
+                                                                🏆
+                                                            </div>
+                                                            <div class="text-xs text-gray-600">Photo 2: Victory Pose</div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="w-full py-3 bg-primary-600 text-white rounded-xl font-bold text-sm">
+                                                        Upload Photos
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Floating Elements -->
+                                <div class="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-200">
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold text-primary-600">2</div>
+                                        <div class="text-xs text-gray-600">Photos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Story Content -->
+                        <div class="order-1 lg:order-2 space-y-6">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-full font-bold">
+                                <span class="flex items-center justify-center w-8 h-8 bg-white text-primary-600 rounded-full text-sm">1</span>
+                                <span>You Capture the Moment</span>
+                            </div>
+
+                            <h3 class="text-3xl sm:text-4xl font-bold text-gray-900">
+                                It starts with the photos you already have
+                            </h3>
+
+                            <div class="space-y-4 text-lg text-gray-600">
+                                <p>
+                                    <span class="font-semibold text-gray-900">You're already taking the photos.</span> That amazing diving catch. The championship celebration. The determined face during warm-ups.
+                                </p>
+                                <p>
+                                    Now imagine those moments on a premium shirt your athlete can wear to school, practice, or just hanging out with friends.
+                                </p>
+                            </div>
+
+                            <!-- What to Submit -->
+                            <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6 space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">✓</div>
+                                    <div>
+                                        <div class="font-semibold text-gray-900 mb-1">Action shots work best</div>
+                                        <div class="text-sm text-gray-600">Your athlete in the game, making a play, or celebrating</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">✓</div>
+                                    <div>
+                                        <div class="font-semibold text-gray-900 mb-1">2 photos per shirt</div>
+                                        <div class="text-sm text-gray-600">Mix and match different moments from the season</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">✓</div>
+                                    <div>
+                                        <div class="font-semibold text-gray-900 mb-1">Clear & well-lit photos</div>
+                                        <div class="text-sm text-gray-600">The better the photo, the better the print quality</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#start" class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:gap-4 transition-all">
+                                Upload your photos now
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Flow Arrow -->
+                    <div class="hidden lg:block absolute left-1/2 -bottom-16 transform -translate-x-1/2">
+                        <div class="flex flex-col items-center">
+                            <div class="w-1 h-12 bg-gradient-to-b from-primary-600 to-transparent"></div>
+                            <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: The Magic -->
+                <div class="relative">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left: Story Content -->
+                        <div class="space-y-6">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-full font-bold">
+                                <span class="flex items-center justify-center w-8 h-8 bg-white text-green-600 rounded-full text-sm">2</span>
+                                <span>We Print with Premium Quality</span>
+                            </div>
+
+                            <h3 class="text-3xl sm:text-4xl font-bold text-gray-900">
+                                Our million-dollar Polaris press works its magic
+                            </h3>
+
+                            <div class="space-y-4 text-lg text-gray-600">
+                                <p>
+                                    <span class="font-semibold text-gray-900">This isn't a cheap home printer.</span> We use professional-grade equipment that major brands trust for their premium products.
+                                </p>
+                                <p>
+                                    Your photos are printed on soft, comfortable Gildan 64000 cotton shirts with the highest quality imprints available.
+                                </p>
+                            </div>
+
+                            <!-- Quality Features -->
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+                                    <div class="text-4xl mb-3">🖨️</div>
+                                    <div class="font-bold text-gray-900 mb-2">Polaris Press</div>
+                                    <div class="text-sm text-gray-600">Million-dollar commercial printing equipment</div>
+                                </div>
+                                <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+                                    <div class="text-4xl mb-3">👕</div>
+                                    <div class="font-bold text-gray-900 mb-2">Gildan 64000</div>
+                                    <div class="text-sm text-gray-600">Premium soft cotton shirts</div>
+                                </div>
+                                <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+                                    <div class="text-4xl mb-3">✨</div>
+                                    <div class="font-bold text-gray-900 mb-2">Vibrant Colors</div>
+                                    <div class="text-sm text-gray-600">Colors that pop and last</div>
+                                </div>
+                                <div class="bg-white border-2 border-gray-200 rounded-xl p-6">
+                                    <div class="text-4xl mb-3">🛡️</div>
+                                    <div class="font-bold text-gray-900 mb-2">Durable Print</div>
+                                    <div class="text-sm text-gray-600">Won't fade or crack with washing</div>
+                                </div>
+                            </div>
+
+                            <!-- Comparison -->
+                            <div class="bg-green-50 border-2 border-green-200 rounded-2xl p-6">
+                                <div class="flex items-start gap-3 mb-3">
+                                    <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                    </svg>
+                                    <div>
+                                        <div class="font-bold text-gray-900 mb-1">Why Polaris Press matters</div>
+                                        <div class="text-sm text-gray-600">The same quality major sportswear brands use. Your athlete deserves professional-grade printing, not heat-transfer or cheap screen printing.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Visual -->
+                        <div class="relative">
+                            <!-- Printing Press Visualization -->
+                            <div class="bg-white rounded-2xl shadow-2xl p-8 border border-gray-200">
+                                <div class="space-y-6">
+                                    <!-- Before -->
+                                    <div>
+                                        <div class="text-sm font-semibold text-gray-500 mb-3">YOUR PHOTOS</div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div class="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-white text-4xl shadow-lg">
+                                                📸
+                                            </div>
+                                            <div class="aspect-video bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center text-white text-4xl shadow-lg">
+                                                📸
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Arrow -->
+                                    <div class="flex justify-center">
+                                        <div class="flex flex-col items-center gap-2">
+                                            <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                            </svg>
+                                            <div class="text-sm font-bold text-primary-600">POLARIS PRESS</div>
+                                            <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <!-- After -->
+                                    <div>
+                                        <div class="text-sm font-semibold text-gray-500 mb-3">PREMIUM PRINTED SHIRT</div>
+                                        <div class="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 flex items-center justify-center relative overflow-hidden shadow-2xl">
+                                            <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px);"></div>
+                                            <div class="relative text-center">
+                                                <div class="grid grid-cols-2 gap-3 mb-4">
+                                                    <div class="aspect-square bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-3xl">
+                                                        🏀
+                                                    </div>
+                                                    <div class="aspect-square bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-3xl">
+                                                        🏆
+                                                    </div>
+                                                </div>
+                                                <div class="text-white text-xl font-bold">YOUR ATHLETE</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quality Badge -->
+                            <div class="absolute -top-4 -right-4 bg-green-600 text-white rounded-2xl shadow-xl p-5">
+                                <div class="text-center">
+                                    <div class="text-2xl mb-1">⭐</div>
+                                    <div class="text-sm font-bold">Premium</div>
+                                    <div class="text-xs opacity-90">Quality</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flow Arrow -->
+                    <div class="hidden lg:block absolute left-1/2 -bottom-16 transform -translate-x-1/2">
+                        <div class="flex flex-col items-center">
+                            <div class="w-1 h-12 bg-gradient-to-b from-green-600 to-transparent"></div>
+                            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: The Pride -->
+                <div class="relative">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left: Visual -->
+                        <div class="order-2 lg:order-1">
+                            <div class="relative">
+                                <!-- Delivery Visualization -->
+                                <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 relative overflow-hidden">
+                                    <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,0.05) 20px, rgba(0,0,0,0.05) 40px);"></div>
+                                    
+                                    <div class="relative space-y-8">
+                                        <!-- Timeline -->
+                                        <div class="space-y-6">
+                                            <div class="flex items-center gap-4">
+                                                <div class="flex-shrink-0 w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
+                                                    Day 1
+                                                </div>
+                                                <div class="flex-1">
+                                                    <div class="bg-white rounded-xl p-4 shadow-lg">
+                                                        <div class="font-semibold text-gray-900">📤 Photos Submitted</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex items-center gap-4">
+                                                <div class="flex-shrink-0 w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold">
+                                                    Day 2
+                                                </div>
+                                                <div class="flex-1">
+                                                    <div class="bg-white rounded-xl p-4 shadow-lg">
+                                                        <div class="font-semibold text-gray-900">🖨️ Printing Complete</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex items-center gap-4">
+                                                <div class="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold">
+                                                    Day 3
+                                                </div>
+                                                <div class="flex-1">
+                                                    <div class="bg-white rounded-xl p-4 shadow-lg border-2 border-green-500">
+                                                        <div class="font-semibold text-gray-900">📦 Delivered!</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Happy Kid -->
+                                        <div class="bg-white rounded-2xl p-6 shadow-xl text-center">
+                                            <div class="text-6xl mb-4">😊</div>
+                                            <div class="font-bold text-gray-900 text-lg mb-2">Your athlete's reaction</div>
+                                            <div class="text-sm text-gray-600">"This is so cool! Can I wear it to school tomorrow?"</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Speed Badge -->
+                                <div class="absolute -top-4 -left-4 bg-primary-600 text-white rounded-2xl shadow-xl p-5">
+                                    <div class="text-center">
+                                        <div class="text-3xl font-bold">3</div>
+                                        <div class="text-xs">Days</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Story Content -->
+                        <div class="order-1 lg:order-2 space-y-6">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-full font-bold">
+                                <span class="flex items-center justify-center w-8 h-8 bg-white text-purple-600 rounded-full text-sm">3</span>
+                                <span>They Wear It with Pride</span>
+                            </div>
+
+                            <h3 class="text-3xl sm:text-4xl font-bold text-gray-900">
+                                Fast delivery. Instant smiles.
+                            </h3>
+
+                            <div class="space-y-4 text-lg text-gray-600">
+                                <p>
+                                    <span class="font-semibold text-gray-900">Just 3 days from submission to doorstep.</span> Fast enough that your athlete can wear it to the next game, practice, or team event.
+                                </p>
+                                <p>
+                                    Watch their face light up when they see themselves on a professional-quality shirt. They'll want to wear it everywhere.
+                                </p>
+                            </div>
+
+                            <!-- Where They'll Wear It -->
+                            <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 space-y-4">
+                                <div class="font-bold text-gray-900 mb-3">Where your athlete will wear it:</div>
+                                <div class="grid sm:grid-cols-2 gap-3">
+                                    <div class="flex items-center gap-2 text-gray-700">
+                                        <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        <span>To school</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-gray-700">
+                                        <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        <span>At practice</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-gray-700">
+                                        <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        <span>Game days</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-gray-700">
+                                        <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        <span>With friends</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-gray-700">
+                                        <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        <span>Team events</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-gray-700">
+                                        <div class="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        <span>Everywhere!</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Real Parent Quote -->
+                            <div class="bg-white border-2 border-gray-200 rounded-2xl p-6">
+                                <div class="flex gap-4">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600 text-xl">
+                                            JT
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-900 font-medium italic mb-2">
+                                            "My daughter hasn't taken it off since it arrived. She even sleeps in it! Best $30 I've spent."
+                                        </p>
+                                        <p class="text-sm text-gray-600">— Jennifer T., Soccer Mom</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final CTA -->
+            <div class="mt-24 text-center bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-12 text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px);"></div>
+                
+                <div class="relative space-y-6">
+                    <h3 class="text-3xl sm:text-4xl font-bold">
+                        Ready to create your athlete's custom shirt?
+                    </h3>
+                    <p class="text-xl text-primary-100 max-w-2xl mx-auto">
+                        It takes less than 2 minutes to submit your photos. Your athlete will love it.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                        <a href="#start" class="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-primary-600 rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all hover:shadow-2xl">
+                            <span>Submit 2 Photos Now</span>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="flex items-center justify-center gap-6 pt-4 text-sm text-primary-100">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>3-day delivery</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Premium quality</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                            </svg>
+                            <span>Money-back guarantee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold mb-4">
+                    Why GameDay Tees
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    Why parents choose us
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    We're not just another t-shirt company. Here's what sets us apart.
+                </p>
+            </div>
+
+            <!-- Comparison Grid -->
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <!-- Feature 1 -->
+                <div class="bg-gradient-to-br from-primary-50 to-white rounded-2xl p-8 border-2 border-primary-200">
+                    <div class="w-16 h-16 bg-primary-600 rounded-2xl flex items-center justify-center mb-6 text-white text-3xl">
+                        🏆
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Professional-Grade Equipment</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Our million-dollar Polaris press is the same quality major sportswear brands use. Not a cheap heat press or screen printer.
+                    </p>
+                    <div class="bg-white rounded-xl p-4 border border-primary-200">
+                        <div class="text-sm font-semibold text-gray-900 mb-2">What this means for you:</div>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Vibrant, long-lasting colors</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Won't crack or peel</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Sharp, clear photo quality</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border-2 border-green-200">
+                    <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6 text-white text-3xl">
+                        ⚡
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Lightning-Fast Turnaround</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        3-day delivery means your athlete can wear their custom shirt to the next game. Most competitors take 7-14 days.
+                    </p>
+                    <div class="bg-white rounded-xl p-4 border border-green-200">
+                        <div class="text-sm font-semibold text-gray-900 mb-2">Speed comparison:</div>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-900 font-semibold">GameDay Tees</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full font-bold">3 days</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-600">Other companies</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full">7-14 days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 border-2 border-purple-200">
+                    <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6 text-white text-3xl">
+                        💯
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Youth Sports Specialists</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        We focus exclusively on youth sports (ages 6-18). We understand what kids love and what parents need.
+                    </p>
+                    <div class="bg-white rounded-xl p-4 border border-purple-200">
+                        <div class="text-sm font-semibold text-gray-900 mb-2">Perfect for:</div>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Season highlights</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Championship memories</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Birthday gifts</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="bg-gray-900 rounded-2xl p-12 text-white">
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-4xl font-bold mb-2">100K+</div>
+                        <div class="text-gray-400">Schools Served</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">3 Days</div>
+                        <div class="text-gray-400">Average Delivery</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">4.9★</div>
+                        <div class="text-gray-400">Parent Rating</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">$1M+</div>
+                        <div class="text-gray-400">Polaris Press Value</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Printing Process Deep Dive -->
+    <section class="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold mb-4">
+                    Our Process
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    The Polaris press difference
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    See why professional-grade printing matters for your athlete's memories
+                </p>
+            </div>
+
+            <!-- Process Visualization -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-bold text-gray-900">What makes Polaris press special?</h3>
+                    <p class="text-lg text-gray-600">
+                        Our million-dollar Polaris press uses advanced direct-to-garment (DTG) technology that major sportswear brands rely on for premium products.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">High-Resolution Printing</h4>
+                                <p class="text-gray-600">Captures every detail of your photos with professional clarity</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">True-to-Life Colors</h4>
+                                <p class="text-gray-600">Advanced ink technology reproduces colors exactly as they appear</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">Wash-Durable Prints</h4>
+                                <p class="text-gray-600">Maintains quality through 50+ washes without fading or cracking</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">Fast Production</h4>
+                                <p class="text-gray-600">Quick printing without sacrificing quality—ready in hours, not days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Comparison -->
+                <div class="bg-white rounded-2xl shadow-2xl p-8 border border-gray-200">
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="font-bold text-gray-900">Polaris Press (Us)</h4>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-bold">Professional</span>
+                            </div>
+                            <div class="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center text-white relative overflow-hidden">
+                                <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px);"></div>
+                                <div class="relative text-center">
+                                    <div class="text-6xl mb-2">✨</div>
+                                    <div class="text-2xl font-bold">Sharp & Vibrant</div>
+                                    <div class="text-sm opacity-90">Professional Quality</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-8 border-t-2 border-gray-200">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="font-bold text-gray-900">Heat Press / Iron-On</h4>
+                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-bold">Amateur</span>
+                            </div>
+                            <div class="aspect-video bg-gradient-to-br from-gray-400 to-gray-600 rounded-xl flex items-center justify-center text-white relative overflow-hidden">
+                                <div class="relative text-center opacity-60">
+                                    <div class="text-6xl mb-2">😞</div>
+                                    <div class="text-2xl font-bold">Faded & Cracked</div>
+                                    <div class="text-sm opacity-90">Poor Quality</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material Quality -->
+            <div class="bg-white rounded-2xl p-12 border-2 border-gray-200">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Premium Gildan 64000 Cotton</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-xs font-bold">✓</div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">100% Ring-Spun Cotton</div>
+                                    <div class="text-sm text-gray-600">Soft, breathable, and comfortable all day</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-xs font-bold">✓</div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Pre-Shrunk Fabric</div>
+                                    <div class="text-sm text-gray-600">Maintains size and shape after washing</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-xs font-bold">✓</div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Athletic Fit</div>
+                                    <div class="text-sm text-gray-600">Perfect for active kids ages 6-18</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-xs font-bold">✓</div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Tagless Design</div>
+                                    <div class="text-sm text-gray-600">No itchy tags to bother your athlete</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Available Options</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-gray-200">
+                                <div class="text-5xl mb-3">👕</div>
+                                <div class="font-bold text-gray-900 mb-1">Short Sleeve</div>
+                                <div class="text-sm text-gray-600">Classic t-shirt style</div>
+                            </div>
+                            <div class="bg-gray-50 rounded-xl p-6 text-center border-2 border-gray-200">
+                                <div class="text-5xl mb-3">👕</div>
+                                <div class="font-bold text-gray-900 mb-1">Long Sleeve</div>
+                                <div class="text-sm text-gray-600">Perfect for cooler weather</div>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                            <div class="text-sm font-semibold text-gray-900 mb-2">All sizes available:</div>
+                            <div class="text-sm text-gray-600">Youth XS, S, M, L, XL (Ages 6-18)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Testimonials -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold mb-4">
+                    Parent Reviews
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    See what parents are saying
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Real feedback from real parents of young athletes
+                </p>
+            </div>
+
+            <!-- Featured Testimonial -->
+            <div class="bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-12 text-white mb-12 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px);"></div>
+                <div class="relative max-w-4xl mx-auto">
+                    <div class="flex gap-2 mb-6 justify-center">
+                        <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                    <blockquote class="text-2xl sm:text-3xl font-medium text-center mb-8 italic leading-relaxed">
+                        "My son literally wore his shirt for 3 days straight. I had to sneak it out of his room at night to wash it. The quality is incredible—way better than any team shirt we've ever ordered."
+                    </blockquote>
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center font-bold text-2xl">
+                            JT
+                        </div>
+                        <div class="text-left">
+                            <div class="font-bold text-lg">Jennifer Thompson</div>
+                            <div class="text-primary-100">Soccer Mom, 3 kids in travel leagues</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover-lift">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "The quality blew me away. This isn't some cheap iron-on transfer. The photos look professional and the shirt is SO soft. My daughter wears it every chance she gets!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 font-bold text-lg">
+                            SM
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Sarah M.</p>
+                            <p class="text-sm text-gray-500">Basketball Mom</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover-lift">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "3 days? I couldn't believe it. Ordered on Monday, arrived Thursday. Perfect timing for his game on Saturday. He's the coolest kid on the team now!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 font-bold text-lg">
+                            DK
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">David K.</p>
+                            <p class="text-sm text-gray-500">Baseball Dad</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover-lift">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Ordered 15 shirts for the whole team. Every parent loved them. Way better than the generic team shirts we usually get. Will definitely order again next season!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-bold text-lg">
+                            CR
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Coach Reynolds</p>
+                            <p class="text-sm text-gray-500">Soccer Coach</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover-lift">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Best birthday gift ever. My son was speechless when he saw his championship photos on a shirt. He literally slept in it that night. Worth every penny!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-lg">
+                            LW
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Lisa W.</p>
+                            <p class="text-sm text-gray-500">Football Mom</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover-lift">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "The colors are so vibrant! I was worried the photos wouldn't print well but they look amazing. Even after 10 washes, still perfect. Highly recommend!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-700 font-bold text-lg">
+                            MR
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Maria R.</p>
+                            <p class="text-sm text-gray-500">Volleyball Mom</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover-lift">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "As a team mom who's ordered a LOT of custom apparel, this is hands down the best quality I've seen. Fast, affordable, and professional. A+ service!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-700 font-bold text-lg">
+                            AB
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Amy B.</p>
+                            <p class="text-sm text-gray-500">Team Mom Coordinator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Stats -->
+            <div class="mt-16 text-center">
+                <div class="inline-flex items-center gap-8 px-8 py-6 bg-gray-50 rounded-2xl border border-gray-200">
+                    <div>
+                        <div class="text-3xl font-bold text-gray-900 mb-1">4.9 ★</div>
+                        <div class="text-sm text-gray-600">Average rating</div>
+                    </div>
+                    <div class="w-px h-12 bg-gray-300"></div>
+                    <div>
+                        <div class="text-3xl font-bold text-gray-900 mb-1">2,340+</div>
+                        <div class="text-sm text-gray-600">Happy parents</div>
+                    </div>
+                    <div class="w-px h-12 bg-gray-300"></div>
+                    <div>
+                        <div class="text-3xl font-bold text-gray-900 mb-1">98%</div>
+                        <div class="text-sm text-gray-600">Would recommend</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold mb-4">
+                    FAQ
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    Common questions
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Everything you need to know about ordering
+                </p>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="space-y-4">
+                <!-- Question 1 -->
+                <div class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-gray-900 text-lg">How does the 2-photo submission work?</span>
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            Simply upload 2 sports photos of your athlete. We print both photos on the shirt—usually one on the front and one on the back (or you can specify placement). The photos should be clear, well-lit action shots from games or practice. We'll email you within 24 hours to confirm the design layout.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-gray-900 text-lg">What if I don't like how it turns out?</span>
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            We offer a 100% satisfaction guarantee. If you're not happy with the quality or how the photos printed, we'll remake it for free or give you a full refund. We're that confident in our Polaris press quality. However, in 3+ years, we've had less than 1% returns—parents and kids love them!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-gray-900 text-lg">How long does shipping really take?</span>
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            3 days is our average, but here's the breakdown:
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="font-semibold text-gray-900">Day 1:</span> You submit photos
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="font-semibold text-gray-900">Day 2:</span> We print and ship
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="font-semibold text-gray-900">Day 3:</span> Arrives at your door (within continental US)
+                            </li>
+                        </ul>
+                        <p class="text-gray-600 mt-4">
+                            Rush shipping available if you need it even faster!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-gray-900 text-lg">What photo quality do you need?</span>
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Most modern smartphone photos work great! Here's what we recommend:
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Clear and in focus (not blurry)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Well-lit (not too dark or grainy)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>High resolution (not pixelated or heavily zoomed)</span>
+                            </li>
+                        </ul>
+                        <p class="text-gray-600 mt-4">
+                            If you're unsure, submit them anyway! We'll let you know within 24 hours if we need different photos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-gray-900 text-lg">What sizes are available?</span>
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            We offer youth sizes XS through XL (ages 6-18). Both short sleeve and long sleeve options available in all sizes.
+                        </p>
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                            <p class="text-sm font-semibold text-gray-900 mb-2">Size guide:</p>
+                            <ul class="space-y-1 text-sm text-gray-600">
+                                <li>• Youth XS: Ages 6-7</li>
+                                <li>• Youth S: Ages 8-10</li>
+                                <li>• Youth M: Ages 10-12</li>
+                                <li>• Youth L: Ages 12-14</li>
+                                <li>• Youth XL: Ages 14-18</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-gray-900 text-lg">How do I care for the shirt?</span>
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Our Polaris press prints are incredibly durable, but here's how to keep them looking fresh:
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Machine wash cold inside-out</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Tumble dry low or hang dry</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                </svg>
+                                <span>Don't iron directly on the print</span>
+                            </li>
+                        </ul>
+                        <p class="text-gray-600 mt-4">
+                            That's it! The print will last 50+ washes without fading or cracking.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-gray-900 text-lg">Can I order bulk for a whole team?</span>
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            Absolutely! We love team orders. For orders of 10+ shirts, contact us at <a href="mailto:info@precisionsgraphics.com" class="text-primary-600 hover:underline font-semibold">info@precisionsgraphics.com</a> for team pricing. We can coordinate individual photos for each player or create a unified team design. Many coaches use us for end-of-season gifts, senior night, or championship celebrations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="font-bold text-gray-900 text-lg">What makes your printing better than others?</span>
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Our million-dollar Polaris press is commercial-grade equipment that most t-shirt companies don't have access to. Here's the difference:
+                        </p>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+                                <div class="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                    </svg>
+                                    Our Polaris Press
+                                </div>
+                                <ul class="space-y-1 text-sm text-gray-600">
+                                    <li>• Professional DTG technology</li>
+                                    <li>• True-to-life colors</li>
+                                    <li>• Won't crack or peel</li>
+                                    <li>• Lasts 50+ washes</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                                <div class="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/>
+                                    </svg>
+                                    Heat Press/Iron-On
+                                </div>
+                                <ul class="space-y-1 text-sm text-gray-600">
+                                    <li>• Budget equipment</li>
+                                    <li>• Faded colors</li>
+                                    <li>• Cracks and peels</li>
+                                    <li>• Fades after 5-10 washes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Still Have Questions -->
+            <div class="mt-16 text-center bg-primary-50 rounded-2xl p-12 border-2 border-primary-200">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Still have questions?</h3>
+                <p class="text-gray-600 mb-6">We're here to help! Reach out and we'll get back to you within 24 hours.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:info@precisionsgraphics.com" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700 transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        Email Us
+                    </a>
+                    <a href="tel:7654494861" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-primary-600 text-primary-600 rounded-xl font-semibold hover:bg-primary-50 transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        Call Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold mb-4">
+                    Got Questions?
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Everything you need to know about ordering custom sports shirts
+                </p>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-lg font-bold text-gray-900">How many photos do I need to submit?</span>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            You need to submit <span class="font-semibold text-gray-900">exactly 2 sports photos</span> of your athlete. These can be action shots, posed photos, or a mix of both. Clear, well-lit photos work best for printing quality. Each shirt design uses 2 photos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-lg font-bold text-gray-900">What ages do your shirts fit?</span>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            Our shirts are perfect for <span class="font-semibold text-gray-900">youth athletes ages 6-18</span>. We use Gildan 64000 shirts which come in youth and adult sizes. When ordering, you can select the size that best fits your athlete. We recommend measuring your athlete and comparing to the Gildan size chart for the perfect fit.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-lg font-bold text-gray-900">How long does delivery really take?</span>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed mb-3">
+                            <span class="font-semibold text-gray-900">Our typical turnaround is 3 days</span> from when you submit your photos to when the shirt arrives at your door. Here's the breakdown:
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span class="text-primary-600 font-bold">Day 1:</span>
+                                <span>Photos submitted and processed</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-primary-600 font-bold">Day 2:</span>
+                                <span>Printed on our Polaris press and shipped</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-primary-600 font-bold">Day 3:</span>
+                                <span>Delivered to your door</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-lg font-bold text-gray-900">What's a Polaris press and why does it matter?</span>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed mb-3">
+                            A Polaris press is <span class="font-semibold text-gray-900">commercial-grade printing equipment</span> that costs over a million dollars. It's the same quality equipment that major sportswear brands use. Here's why it matters:
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <span><span class="font-semibold">Vibrant, true-to-life colors</span> that match your original photos</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <span><span class="font-semibold">Durable prints</span> that won't fade, crack, or peel after washing</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                </svg>
+                                <span><span class="font-semibold">Professional finish</span> that looks and feels like major brand apparel</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-lg font-bold text-gray-900">Can I order shirts for a whole team?</span>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            <span class="font-semibold text-gray-900">Absolutely!</span> We work with many teams, coaches, and sports organizations. For team orders of 10+ shirts, please contact us directly at <a href="mailto:info@precisionsgraphics.com" class="text-primary-600 font-semibold hover:underline">info@precisionsgraphics.com</a> or call <a href="tel:7654494861" class="text-primary-600 font-semibold hover:underline">765.449.4861</a> for special team pricing and coordination.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-lg font-bold text-gray-900">What if I'm not happy with the shirt?</span>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            We stand behind our quality with a <span class="font-semibold text-gray-900">100% satisfaction guarantee</span>. If there's an issue with printing quality or the shirt itself, contact us within 7 days of receiving your order and we'll make it right—either with a reprint or full refund. Your satisfaction is our priority.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-lg font-bold text-gray-900">How do I care for the printed shirt?</span>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed mb-3">
+                            Our Polaris press prints are incredibly durable, but here are some tips to keep your shirt looking its best:
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <span>•</span>
+                                <span>Machine wash cold or warm (not hot)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span>•</span>
+                                <span>Turn inside out before washing</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span>•</span>
+                                <span>Tumble dry on low or hang dry</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span>•</span>
+                                <span>Don't iron directly on the print</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="bg-gray-50 rounded-2xl border-2 border-gray-200 overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-lg font-bold text-gray-900">What photo formats do you accept?</span>
+                        <svg class="w-6 h-6 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="px-8 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            We accept all common photo formats including <span class="font-semibold text-gray-900">JPG, JPEG, PNG, and HEIC</span> (iPhone photos). Photos taken with modern smartphones work perfectly. The higher the resolution, the better the print quality, but even standard phone photos produce excellent results on our Polaris press.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Still Have Questions CTA -->
+            <div class="mt-16 text-center bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-12 border-2 border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Still have questions?</h3>
+                <p class="text-gray-600 mb-6">
+                    Our team is here to help! Reach out and we'll get back to you quickly.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:info@precisionsgraphics.com" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700 transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        Email Us
+                    </a>
+                    <a href="tel:7654494861" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:border-gray-400 transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        Call Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold mb-4">
+                    Why GameDay Tees
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    What makes us different
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    We're not just another t-shirt printer. Here's why parents and athletes choose us.
+                </p>
+            </div>
+
+            <!-- Benefits Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Million-Dollar Equipment</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Our Polaris press is the same commercial-grade equipment major brands use. Not a cheap heat press or basic screen printer—professional quality that shows.
+                    </p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Lightning Fast Turnaround</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        3-day delivery from submission to doorstep. Fast enough that your athlete can wear it to the next game. No weeks-long waits like other services.
+                    </p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Simple Process</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Just 2 photos. That's it. No complicated design tools, no confusing options. Submit your photos and we handle everything else professionally.
+                    </p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Premium Gildan Cotton</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Soft, comfortable Gildan 64000 shirts that athletes actually want to wear. Not stiff, scratchy, or cheap feeling—quality they'll reach for every day.
+                    </p>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Fair, Transparent Pricing</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        No hidden fees, no surprise charges. What you see is what you pay. Quality printing shouldn't cost a fortune, and it doesn't with us.
+                    </p>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary-600 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Made for Youth Sports</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We understand youth sports. We know these moments matter. We're parents too, and we treat every order like it's for our own kids.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold mb-4">
+                    Customer Reviews
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                    What parents are saying
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Real feedback from real families who've ordered GameDay Tees
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Testimonial 1 -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-200">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 leading-relaxed mb-6 font-medium italic">
+                        "My son hasn't taken his shirt off since it arrived! The quality is incredible—way better than the team shirts we usually order. He literally sleeps in it."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-blue-300">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            JT
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Jennifer T.</p>
+                            <p class="text-sm text-gray-600">Soccer Mom, California</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border-2 border-green-200">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 leading-relaxed mb-6 font-medium italic">
+                        "Ordered shirts for my daughter's entire basketball team. Process was smooth, quality was amazing, and they arrived exactly when promised. Will definitely order again!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-green-300">
+                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            MR
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Coach Reynolds</p>
+                            <p class="text-sm text-gray-600">Basketball Coach, Texas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-2 border-purple-200">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 leading-relaxed mb-6 font-medium italic">
+                        "The printing quality is unreal. You can see every detail from the photos. My son wears it to school every chance he gets. Worth every penny!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-purple-300">
+                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            DM
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">David M.</p>
+                            <p class="text-sm text-gray-600">Football Dad, Florida</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border-2 border-orange-200">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 leading-relaxed mb-6 font-medium italic">
+                        "Fast, affordable, and amazing quality. The shirt looks professional—like something you'd buy at a sporting goods store. My daughter loves showing it off!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-orange-300">
+                        <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            LA
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Lisa A.</p>
+                            <p class="text-sm text-gray-600">Volleyball Mom, Ohio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 border-2 border-red-200">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 leading-relaxed mb-6 font-medium italic">
+                        "Perfect for senior night! The 3-day turnaround was clutch. Quality exceeded expectations. Our son will treasure this shirt forever."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-red-300">
+                        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            TW
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Tom W.</p>
+                            <p class="text-sm text-gray-600">Baseball Dad, Georgia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-8 border-2 border-pink-200">
+                    <div class="flex gap-1 text-yellow-500 text-xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 leading-relaxed mb-6 font-medium italic">
+                        "As a parent of three athletes, I've ordered from everyone. GameDay Tees has the best quality-to-price ratio, hands down. New favorite!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-pink-300">
+                        <div class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            SM
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Sarah M.</p>
+                            <p class="text-sm text-gray-600">Multi-Sport Mom, Illinois</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rating Summary -->
+            <div class="bg-gray-50 rounded-2xl p-12 border-2 border-gray-200 text-center">
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="text-6xl font-bold text-gray-900">4.9</div>
+                        <div class="text-left">
+                            <div class="flex gap-1 text-yellow-500 text-2xl">⭐⭐⭐⭐⭐</div>
+                            <div class="text-sm text-gray-600 mt-1">Based on 500+ reviews</div>
+                        </div>
+                    </div>
+                    <p class="text-xl text-gray-600">
+                        Join hundreds of satisfied parents and athletes
+                    </p>
+                    <a href="#start" class="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700 transition-all hover:shadow-lg">
+                        Order your custom shirt
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="products" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Browse our catalog</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Premium quality products for every sport and occasion
+                </p>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover-lift">
+                    <div class="aspect-square bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-5xl mb-2">🏀</div>
+                            <div class="text-xl font-bold">Basketball</div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-gray-900 mb-1">Basketball Designs</h3>
+                        <p class="text-sm text-gray-600">Custom character tees</p>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover-lift">
+                    <div class="aspect-square bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-5xl mb-2">🏈</div>
+                            <div class="text-xl font-bold">Football</div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-gray-900 mb-1">Football Designs</h3>
+                        <p class="text-sm text-gray-600">Custom character tees</p>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover-lift">
+                    <div class="aspect-square bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-5xl mb-2">⚾</div>
+                            <div class="text-xl font-bold">Baseball</div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-gray-900 mb-1">Baseball Designs</h3>
+                        <p class="text-sm text-gray-600">Custom character tees</p>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover-lift">
+                    <div class="aspect-square bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-5xl mb-2">⚽</div>
+                            <div class="text-xl font-bold">Soccer</div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-gray-900 mb-1">Soccer Designs</h3>
+                        <p class="text-sm text-gray-600">Custom character tees</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All -->
+            <div class="text-center mt-12">
+                <a href="#catalog" class="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center gap-2">
+                    View all products
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200">
+                    <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Premium Polaris Press</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Million-dollar Polaris press delivers the highest quality imprints available. Same quality major brands use.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200">
+                    <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">3-day turnaround</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Fast printing and shipping. Your athlete can wear their custom shirt to the next game or practice.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200">
+                    <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Premium Gildan cotton</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Soft, comfortable Gildan 64000 shirts. Perfect for young athletes ages 6-18. Short and long sleeve options.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-primary-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Ready to create your custom design?
+            </h2>
+            <p class="text-xl text-primary-100 mb-10">
+                Join thousands of athletes who've transformed their moments into memorable apparel
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#start" class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 rounded-xl font-semibold hover:bg-gray-50 transition-all hover:shadow-lg">
+                    Get started for free
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-primary-600 transition-all">
+                    Contact sales
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                        <span class="text-lg font-bold text-white">GameDay Tees</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Professional custom sports apparel designed by experts.
+                    </p>
+                </div>
+
+                <!-- Product -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">How it works</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Products</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Examples</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">Help center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Design guide</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm">&copy; 2025 GameDay Tees. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

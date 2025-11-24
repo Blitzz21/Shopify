@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Custom Print Shop - Design and order your custom printed products">
+    <title>Custom Print Shop | Design Your Products</title>
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <style>
+        /* Custom Color Palette */
+        :root {
+            --navy-dark: #0C2B4E;
+            --navy-medium: #1A3D64;
+            --navy-light: #1D546C;
+            --light-gray: #F4F4F4;
+            --white: #FFFFFF;
+        }
+        
+        /* Apply Poppins font */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-gray);
+        }
+        
+        /* Custom utility classes */
+        .bg-navy-dark { background-color: var(--navy-dark); }
+        .bg-navy-medium { background-color: var(--navy-medium); }
+        .bg-navy-light { background-color: var(--navy-light); }
+        .bg-light-gray { background-color: var(--light-gray); }
+        
+        .text-navy-dark { color: var(--navy-dark); }
+        .text-navy-medium { color: var(--navy-medium); }
+        .text-navy-light { color: var(--navy-light); }
+        
+        .border-navy-dark { border-color: var(--navy-dark); }
+        .border-navy-medium { border-color: var(--navy-medium); }
+        .border-navy-light { border-color: var(--navy-light); }
+        
+        /* Custom button styles */
+        .btn-primary {
+            background-color: var(--navy-medium);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--navy-dark);
+        }
+        
+        /* Gradient backgrounds */
+        .gradient-navy {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50" style="font-family: 'Poppins', sans-serif;">
+    <!-- Header --> 
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100 backdrop-blur-lg bg-opacity-90">
+        <nav class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="block">
+                        <img src="img/gdt-top-logo.svg" alt="Custom Print Shop" 
+                            class="h-10 w-auto transition-transform hover:scale-105"
+                            width="150" height="70"
+                            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjcwIiB2aWV3Qm94PSIwIDAgMTUwIDcwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iNzAiIGZpbGw9IiMzQjgyRjYiLz48dGV4dCB4PSIyNSIgeT0iNDAiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iUG9wcGlucyIgZm9udC13ZWlnaHQ9IjYwMCIgZm9udC1zaXplPSIxNiI+Q3VzdG9tIFByaW50PC90ZXh0Pjwvc3ZnPg=='">
+                    </a>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="items-center hidden space-x-1 md:flex">
+                    <a href="#products" class="px-4 py-2 text-sm font-medium text-gray-700 transition rounded-lg hover:bg-blue-50 hover:text-blue-600">Products</a>
+                    <a href="#how-it-works" class="px-4 py-2 text-sm font-medium text-gray-700 transition rounded-lg hover:bg-blue-50 hover:text-blue-600">How It Works</a>
+                    <a href="#gallery" class="px-4 py-2 text-sm font-medium text-gray-700 transition rounded-lg hover:bg-blue-50 hover:text-blue-600">Gallery</a>
+                </div>
+                
+                <!-- Right Actions -->
+                <div class="flex items-center space-x-2">
+                    <!-- Search Icon -->
+                    <button class="hidden p-2 text-gray-600 transition rounded-lg hover:bg-blue-50 hover:text-blue-600 md:block">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Wishlist Icon -->
+                    <button class="hidden p-2 text-gray-600 transition rounded-lg hover:bg-blue-50 hover:text-blue-600 md:block">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Cart Button -->
+                    <button onclick="app.openCart()" class="relative p-2 text-gray-600 transition rounded-lg hover:bg-blue-50 hover:text-blue-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                        </svg>
+                        <span id="cart-count" class="absolute flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-blue-600 rounded-full -top-1 -right-1">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 text-white bg-navy-light">
+        <div class="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+            <h2 class="mb-4 text-4xl font-bold md:text-5xl" style="font-weight: 700;">Design Your Perfect Product</h2>
+            <p class="mb-8 text-xl text-blue-100 md:text-2xl" style="font-weight: 400;">Pick your template and we'll print it on premium quality products</p>
+            <button onclick="document.getElementById('product-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-3 text-lg font-semibold text-navy-dark transition bg-white rounded-lg hover:bg-gray-100" style="font-weight: 600;">
+                Pick a template
+            </button>
+        </div>
+    </section>
+
+    <!-- Template Gallery Section -->
+    <section id="product-section" class="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+            <h2 class="mb-4 text-3xl font-bold text-gray-900" style="font-weight: 700;">
+                Choose Your T-Shirt Template
+            </h2>
+            <p class="text-lg text-gray-600" style="font-weight: 400;">
+                Select a design template to start customizing your premium T-shirt
+            </p>
+        </div>
+        
+        <!-- Template Grid -->
+        <div id="product-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <!-- Loading State -->
+            <div class="flex flex-col items-center justify-center py-16 col-span-full">
+                <div class="w-16 h-16 mb-4 border-b-4 border-blue-600 rounded-full animate-spin"></div>
+                <p class="text-lg text-gray-600" style="font-weight: 400;">Loading templates...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <h2 class="mb-12 text-3xl font-bold text-center text-gray-900" style="font-weight: 700;">Why Choose Us?</h2>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <div class="text-center">
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="mb-2 text-xl font-semibold" style="font-weight: 600;">Premium Quality</h3>
+                    <p class="text-gray-600" style="font-weight: 400;">High-resolution printing on premium materials</p>
+                </div>
+                <div class="text-center">
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="mb-2 text-xl font-semibold" style="font-weight: 600;">Fast Shipping</h3>
+                    <p class="text-gray-600" style="font-weight: 400;">Quick turnaround and reliable delivery</p>
+                </div>
+                <div class="text-center">
+                    <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="mb-2 text-xl font-semibold" style="font-weight: 600;">Satisfaction Guaranteed</h3>
+                    <p class="text-gray-600" style="font-weight: 400;">We stand behind our work with a 100% guarantee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto transition-transform duration-300 transform translate-x-full bg-white shadow-2xl sm:w-96">
+        <div class="p-6">
+            <!-- Cart Header -->
+            <div class="flex items-center justify-between pb-4 mb-6 border-b">
+                <h3 class="text-2xl font-bold text-gray-900" style="font-weight: 700;">Your Cart</h3>
+                <button onclick="app.closeCart()" class="text-gray-400 transition hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Cart Items -->
+            <div id="cart-items" class="mb-6 space-y-4">
+                <div class="py-8 text-center text-gray-500">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                    <p style="font-weight: 400;">Your cart is empty</p>
+                </div>
+            </div>
+            
+            <!-- Cart Footer -->
+            <div class="pt-4 border-t">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-lg font-semibold" style="font-weight: 600;">Total:</span>
+                    <span id="cart-total" class="text-2xl font-bold text-blue-600" style="font-weight: 700;">$0.00</span>
+                </div>
+                <button id="checkout-button" onclick="app.checkout()" class="w-full px-6 py-4 text-lg font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed" disabled style="font-weight: 600;">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 z-40 hidden bg-black bg-opacity-50" onclick="app.closeCart()"></div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black bg-opacity-50">
+        <div class="min-h-screen px-4 py-8">
+            <div class="max-w-6xl mx-auto my-8 bg-white rounded-lg shadow-2xl">
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between p-6 border-b">
+                    <h2 id="modal-product-name" class="text-2xl font-bold text-gray-900" style="font-weight: 700;">Product Details</h2>
+                    <button onclick="app.closeProductModal()" class="text-gray-400 transition hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Modal Content -->
+                <div class="p-6">
+                    <div class="grid grid-cols-1 gap-8 lg:grid-cols-5">
+                        <!-- Left Column: Preview Display (60% width) -->
+                        <div class="lg:col-span-3">
+                            <!-- Preview Placeholder -->
+                            <div id="preview-placeholder" class="flex flex-col items-center justify-center min-h-[700px] p-8 text-center bg-gray-50 rounded-lg border-2 border-gray-200">
+                                <svg class="w-20 h-20 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <p class="mb-2 text-lg font-semibold text-gray-600" style="font-weight: 600;">Template Preview</p>
+                                <p class="text-sm text-gray-500" style="font-weight: 400;">Choose a template to see how it looks on the T-shirt</p>
+                            </div>
+
+                            <!-- Preview Display with Toggle -->
+                            <div id="template-previews" class="hidden">
+                                <div class="bg-white rounded-lg border-2 border-gray-200 overflow-hidden">
+                                    <!-- Preview Header with Toggle Button -->
+                                    <div class="p-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                                        <h4 id="preview-title" class="text-sm font-semibold text-gray-700" style="font-weight: 600;">Template Design</h4>
+                                        <button id="preview-toggle-btn" onclick="app.togglePreview()" 
+                                            class="px-4 py-2 text-sm font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" 
+                                            style="font-weight: 600;">
+                                            <div class="flex items-center space-x-2">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                                </svg>
+                                                <span id="toggle-btn-text">Preview Mock-up</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Template Artwork Preview -->
+                                    <div id="template-design-preview" class="p-8">
+                                        <div class="flex items-center justify-center min-h-[550px] bg-white rounded-lg">
+                                            <img id="template-art-img" class="object-contain max-w-full max-h-[550px] mx-auto" alt="Template Artwork">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Mock-up Preview (Hidden by default) -->
+                                    <div id="mockup-preview" class="hidden p-8">
+                                        <div class="flex items-center justify-center min-h-[550px] bg-white rounded-lg">
+                                            <img id="design-preview-img" class="object-contain max-w-full max-h-[550px] mx-auto" alt="Template on T-Shirt">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Product Info & Actions (40% width) -->
+                        <div class="lg:col-span-2">
+                            <div class="mb-6">
+                                <h3 id="modal-product-title" class="mb-2 text-3xl font-bold text-gray-900" style="font-weight: 700;"></h3>
+                                <p id="modal-product-description" class="mb-4 text-gray-600" style="font-weight: 400;"></p>
+                                
+                                <!-- Product Details -->
+                                <div class="p-4 mb-6 rounded-lg bg-gray-50">
+                                    <h4 class="mb-3 font-semibold text-gray-900" style="font-weight: 600;">Product Specifications</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600" style="font-weight: 400;">Print Area:</span>
+                                            <span id="print-area-size" class="font-semibold text-gray-900" style="font-weight: 600;"></span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600" style="font-weight: 400;">Min DPI:</span>
+                                            <span id="min-dpi" class="font-semibold text-gray-900" style="font-weight: 600;"></span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600" style="font-weight: 400;">Max File Size:</span>
+                                            <span id="max-file-size" class="font-semibold text-gray-900" style="font-weight: 600;"></span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600" style="font-weight: 400;">Allowed Formats:</span>
+                                            <span class="font-semibold text-gray-900" style="font-weight: 600;">PNG (with transparency)</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- T-Shirt Quality Options -->
+                                <div class="p-4 mb-6 rounded-lg bg-white border border-gray-200">
+                                    <h4 class="mb-3 font-semibold text-gray-900" style="font-weight: 600;">T-Shirt Quality</h4>
+                                    <div class="space-y-3 text-sm">
+                                        <label class="flex items-start justify-between cursor-pointer">
+                                            <span>
+                                                <span class="font-semibold text-gray-900">Premium Cotton</span>
+                                                <span class="block text-xs text-gray-500">Soft 180gsm ring-spun cotton</span>
+                                            </span>
+                                            <input type="radio" name="quality-option" value="premium" class="ml-4 mt-1" checked>
+                                        </label>
+                                        <label class="flex items-start justify-between cursor-pointer">
+                                            <span>
+                                                <span class="font-semibold text-gray-900">Heavyweight Cotton (+$2)</span>
+                                                <span class="block text-xs text-gray-500">Thicker 220gsm classic fit</span>
+                                            </span>
+                                            <input type="radio" name="quality-option" value="heavyweight" class="ml-4 mt-1">
+                                        </label>
+                                        <label class="flex items-start justify-between cursor-pointer">
+                                            <span>
+                                                <span class="font-semibold text-gray-900">Performance DryFit (+$4)</span>
+                                                <span class="block text-xs text-gray-500">Moisture-wicking polyester blend</span>
+                                            </span>
+                                            <input type="radio" name="quality-option" value="performance" class="ml-4 mt-1">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Price -->
+                                <div class="mb-6">
+                                    <div class="flex items-baseline space-x-2">
+                                        <span class="text-4xl font-bold text-blue-600" id="modal-product-price" style="font-weight: 700;">$0.00</span>
+                                        <span class="text-gray-500 text-sm" style="font-weight: 400;">based on selected quality</span>
+                                    </div>
+                                </div>
+
+                                <!-- Design Requirements Info -->
+                                <div class="p-4 mb-6 border border-blue-200 rounded-lg bg-blue-50">
+                                    <div class="flex items-start space-x-3">
+                                        <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <div class="text-sm text-blue-800">
+                                            <p class="mb-1 font-semibold" style="font-weight: 600;">Design Requirements:</p>
+                                            <ul class="space-y-1 text-blue-700 list-disc list-inside">
+                                                <li style="font-weight: 400;">PNG format with transparent background</li>
+                                                <li style="font-weight: 400;">Minimum resolution: <span id="required-dpi-text"></span> DPI</li>
+                                                <li style="font-weight: 400;">Recommended size: <span id="recommended-size-text"></span> pixels</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- File Upload Area -->
+                                <div class="hidden p-5 mb-6 transition border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:border-blue-500 bg-gray-50 hover:bg-blue-50" id="upload-area">
+                                    <input type="file" id="design-file-input" accept="image/png" class="hidden">
+                                    <label for="design-file-input" class="cursor-pointer">
+                                        <div class="text-center">
+                                            <svg class="w-8 h-8 mx-auto mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                            </svg>
+                                            <p class="mb-1 text-sm font-semibold text-gray-700" style="font-weight: 600;">Upload Your Design</p>
+                                            <p class="mb-2 text-xs text-gray-500" style="font-weight: 400;">PNG files with transparent background</p>
+                                            <p class="text-xs text-blue-600" style="font-weight: 500;">Click or drag to upload</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div id="upload-progress" class="hidden mb-6">
+                                    <div class="h-2 bg-gray-200 rounded-full">
+                                        <div id="progress-bar" class="h-2 transition-all bg-blue-600 rounded-full" style="width: 0%"></div>
+                                    </div>
+                                    <p id="upload-status" class="mt-2 text-sm text-center text-gray-600" style="font-weight: 400;">Uploading...</p>
+                                </div>
+                                <div id="uploaded-file-info" class="hidden p-4 mb-6 border border-green-200 rounded-lg bg-green-50">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                            <div>
+                                                <p id="uploaded-filename" class="text-sm font-semibold text-gray-900" style="font-weight: 600;"></p>
+                                                <p id="uploaded-filesize" class="text-xs text-gray-600" style="font-weight: 400;"></p>
+                                            </div>
+                                        </div>
+                                        <button onclick="app.removeUploadedDesign()" class="text-red-500 hover:text-red-700">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Add to Cart Button -->
+                                <button id="add-to-cart-btn" onclick="app.addProductToCart()" 
+                                    class="flex items-center justify-center w-full px-6 py-4 space-x-2 text-lg font-semibold text-white transition bg-blue-600 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed" 
+                                    disabled style="font-weight: 600;">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                    <span>Add to Cart</span>
+                                </button>
+                                <p id="cart-button-hint" class="hidden mt-2 text-sm text-center text-gray-500" style="font-weight: 400;">Upload a design to continue</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-8 mt-16 text-white ">
+        <div class="px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+            <img src="img/gdt-top-logo.svg" alt="Custom Print Shop" class="h-10 w-auto mx-auto mb-4">
+            <p class="mt-2 text-gray-500" style="font-weight: 400;">&copy; 2024 Custom Print Shop. All rights reserved.</p>
+            <p class="mt-2 text-gray-500" style="font-weight: 400;">Made with ❤️ for creators</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/shopify-api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

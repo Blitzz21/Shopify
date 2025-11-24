@@ -1,0 +1,121 @@
+[2025-11-19 13:44:16] [INFO] Product created | {"product_id":"6","name":"Local Test Hoodie"}
+[2025-11-19 13:44:41] [INFO] Product updated | {"product_id":"1"}
+[2025-11-19 13:44:54] [INFO] Product deactivated | {"product_id":"1"}
+[2025-11-19 14:08:49] [ERROR] Design API Error: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away | {"method":"POST","trace":"#0 C:\\xampp\\htdocs\\Shopify\\backend\\models\\Product.php(69): PDO->prepare('SELECT * FROM p...')\n#1 C:\\xampp\\htdocs\\Shopify\\backend\\api\\uploads-design.php(100): Product->readOne()\n#2 C:\\xampp\\htdocs\\Shopify\\backend\\api\\uploads-design.php(46): handleUpload(Object(Design), Object(Product), Object(PDO))\n#3 {main}"}
+[2025-11-19 14:11:07] [INFO] Design uploaded successfully | {"design_id":"1","session_id":"session_691e13e6ab66e_1763578854","product_id":1,"filename":"sample-1.png"}
+[2025-11-19 14:13:42] [INFO] Design updated | {"design_id":"1"}
+[2025-11-19 14:14:51] [INFO] Design deleted | {"design_id":"1","hard":false}
+[2025-11-19 14:15:03] [INFO] Design deleted | {"design_id":"1","hard":true}
+[2025-11-19 14:25:18] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:25:18] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:25:20] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:25:20] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:25:20] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:25:20] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:25:47] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:25:47] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:29:06] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:29:06] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:29:33] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:29:33] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:29:34] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:29:34] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:29:34] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:29:34] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:29:34] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:29:34] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:29:34] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:29:34] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:29:44] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:29:44] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:32:52] [INFO] SKIPPING WEBHOOK VERIFICATION FOR TESTING - REMOVE IN PRODUCTION
+[2025-11-19 14:32:52] [ERROR] Invalid JSON in webhook: Syntax error
+[2025-11-19 14:34:04] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:34:04] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:38:27] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:38:27] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:38:28] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:38:28] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:38:28] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:38:28] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:38:29] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 14:38:29] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 14:44:01] [ERROR] Dev mock order error: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`shopify`.`print_jobs`, CONSTRAINT `print_jobs_ibfk_1` FOREIGN KEY (`order_item_id`) REFERENCES `order_items` (`id`) ON DELETE CASCADE) | {"topic":"orders\/create"}
+[2025-11-19 14:46:10] [INFO] Starting order creation | {"shopify_order_id":999888777,"order_number":1001,"line_items_count":1}
+[2025-11-19 14:46:10] [INFO] Order inserted successfully | {"db_order_id":"2"}
+[2025-11-19 14:46:10] [INFO] Processing line item | {"line_item_id":555444333,"design_id_found":"1","properties":[{"name":"design_id","value":"1"}]}
+[2025-11-19 14:46:10] [ERROR] Design not found | {"design_id":"1"}
+[2025-11-19 14:46:10] [INFO] Order created successfully | {"shopify_order_id":"999888777","db_order_id":"2"}
+[2025-11-19 14:47:33] [INFO] Order updated successfully | {"order_id":"999888777"}
+[2025-11-19 14:48:55] [INFO] Order cancelled successfully | {"order_id":"999888777"}
+[2025-11-19 14:50:16] [INFO] Starting order creation | {"shopify_order_id":111222333,"order_number":1002,"line_items_count":2}
+[2025-11-19 14:50:16] [INFO] Order inserted successfully | {"db_order_id":"3"}
+[2025-11-19 14:50:16] [INFO] Processing line item | {"line_item_id":444555666,"design_id_found":"1","properties":[{"name":"design_id","value":"1"}]}
+[2025-11-19 14:50:16] [ERROR] Design not found | {"design_id":"1"}
+[2025-11-19 14:50:16] [INFO] Processing line item | {"line_item_id":777888999,"design_id_found":"1","properties":[{"name":"design_id","value":"1"}]}
+[2025-11-19 14:50:16] [ERROR] Design not found | {"design_id":"1"}
+[2025-11-19 14:50:16] [INFO] Order created successfully | {"shopify_order_id":"111222333","db_order_id":"3"}
+[2025-11-19 14:52:16] [INFO] Starting order creation | {"shopify_order_id":555666777,"order_number":1003,"line_items_count":1}
+[2025-11-19 14:52:16] [INFO] Order inserted successfully | {"db_order_id":"4"}
+[2025-11-19 14:52:16] [INFO] Processing line item | {"line_item_id":888999000,"design_id_found":"YOUR_ACTUAL_DESIGN_ID_HERE","properties":[{"name":"design_id","value":"YOUR_ACTUAL_DESIGN_ID_HERE"}]}
+[2025-11-19 14:52:16] [ERROR] Design not found | {"design_id":"YOUR_ACTUAL_DESIGN_ID_HERE"}
+[2025-11-19 14:52:16] [INFO] Order created successfully | {"shopify_order_id":"555666777","db_order_id":"4"}
+[2025-11-19 14:53:17] [INFO] Starting order creation | {"shopify_order_id":777888999,"order_number":1004,"line_items_count":1}
+[2025-11-19 14:53:17] [INFO] Order inserted successfully | {"db_order_id":"5"}
+[2025-11-19 14:53:17] [INFO] Processing line item | {"line_item_id":333444555,"design_id_found":"2","properties":[{"name":"design_id","value":"2"}]}
+[2025-11-19 14:53:17] [INFO] Design found | {"design":{"id":2,"product_id":1}}
+[2025-11-19 14:53:17] [INFO] Order item inserted | {"order_item_id":"1"}
+[2025-11-19 14:53:17] [INFO] Print job created | {"print_job_id":"2"}
+[2025-11-19 14:53:17] [INFO] Order created successfully | {"shopify_order_id":"777888999","db_order_id":"5"}
+[2025-11-19 14:54:34] [INFO] Order updated successfully | {"order_id":"777888999"}
+[2025-11-19 14:55:45] [INFO] Order updated successfully | {"order_id":"777888999"}
+[2025-11-19 14:55:48] [INFO] Order fulfilled successfully | {"order_id":"777888999"}
+[2025-11-19 14:56:34] [INFO] Starting order creation | {"shopify_order_id":1234567890,"order_number":1001,"line_items_count":1}
+[2025-11-19 14:56:34] [ERROR] Order creation failed | {"error":"SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1234567890' for key 'shopify_order_id'","trace":"#0 C:\\xampp\\htdocs\\Shopify\\backend\\utils\\order_handlers.php(60): PDOStatement->execute()\n#1 C:\\xampp\\htdocs\\Shopify\\backend\\api\\dev-mock-order.php(51): handleOrderCreate(Object(PDO), Array)\n#2 {main}"}
+[2025-11-19 14:56:34] [ERROR] Dev mock order error: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1234567890' for key 'shopify_order_id' | {"topic":"orders\/create"}
+[2025-11-19 14:57:16] [INFO] Starting order creation | {"shopify_order_id":1234567890,"order_number":1001,"line_items_count":1}
+[2025-11-19 14:57:16] [ERROR] Order creation failed | {"error":"SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1234567890' for key 'shopify_order_id'","trace":"#0 C:\\xampp\\htdocs\\Shopify\\backend\\utils\\order_handlers.php(60): PDOStatement->execute()\n#1 C:\\xampp\\htdocs\\Shopify\\backend\\api\\dev-mock-order.php(51): handleOrderCreate(Object(PDO), Array)\n#2 {main}"}
+[2025-11-19 14:57:16] [ERROR] Dev mock order error: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1234567890' for key 'shopify_order_id' | {"topic":"orders\/create"}
+[2025-11-19 14:58:16] [INFO] Starting order creation | {"shopify_order_id":999888777,"order_number":1001,"line_items_count":1}
+[2025-11-19 14:58:16] [ERROR] Order creation failed | {"error":"SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '999888777' for key 'shopify_order_id'","trace":"#0 C:\\xampp\\htdocs\\Shopify\\backend\\utils\\order_handlers.php(60): PDOStatement->execute()\n#1 C:\\xampp\\htdocs\\Shopify\\backend\\api\\dev-mock-order.php(51): handleOrderCreate(Object(PDO), Array)\n#2 {main}"}
+[2025-11-19 14:58:16] [ERROR] Dev mock order error: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '999888777' for key 'shopify_order_id' | {"topic":"orders\/create"}
+[2025-11-19 14:58:27] [INFO] Starting order creation | {"shopify_order_id":999888777666,"order_number":1001,"line_items_count":1}
+[2025-11-19 14:58:27] [INFO] Order inserted successfully | {"db_order_id":"9"}
+[2025-11-19 14:58:27] [INFO] Processing line item | {"line_item_id":987654321,"design_id_found":"2","properties":[{"name":"design_id","value":"2"}]}
+[2025-11-19 14:58:27] [INFO] Design found | {"design":{"id":2,"product_id":1}}
+[2025-11-19 14:58:27] [INFO] Order item inserted | {"order_item_id":"2"}
+[2025-11-19 14:58:27] [INFO] Print job created | {"print_job_id":"3"}
+[2025-11-19 14:58:27] [INFO] Order created successfully | {"shopify_order_id":"999888777666","db_order_id":"9"}
+[2025-11-19 15:00:59] [INFO] Starting order creation | {"shopify_order_id":1000000001,"order_number":1001,"line_items_count":1}
+[2025-11-19 15:00:59] [INFO] Order inserted successfully | {"db_order_id":"1"}
+[2025-11-19 15:00:59] [INFO] Processing line item | {"line_item_id":2000000001,"design_id_found":"2","properties":[{"name":"design_id","value":"2"}]}
+[2025-11-19 15:00:59] [INFO] Design found | {"design":{"id":2,"product_id":1}}
+[2025-11-19 15:00:59] [INFO] Order item inserted | {"order_item_id":"1"}
+[2025-11-19 15:00:59] [INFO] Print job created | {"print_job_id":"1"}
+[2025-11-19 15:00:59] [INFO] Order created successfully | {"shopify_order_id":"1000000001","db_order_id":"1"}
+[2025-11-19 15:01:52] [INFO] Order updated successfully | {"order_id":"1000000001"}
+[2025-11-19 15:02:23] [INFO] Order fulfilled successfully | {"order_id":"1000000001"}
+[2025-11-19 15:02:46] [INFO] Order updated successfully | {"order_id":"1000000001"}
+[2025-11-19 15:03:13] [INFO] Order fulfilled successfully | {"order_id":"1000000001"}
+[2025-11-19 15:20:25] [INFO] Webhook received | {"topic":"","shop":"","size":0}
+[2025-11-19 15:20:25] [ERROR] Webhook verification failed | {"topic":"","shop":""}
+[2025-11-19 15:23:06] [INFO] Print job updated | {"job_id":1,"status":"printing"}
+[2025-11-19 15:24:14] [INFO] Print job updated | {"job_id":1,"status":"printing"}
+[2025-11-19 15:24:22] [INFO] Print job updated | {"job_id":1,"status":"printing"}
+[2025-11-19 15:24:43] [INFO] Print job updated | {"job_id":1,"status":"printed"}
+[2025-11-19 15:25:53] [INFO] Print job updated | {"job_id":1,"status":"shipped"}
+[2025-11-19 15:26:54] [INFO] Print job updated | {"job_id":1,"status":"preparing"}
+[2025-11-19 15:30:48] [INFO] Starting order creation | {"shopify_order_id":1000000002,"order_number":1002,"line_items_count":1}
+[2025-11-19 15:30:48] [INFO] Order inserted successfully | {"db_order_id":"2"}
+[2025-11-19 15:30:48] [INFO] Processing line item | {"line_item_id":2000000002,"design_id_found":"2","properties":[{"name":"design_id","value":"2"}]}
+[2025-11-19 15:30:48] [INFO] Design found | {"design":{"id":2,"product_id":1}}
+[2025-11-19 15:30:48] [INFO] Order item inserted | {"order_item_id":"2"}
+[2025-11-19 15:30:48] [INFO] Print job created | {"print_job_id":"2"}
+[2025-11-19 15:30:48] [INFO] Order created successfully | {"shopify_order_id":"1000000002","db_order_id":"2"}
+[2025-11-19 15:33:57] [INFO] Print job updated | {"job_id":2,"status":"preparing"}
+[2025-11-19 15:34:53] [INFO] Print job updated | {"job_id":2,"status":"preparing"}
+[2025-11-19 15:35:12] [INFO] Print job updated | {"job_id":2,"status":"printing"}
+[2025-11-19 15:35:30] [INFO] Print job updated | {"job_id":2,"status":"printed"}
+[2025-11-19 15:35:45] [INFO] Print job updated | {"job_id":2,"status":"shipped"}
+[2025-11-19 15:36:03] [INFO] Print job updated | {"job_id":2,"status":"shipped"}
+[2025-11-19 15:37:31] [INFO] Print job updated | {"job_id":2,"status":"printing"}

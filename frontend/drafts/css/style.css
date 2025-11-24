@@ -1,0 +1,86 @@
+/* css/style.css */
+
+/* Custom styles for the print shop */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Product card hover effects */
+.product-card {
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Loading animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Custom button styles */
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+}
+
+/* Cart sidebar transitions */
+.cart-enter {
+    transform: translateX(100%);
+}
+
+.cart-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms ease-out;
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1.125rem;
+    }
+}
+
+/* Custom scrollbar for cart */
+#cart-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+#cart-sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#cart-sidebar::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+#cart-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

@@ -1,0 +1,19 @@
+[2025-11-20 14:04:59] [INFO] Print job updated | {"job_id":1,"status":"printing"}
+[2025-11-20 14:15:48] [ERROR] Print file generation failed: Design file not found for job 1
+[2025-11-20 14:19:46] [ERROR] Print file generation failed: Design file not found for job 1. Looked for: C:\xampp\htdocs\Shopify\uploads\designs\design_test_123.png
+[2025-11-20 14:20:00] [ERROR] Print file generation failed: Design file not found for job 1. Looked for: C:\xampp\htdocs\Shopify\uploads\designs\design_test_123.png
+[2025-11-20 14:43:24] [INFO] Print job updated | {"job_id":1,"status":"printing"}
+[2025-11-20 14:43:27] [INFO] Print job updated | {"job_id":1,"status":"printing"}
+[2025-11-20 14:43:30] [INFO] Print job updated | {"job_id":1,"status":"printed"}
+[2025-11-20 14:43:33] [INFO] Print job updated | {"job_id":1,"status":"printing"}
+[2025-11-20 14:43:34] [INFO] Print job updated | {"job_id":1,"status":"printed"}
+[2025-11-20 14:43:34] [INFO] Print job updated | {"job_id":1,"status":"shipped"}
+[2025-11-20 14:43:57] [INFO] Print job updated | {"job_id":2,"status":"shipped"}
+[2025-11-20 15:08:18] [INFO] Thumbnail generated successfully | {"source":"C:\\xampp\\htdocs\\Shopify\\uploads\\designs\\design_691f75324432f_1763669298.png","thumbnail":"C:\\xampp\\htdocs\\Shopify\\uploads\\thumbnails\\thumb_design_691f75324432f_1763669298.png"}
+[2025-11-20 15:08:18] [INFO] Design uploaded successfully | {"design_id":"3","session_id":"session_691f7532430b1_1763669298","product_id":1,"filename":"sample-1.png","thumbnail_generated":true}
+[2025-11-20 16:05:11] [INFO] Print job updated | {"job_id":1,"status":"printed"}
+[2025-11-20 16:05:12] [INFO] Print job updated | {"job_id":1,"status":"shipped"}
+[2025-11-20 16:10:00] [INFO] Print job updated | {"job_id":1,"status":"printing"}
+[2025-11-20 16:10:01] [INFO] Print job updated | {"job_id":1,"status":"printing"}
+[2025-11-20 16:10:01] [INFO] Print job updated | {"job_id":1,"status":"printed"}
+[2025-11-20 16:10:02] [INFO] Print job updated | {"job_id":1,"status":"shipped"}
