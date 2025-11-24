@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your GameDayTees account - Design and order custom printed products">
+    <title>Create Account - GameDayTees</title>
+    <link rel="icon" type="image/png" href="img/gdt-small-logo.png">
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Custom Color Palette */
+        :root {
+            --navy-dark: #0C2B4E;
+            --navy-medium: #1A3D64;
+            --navy-light: #1D546C;
+            --light-gray: #F4F4F4;
+            --white: #FFFFFF;
+        }
+        
+        /* Apply Poppins font */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-gray);
+        }
+        
+        /* Loading spinner */
+        .loading-spinner {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #1A3D64;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Password strength indicator */
+        .password-strength {
+            height: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .strength-weak { background-color: #ef4444; width: 25%; }
+        .strength-fair { background-color: #f59e0b; width: 50%; }
+        .strength-good { background-color: #10b981; width: 75%; }
+        .strength-strong { background-color: #10b981; width: 100%; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen mt-16" style="font-family: 'Poppins', sans-serif;">
+    <!-- Enhanced Professional Navbar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-300 transition-all duration-300">
+        <nav class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-18">
+                <!-- Logo -->
+                <div class="flex items-center py-4">
+                    <a href="index.html" class="group relative flex items-center gap-3">
+                        <div class="relative">
+                            <img src="/Shopify/frontend/img/gdt-top-logo.svg" alt="GameDayTees"
+                                class="h-11 w-auto transition-all duration-300 group-hover:scale-105"
+                                width="150" height="70"
+                                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjcwIiB2aWV3Qm94PSIwIDAgMTUwIDcwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iNzAiIGZpbGw9IiMzQjgyRjYiLz48dGV4dCB4PSIyNSIgeT0iNDAiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iUG9wcGlucyIgZm9udC13ZWlnaHQ9IjYwMCIgZm9udC1zaXplPSIxNiI+R2FtZURheVRlZXM8L3RleHQ+PC9zdmc+'">
+                            <div class="absolute inset-0 bg-blue-400/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="flex items-center gap-2">
+                    <!-- Login Button -->
+                    <a href="login.html" class="hidden lg:flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-blue-600 transition-all duration-200 rounded-xl hover:bg-blue-50 hover:scale-105 active:scale-95">
+                        Sign In
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Spacer to prevent content from hiding under fixed navbar -->
+    <div class="h-18"></div>
+
+    <!-- Main Registration Section -->
+    <section class="min-h-[calc(100vh-72px)] flex items-center justify-center px-4 py-12">
+        <div class="max-w-md w-full space-y-8 fade-in">
+            <!-- Header -->
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 mb-4 bg-blue-100 rounded-2xl">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900">Create your account</h2>
+                <p class="mt-2 text-gray-600">Join GameDayTees and start creating custom apparel</p>
+            </div>
+
+            <!-- Registration Form -->
+            <form id="registerForm" class="mt-8 space-y-6 bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
+                <div class="space-y-4">
+                    <!-- Name Field -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                            Full Name
+                        </label>
+                        <div class="relative">
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                autocomplete="name"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+                                placeholder="Enter your full name"
+                            >
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                            Email Address
+                        </label>
+                        <div class="relative">
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+                                placeholder="Enter your email"
+                            >
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                            Password
+                        </label>
+                        <div class="relative">
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                autocomplete="new-password"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+                                placeholder="Create a password"
+                            >
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Password Strength Indicator -->
+                        <div class="mt-2 space-y-2">
+                            <div class="flex bg-gray-200 rounded-full overflow-hidden">
+                                <div id="passwordStrength" class="password-strength strength-weak"></div>
+                            </div>
+                            <div id="passwordRequirements" class="text-xs text-gray-500 space-y-1">
+                                <div id="lengthReq" class="flex items-center">
+                                    <span class="w-2 h-2 bg-gray-300 rounded-full mr-2"></span>
+                                    At least 8 characters
+                                </div>
+                                <div id="upperReq" class="flex items-center">
+                                    <span class="w-2 h-2 bg-gray-300 rounded-full mr-2"></span>
+                                    One uppercase letter
+                                </div>
+                                <div id="lowerReq" class="flex items-center">
+                                    <span class="w-2 h-2 bg-gray-300 rounded-full mr-2"></span>
+                                    One lowercase letter
+                                </div>
+                                <div id="numberReq" class="flex items-center">
+                                    <span class="w-2 h-2 bg-gray-300 rounded-full mr-2"></span>
+                                    One number
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">
+                            Confirm Password
+                        </label>
+                        <div class="relative">
+                            <input
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                type="password"
+                                autocomplete="new-password"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+                                placeholder="Confirm your password"
+                            >
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="passwordMatch" class="hidden mt-1 text-xs text-green-600">
+                            ✓ Passwords match
+                        </div>
+                        <div id="passwordMismatch" class="hidden mt-1 text-xs text-red-600">
+                            ✗ Passwords do not match
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="hidden p-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg"></div>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="hidden p-4 text-sm text-green-700 bg-green-50 border border-green-200 rounded-lg"></div>
+
+                <!-- Submit Button -->
+                <div>
+                    <button
+                        type="submit"
+                        id="registerButton"
+                        class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <span id="buttonText">Create Account</span>
+                        <div id="loadingSpinner" class="hidden loading-spinner ml-2"></div>
+                    </button>
+                </div>
+
+                <!-- Divider -->
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">Already have an account?</span>
+                    </div>
+                </div>
+
+                <!-- Login Link -->
+                <div class="text-center">
+                    <a href="login.html" class="text-blue-600 hover:text-blue-500 font-semibold transition-colors duration-200">
+                        Sign in to your account
+                    </a>
+                </div>
+            </form>
+
+            <!-- Additional Info -->
+            <div class="text-center text-sm text-gray-600">
+                <p>By creating an account, you agree to our <a href="#" class="text-blue-600 hover:text-blue-500">Terms of Service</a> and <a href="#" class="text-blue-600 hover:text-blue-500">Privacy Policy</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        class RegistrationManager {
+            constructor() {
+                this.registerForm = document.getElementById('registerForm');
+                this.nameInput = document.getElementById('name');
+                this.emailInput = document.getElementById('email');
+                this.passwordInput = document.getElementById('password');
+                this.confirmPasswordInput = document.getElementById('confirmPassword');
+                this.registerButton = document.getElementById('registerButton');
+                this.buttonText = document.getElementById('buttonText');
+                this.loadingSpinner = document.getElementById('loadingSpinner');
+                this.errorMessage = document.getElementById('errorMessage');
+                this.successMessage = document.getElementById('successMessage');
+                this.passwordStrength = document.getElementById('passwordStrength');
+                this.passwordMatch = document.getElementById('passwordMatch');
+                this.passwordMismatch = document.getElementById('passwordMismatch');
+
+                this.init();
+            }
+
+            init() {
+                this.registerForm.addEventListener('submit', (e) => this.handleRegistration(e));
+                
+                // Password strength checking
+                this.passwordInput.addEventListener('input', () => this.checkPasswordStrength());
+                
+                // Password matching
+                this.confirmPasswordInput.addEventListener('input', () => this.checkPasswordMatch());
+                
+                // Clear errors when user starts typing
+                [this.nameInput, this.emailInput, this.passwordInput, this.confirmPasswordInput].forEach(input => {
+                    input.addEventListener('input', () => {
+                        this.hideMessages();
+                    });
+                });
+            }
+
+            async handleRegistration(e) {
+                e.preventDefault();
+                
+                const name = this.nameInput.value.trim();
+                const email = this.emailInput.value.trim();
+                const password = this.passwordInput.value;
+                const confirmPassword = this.confirmPasswordInput.value;
+
+                // Validation
+                if (!this.validateForm(name, email, password, confirmPassword)) {
+                    return;
+                }
+
+                this.setLoading(true);
+
+                try {
+                    const response = await fetch('http://localhost/Shopify/backend/api/register.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            password: password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        this.showSuccess('Account created successfully! Redirecting to login...');
+                        
+                        // Redirect to login page after successful registration
+                        setTimeout(() => {
+                            window.location.href = 'login.html';
+                        }, 2000);
+
+                    } else {
+                        this.showError(data.message || 'Registration failed. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Registration error:', error);
+                    this.showError('Network error. Please check your connection and try again.');
+                } finally {
+                    this.setLoading(false);
+                }
+            }
+
+            validateForm(name, email, password, confirmPassword) {
+                this.hideMessages();
+
+                if (!name) {
+                    this.showError('Please enter your full name.');
+                    return false;
+                }
+
+                if (name.length < 2) {
+                    this.showError('Name must be at least 2 characters long.');
+                    return false;
+                }
+
+                if (!email) {
+                    this.showError('Please enter your email address.');
+                    return false;
+                }
+
+                if (!this.isValidEmail(email)) {
+                    this.showError('Please enter a valid email address.');
+                    return false;
+                }
+
+                if (!password) {
+                    this.showError('Please enter a password.');
+                    return false;
+                }
+
+                if (password.length < 8) {
+                    this.showError('Password must be at least 8 characters long.');
+                    return false;
+                }
+
+                if (!this.isStrongPassword(password)) {
+                    this.showError('Password must include uppercase letters, lowercase letters, and numbers.');
+                    return false;
+                }
+
+                if (password !== confirmPassword) {
+                    this.showError('Passwords do not match.');
+                    return false;
+                }
+
+                return true;
+            }
+
+            isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            isStrongPassword(password) {
+                const hasUpperCase = /[A-Z]/.test(password);
+                const hasLowerCase = /[a-z]/.test(password);
+                const hasNumbers = /\d/.test(password);
+                return hasUpperCase && hasLowerCase && hasNumbers;
+            }
+
+            checkPasswordStrength() {
+                const password = this.passwordInput.value;
+                const requirements = {
+                    length: password.length >= 8,
+                    upper: /[A-Z]/.test(password),
+                    lower: /[a-z]/.test(password),
+                    number: /\d/.test(password)
+                };
+
+                // Update requirement indicators
+                this.updateRequirementIndicator('lengthReq', requirements.length);
+                this.updateRequirementIndicator('upperReq', requirements.upper);
+                this.updateRequirementIndicator('lowerReq', requirements.lower);
+                this.updateRequirementIndicator('numberReq', requirements.number);
+
+                // Calculate strength
+                const metRequirements = Object.values(requirements).filter(Boolean).length;
+                const totalRequirements = Object.values(requirements).length;
+                const strength = metRequirements / totalRequirements;
+
+                // Update strength indicator
+                this.passwordStrength.className = 'password-strength';
+                if (strength <= 0.25) {
+                    this.passwordStrength.classList.add('strength-weak');
+                } else if (strength <= 0.5) {
+                    this.passwordStrength.classList.add('strength-fair');
+                } else if (strength <= 0.75) {
+                    this.passwordStrength.classList.add('strength-good');
+                } else {
+                    this.passwordStrength.classList.add('strength-strong');
+                }
+            }
+
+            updateRequirementIndicator(elementId, met) {
+                const element = document.getElementById(elementId);
+                const indicator = element.querySelector('span');
+                if (met) {
+                    indicator.className = 'w-2 h-2 bg-green-500 rounded-full mr-2';
+                    element.className = 'flex items-center text-green-600';
+                } else {
+                    indicator.className = 'w-2 h-2 bg-gray-300 rounded-full mr-2';
+                    element.className = 'flex items-center text-gray-500';
+                }
+            }
+
+            checkPasswordMatch() {
+                const password = this.passwordInput.value;
+                const confirmPassword = this.confirmPasswordInput.value;
+
+                if (!password || !confirmPassword) {
+                    this.passwordMatch.classList.add('hidden');
+                    this.passwordMismatch.classList.add('hidden');
+                    return;
+                }
+
+                if (password === confirmPassword) {
+                    this.passwordMatch.classList.remove('hidden');
+                    this.passwordMismatch.classList.add('hidden');
+                } else {
+                    this.passwordMatch.classList.add('hidden');
+                    this.passwordMismatch.classList.remove('hidden');
+                }
+            }
+
+            setLoading(loading) {
+                if (loading) {
+                    this.registerButton.disabled = true;
+                    this.buttonText.textContent = 'Creating Account...';
+                    this.loadingSpinner.classList.remove('hidden');
+                } else {
+                    this.registerButton.disabled = false;
+                    this.buttonText.textContent = 'Create Account';
+                    this.loadingSpinner.classList.add('hidden');
+                }
+            }
+
+            showError(message) {
+                this.errorMessage.textContent = message;
+                this.errorMessage.classList.remove('hidden');
+                this.successMessage.classList.add('hidden');
+            }
+
+            showSuccess(message) {
+                this.successMessage.textContent = message;
+                this.successMessage.classList.remove('hidden');
+                this.errorMessage.classList.add('hidden');
+            }
+
+            hideMessages() {
+                this.errorMessage.classList.add('hidden');
+                this.successMessage.classList.add('hidden');
+            }
+        }
+
+        // Check if user is already logged in
+        function checkAuthStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn === 'true') {
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuthStatus();
+            new RegistrationManager();
+        });
+    </script>
+</body>
+</html>

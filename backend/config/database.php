@@ -131,4 +131,15 @@ class Database {
         return $this->conn;
     }
 }
+
+
+function get_db_connection(): PDO {
+    static $database = null;
+    
+    if ($database === null) {
+        $database = new Database();
+    }
+    
+    return $database->getConnection();
+}
 ?>
