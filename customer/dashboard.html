@@ -29,20 +29,57 @@
     </main>
 
     <script>
-        function logout() {
+        const API_BASE = 'http://localhost/Shopify/backend/api';
+
+        async function logout() {
+            try {
+                await fetch(`${API_BASE}/logout.php`, {
+                    method: 'POST',
+                    credentials: 'include',
+                });
+            } catch (e) {
+                console.error('Logout API error (will still clear local state):', e);
+            }
+
             localStorage.removeItem('user');
             localStorage.removeItem('isLoggedIn');
+
             window.location.href = '/Shopify/login.html';
         }
 
-        // Check if user is logged in
-        const user = JSON.parse(localStorage.getItem('user') || '{}');
-        if (!user.user_id) {
-            window.location.href = '/Shopify/login.html';
-        } else {
-            document.getElementById('userInfo').textContent = 
-                `Logged in as: ${user.name} (${user.email}) - Role: ${user.role}`;
+        async function loadCustomerDashboard() {
+            try {
+                const res = await fetch(`${API_BASE}/check-auth.php`, {
+                    method: 'GET',
+                    credentials: 'include',
+                });
+
+                const data = await res.json();
+
+                if (!data.success || !data.data) {
+                    // Not logged in
+                    localStorage.removeItem('user');
+                    localStorage.removeItem('isLoggedIn');
+                    window.location.href = '/Shopify/login.html';
+                    return;
+                }
+
+                // For now, any logged-in user can view customer dashboard
+                localStorage.setItem('user', JSON.stringify(data.data));
+                localStorage.setItem('isLoggedIn', 'true');
+
+                document.getElementById('userInfo').textContent =
+                    `Logged in as: ${data.data.name} (${data.data.email}) - Role: ${data.data.role}`;
+            } catch (e) {
+                console.error('check-auth failed:', e);
+                localStorage.removeItem('user');
+                localStorage.removeItem('isLoggedIn');
+                window.location.href = '/Shopify/login.html';
+            }
         }
+
+        document.addEventListener('DOMContentLoaded', loadCustomerDashboard);
     </script>
+
 </body>
 </html>

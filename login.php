@@ -106,7 +106,7 @@
                 <!-- Right Actions -->
                 <div class="flex items-center gap-2">
                     <!-- Register Button -->
-                    <a href="register.html" class="hidden lg:flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-blue-600 transition-all duration-200 rounded-xl hover:bg-blue-50 hover:scale-105 active:scale-95">
+                    <a href="register.php" class="hidden lg:flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-blue-600 transition-all duration-200 rounded-xl hover:bg-blue-50 hover:scale-105 active:scale-95">
                         Create Account
                     </a>
                 </div>
@@ -216,7 +216,7 @@
 
                 <!-- Register Link -->
                 <div class="text-center">
-                    <a href="register.html" class="text-blue-600 hover:text-blue-500 font-semibold transition-colors duration-200">
+                    <a href="register.php" class="text-blue-600 hover:text-blue-500 font-semibold transition-colors duration-200">
                         Create your account
                     </a>
                 </div>
