@@ -90,7 +90,7 @@ const timelineButtons = document.querySelectorAll('[data-timeline]');
 const progressBar = document.getElementById('timeline-progress');
 const timelineLabel = document.getElementById('timeline-label');
 const timelineCopy = {
-    1: { label: 'Step 01 : Upload photos', width: '10%' },
+    1: { label: 'Step 01 : Upload photos', width: '0%' },
     2: { label: 'Step 02 : Approve your proof', width: '50%' },
     3: { label: 'Step 03 : Delivery day', width: '100%' }
 };

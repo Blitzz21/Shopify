@@ -279,7 +279,7 @@ renderProducts() {
                     <!-- Hover Action Button -->
                     <div class="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                         <button class="w-full bg-white text-gray-900 font-semibold py-3 px-4 rounded-xl shadow-xl hover:bg-blue-600 hover:text-white transition-all duration-200 flex items-center justify-center gap-2">
-                            <span>Customize This Design</span>
+                            <span>Design</span>
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                             </svg>
@@ -290,22 +290,6 @@ renderProducts() {
                 <!-- Template Info Card -->
                 <div class="p-4 bg-white">
                     <h3 class="font-bold text-gray-900 mb-1 text-base line-clamp-1 group-hover:text-blue-600 transition-colors">${this.escapeHtml(product.name)}</h3>
-
-                    <!-- Features -->
-                    <div class="flex items-center gap-3 text-xs text-gray-500">
-                        <div class="flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                            </svg>
-                            <span>Customizable</span>
-                        </div>
-                        <div class="flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                            </svg>
-                            <span>Premium Quality</span>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Subtle shine effect on hover -->
@@ -412,6 +396,7 @@ renderProducts() {
         const templateArtImg = document.getElementById('template-art-img');
         const tshirtImg = document.getElementById('design-preview-img');
         const addToCartBtn = document.getElementById('add-to-cart-btn');
+        const checkoutBtn = document.getElementById('checkout-btn');
         const templateDesignPreview = document.getElementById('template-design-preview');
         const mockupPreview = document.getElementById('mockup-preview');
         const previewTitle = document.getElementById('preview-title');
@@ -428,7 +413,13 @@ renderProducts() {
         }
 
         // Enable button by default for templates
-        if (addToCartBtn) addToCartBtn.disabled = false;
+        if (addToCartBtn) addToCartBtn.disabled = true;
+        if (checkoutBtn) checkoutBtn.disabled = true;
+        const cartHint = document.getElementById('cart-button-hint');
+        if (cartHint) {
+            cartHint.textContent = 'Complete the required steps to continue';
+            cartHint.classList.remove('hidden');
+        }
         
         // Reset preview state
         if (templateDesignPreview) templateDesignPreview.classList.remove('hidden');
@@ -436,6 +427,16 @@ renderProducts() {
         if (previewTitle) previewTitle.textContent = 'Template Design';
         if (toggleBtnText) toggleBtnText.textContent = 'Preview Mock-up';
         this.previewMode = 'template';
+
+        ['upload-image-1', 'upload-image-2', 'upload-logo'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) input.value = '';
+        });
+
+        ['image-1-preview', 'image-2-preview', 'logo-preview'].forEach(id => {
+            const preview = document.getElementById(id);
+            if (preview) preview.classList.add('hidden');
+        });
     }
 
     // Close product modal
@@ -561,9 +562,14 @@ renderProducts() {
             }
 
             const addToCartBtn = document.getElementById('add-to-cart-btn');
+            const checkoutBtn = document.getElementById('checkout-btn');
             const cartHint = document.getElementById('cart-button-hint');
             if (addToCartBtn) addToCartBtn.disabled = false;
-            if (cartHint) cartHint.textContent = 'Design ready – you can add to cart.';
+            if (checkoutBtn) checkoutBtn.disabled = false;
+            if (cartHint) {
+                cartHint.textContent = 'Design ready – you can add to cart.';
+                cartHint.classList.remove('hidden');
+            }
         } catch (err) {
             console.warn('Upload failed or backend not available, using local-only design.', err);
 
@@ -589,9 +595,14 @@ renderProducts() {
             }
 
             const addToCartBtn = document.getElementById('add-to-cart-btn');
+            const checkoutBtn = document.getElementById('checkout-btn');
             const cartHint = document.getElementById('cart-button-hint');
             if (addToCartBtn) addToCartBtn.disabled = false;
-            if (cartHint) cartHint.textContent = 'Design ready – working in local preview mode.';
+            if (checkoutBtn) checkoutBtn.disabled = false;
+            if (cartHint) {
+                cartHint.textContent = 'Design ready – working in local preview mode.';
+                cartHint.classList.remove('hidden');
+            }
         } finally {
             this.uploadInProgress = false;
         }
@@ -622,33 +633,127 @@ renderProducts() {
             return;
         }
 
+        // Check if bulk order mode is active
+        const bulkCheckbox = document.getElementById('bulk-order-checkbox');
+        const isBulkOrder = bulkCheckbox && bulkCheckbox.checked;
+
+        if (isBulkOrder) {
+            // Handle bulk order
+            this.addBulkOrderToCart();
+        } else {
+            // Handle single order
+            const price = this.getCurrentQualityPrice();
+
+            const item = {
+                id: Date.now(),
+                name: this.currentProduct.name,
+                price: price,
+                quantity: 1,
+                productId: this.currentProduct.id,
+                templateKey: this.currentProduct.template_key || null,
+                quality: this.selectedQuality,
+                size: this.selectedSize,
+                designPreview: this.currentProduct.image_url || this.currentProduct.mockup_url || null
+            };
+
+            this.cart.push(item);
+            this.updateCartDisplay();
+            this.showNotification('Item added to cart!');
+            this.openCart();
+            this.closeProductModal();
+        }
+    }
+
+    addBulkOrderToCart() {
+        // Get quantities from Step 5 (format: "style-size" => quantity)
+        const quantities = window.quantities || {};
+
+        if (Object.keys(quantities).length === 0) {
+            this.showError('Please select sizes and set quantities in Step 5.');
+            return;
+        }
+
+        let itemsAdded = 0;
         const price = this.getCurrentQualityPrice();
 
-        const item = {
-            id: Date.now(),
-            name: this.currentProduct.name,
-            price: price,
-            quantity: 1,
-            productId: this.currentProduct.id,
-            templateKey: this.currentProduct.template_key || null,
-            quality: this.selectedQuality,
-            size: this.selectedSize,
-            designPreview: this.currentProduct.image_url || this.currentProduct.mockup_url || null
-        };
+        // Create cart items from quantities object
+        // Each key is in format "teeStyle-size" (e.g., "short-adult-l")
+        Object.keys(quantities).forEach(key => {
+            const quantity = quantities[key];
 
-        this.cart.push(item);
-        this.updateCartDisplay();
-        this.showNotification('Item added to cart!');
-        this.openCart();
-        this.closeProductModal();
+            if (quantity > 0) {
+                // Parse the key to extract tee style and size
+                const parts = key.split('-');
+                // First part is the style (short, long, sleeveless)
+                // Remaining parts form the size (e.g., adult-l, kids-m)
+                const teeStyle = parts[0];
+                const size = parts.slice(1).join('-');
+
+                const item = {
+                    id: Date.now() + itemsAdded, // Ensure unique IDs
+                    name: `${this.currentProduct.name} - ${this.formatTeeStyleName(teeStyle)} - ${this.formatSizeName(size)}`,
+                    price: price,
+                    quantity: quantity,
+                    productId: this.currentProduct.id,
+                    templateKey: this.currentProduct.template_key || null,
+                    quality: this.selectedQuality,
+                    size: size,
+                    teeStyle: teeStyle,
+                    designPreview: this.currentProduct.image_url || this.currentProduct.mockup_url || null
+                };
+
+                this.cart.push(item);
+                itemsAdded++;
+            }
+        });
+
+        if (itemsAdded > 0) {
+            this.updateCartDisplay();
+            this.showNotification(`${itemsAdded} item(s) added to cart!`);
+            this.openCart();
+            this.closeProductModal();
+        } else {
+            this.showError('No items to add. Please set quantities greater than 0.');
+        }
+    }
+
+    formatSizeName(size) {
+        const names = {
+            'kids-xs': 'Kids XS',
+            'kids-s': 'Kids S',
+            'kids-m': 'Kids M',
+            'kids-l': 'Kids L',
+            'adult-xs': 'Adult XS',
+            'adult-s': 'Adult S',
+            'adult-m': 'Adult M',
+            'adult-l': 'Adult L',
+            'adult-xl': 'Adult XL',
+            'adult-xxl': 'Adult XXL'
+        };
+        return names[size] || size;
+    }
+
+    formatTeeStyleName(style) {
+        const names = {
+            'short': 'Short Sleeve',
+            'long': 'Long Sleeve',
+            'sleeveless': 'Sleeveless'
+        };
+        return names[style] || style;
     }
 
     // Remove uploaded design and reset UI
     removeUploadedDesign() {
         this.currentDesign = null;
 
-        const fileInput = document.getElementById('design-file-input');
-        if (fileInput) fileInput.value = '';
+        ['upload-image-1', 'upload-image-2', 'upload-logo'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) input.value = '';
+        });
+
+        this.removeImage(1);
+        this.removeImage(2);
+        this.removeImage('logo');
 
         this.resetDesignerUI();
     }
@@ -975,6 +1080,17 @@ renderProducts() {
         this.showNotification(message, 'error');
     }
 
+    // Mark step as complete
+    markStepComplete(stepNumber) {
+        const step = document.querySelector(`[data-step="${stepNumber}"]`);
+        if (!step) return;
+
+        const statusBadge = step.querySelector('.step-status-badge');
+        if (statusBadge) {
+            statusBadge.classList.remove('hidden');
+        }
+    }
+
     // Initialize event listeners
     initEventListeners() {
         // Close cart when clicking overlay
@@ -1086,6 +1202,12 @@ renderProducts() {
                         preview.classList.remove('hidden');
                     };
                     reader.readAsDataURL(file);
+
+                    if (img.input === 'upload-image-1') {
+                        this.handleDesignFileSelected(e).catch(err => console.error('Primary image upload failed', err));
+                        // Mark Step 1 as complete when primary photo is uploaded
+                        this.markStepComplete(1);
+                    }
 
                     this.showNotification('Image uploaded successfully!');
                 }
