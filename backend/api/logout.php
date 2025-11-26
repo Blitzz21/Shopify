@@ -2,6 +2,10 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../config/bootstrap.php';
+require_once __DIR__ . '/../config/cors.php';
+
+// Enable CORS (same as login/register)
+enableCORS();
 
 header('Content-Type: application/json');
 
@@ -15,37 +19,32 @@ function send_json(bool $success, string $message, $data = null, int $statusCode
     exit;
 }
 
-// Start session
-session_start();
-
-// Store user info for response before destroying session
-$userInfo = null;
-if (isset($_SESSION['user_name'])) {
-    $userInfo = [
-        'name' => $_SESSION['user_name'],
-        'email' => $_SESSION['user_email']
-    ];
+// Only allow POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    send_json(false, 'Method not allowed. Use POST.', null, 405);
 }
 
-// Completely destroy session
+// Start session and destroy it
+session_start();
+
+// Clear all session variables
 $_SESSION = [];
 
-// If it's desired to kill the session, also delete the session cookie
-if (ini_get("session.use_cookies")) {
+// Delete session cookie (if exists)
+if (ini_get('session.use_cookies')) {
     $params = session_get_cookie_params();
     setcookie(
-        session_name(), 
-        '', 
+        session_name(),
+        '',
         time() - 42000,
-        $params["path"], 
-        $params["domain"],
-        $params["secure"], 
-        $params["httponly"]
+        $params['path'],
+        $params['domain'],
+        $params['secure'],
+        $params['httponly']
     );
 }
 
-// Finally, destroy the session
+// Destroy session
 session_destroy();
 
-send_json(true, 'Logout successful.', $userInfo);
-?>
+send_json(true, 'Logged out successfully.');
