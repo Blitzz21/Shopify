@@ -5,6 +5,8 @@
 .env.test
 .env.staging
 
+node_modules/
+
 !.env.example
 !.env.sample
 

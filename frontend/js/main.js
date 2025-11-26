@@ -11,6 +11,21 @@ class CustomPrintApp {
         this.selectedQuality = 'premium';
         this.selectedSize = 'adult-m'; // default size
         this.previewMode = 'template'; // 'template' or 'mockup'
+        this.sizeOptions = [
+            { value: 'kids-xs', label: 'Kids XS' },
+            { value: 'kids-s', label: 'Kids S' },
+            { value: 'kids-m', label: 'Kids M' },
+            { value: 'kids-l', label: 'Kids L' },
+            { value: 'adult-xs', label: 'Adult XS' },
+            { value: 'adult-s', label: 'Adult S' },
+            { value: 'adult-m', label: 'Adult M' },
+            { value: 'adult-l', label: 'Adult L' },
+            { value: 'adult-xl', label: 'Adult XL' },
+            { value: 'adult-xxl', label: 'Adult XXL' }
+        ];
+        if (typeof window.singleOrderQuantity === 'undefined') {
+            window.singleOrderQuantity = 1;
+        }
 
         this.shopifyAPI = new ShopifyAPI();
 
@@ -643,18 +658,23 @@ renderProducts() {
         } else {
             // Handle single order
             const price = this.getCurrentQualityPrice();
+            const selectedStyleInput = document.querySelector('input[name="tee-type"]:checked');
+            const teeStyle = selectedStyleInput ? selectedStyleInput.value : null;
+            const singleQuantity = Math.max(1, window.singleOrderQuantity || 1);
 
             const item = {
                 id: Date.now(),
-                name: this.currentProduct.name,
+                baseName: this.currentProduct.name,
                 price: price,
-                quantity: 1,
+                quantity: singleQuantity,
                 productId: this.currentProduct.id,
                 templateKey: this.currentProduct.template_key || null,
                 quality: this.selectedQuality,
                 size: this.selectedSize,
+                teeStyle: teeStyle,
                 designPreview: this.currentProduct.image_url || this.currentProduct.mockup_url || null
             };
+            item.name = this.buildCartItemName(item);
 
             this.cart.push(item);
             this.updateCartDisplay();
@@ -675,36 +695,47 @@ renderProducts() {
 
         let itemsAdded = 0;
         const price = this.getCurrentQualityPrice();
+        const groupedSelections = {};
 
-        // Create cart items from quantities object
-        // Each key is in format "teeStyle-size" (e.g., "short-adult-l")
         Object.keys(quantities).forEach(key => {
-            const quantity = quantities[key];
+            const quantity = parseInt(quantities[key], 10);
+            if (!quantity || quantity <= 0) return;
 
-            if (quantity > 0) {
-                // Parse the key to extract tee style and size
-                const parts = key.split('-');
-                // First part is the style (short, long, sleeveless)
-                // Remaining parts form the size (e.g., adult-l, kids-m)
-                const teeStyle = parts[0];
-                const size = parts.slice(1).join('-');
+            const parts = key.split('-');
+            if (parts.length < 2) return;
+            const teeStyle = parts[0];
+            const size = parts.slice(1).join('-');
 
-                const item = {
-                    id: Date.now() + itemsAdded, // Ensure unique IDs
-                    name: `${this.currentProduct.name} - ${this.formatTeeStyleName(teeStyle)} - ${this.formatSizeName(size)}`,
-                    price: price,
-                    quantity: quantity,
-                    productId: this.currentProduct.id,
-                    templateKey: this.currentProduct.template_key || null,
-                    quality: this.selectedQuality,
-                    size: size,
-                    teeStyle: teeStyle,
-                    designPreview: this.currentProduct.image_url || this.currentProduct.mockup_url || null
-                };
+            if (!groupedSelections[teeStyle]) groupedSelections[teeStyle] = [];
+            groupedSelections[teeStyle].push({ size, quantity });
+        });
 
-                this.cart.push(item);
-                itemsAdded++;
-            }
+        Object.keys(groupedSelections).forEach(style => {
+            const variants = groupedSelections[style];
+            if (!variants || variants.length === 0) return;
+            const totalQuantity = variants.reduce((sum, variant) => sum + (parseInt(variant.quantity, 10) || 0), 0);
+            if (totalQuantity <= 0) return;
+
+            const item = {
+                id: Date.now() + itemsAdded, // Ensure unique IDs
+                baseName: this.currentProduct.name,
+                price: price,
+                quantity: totalQuantity,
+                productId: this.currentProduct.id,
+                templateKey: this.currentProduct.template_key || null,
+                quality: this.selectedQuality,
+                teeStyle: style,
+                isBulk: true,
+                bulkVariants: variants.map(variant => ({
+                    size: variant.size,
+                    quantity: parseInt(variant.quantity, 10) || 0
+                })),
+                designPreview: this.currentProduct.image_url || this.currentProduct.mockup_url || null
+            };
+            item.name = this.buildCartItemName(item);
+
+            this.cart.push(item);
+            itemsAdded++;
         });
 
         if (itemsAdded > 0) {
@@ -735,11 +766,83 @@ renderProducts() {
 
     formatTeeStyleName(style) {
         const names = {
-            'short': 'Short Sleeve',
+            'tees': 'Tees',
+            'crewneck': 'Crew Neck Sweatshirts',
             'long': 'Long Sleeve',
-            'sleeveless': 'Sleeveless'
+            'short': 'Short Sleeve'
         };
         return names[style] || style;
+    }
+
+    buildCartItemName(item) {
+        if (!item) return '';
+        const parts = [];
+        if (item.baseName) {
+            parts.push(item.baseName);
+        } else if (item.name) {
+            parts.push(item.name.split(' - ')[0]);
+        }
+        if (item.teeStyle) {
+            parts.push(this.formatTeeStyleName(item.teeStyle));
+        }
+        if (!item.isBulk && item.size) {
+            parts.push(this.formatSizeName(item.size));
+        } else if (item.isBulk) {
+            parts.push('Bulk');
+        }
+        return parts.filter(Boolean).join(' - ');
+    }
+
+    renderSizeControl(item) {
+        if (!item || !item.size || !this.sizeOptions || this.sizeOptions.length === 0) return '';
+        const options = this.sizeOptions.map(option => {
+            const selected = option.value === item.size ? 'selected' : '';
+            return `<option value="${option.value}" ${selected}>${option.label}</option>`;
+        }).join('');
+        return `
+            <div class="flex flex-col gap-2">
+                <label for="cart-size-${item.id}" class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Size</label>
+                <select id="cart-size-${item.id}"
+                        class="w-full rounded-xl border-2 border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                        onchange="event.stopPropagation(); app.updateCartItemSize(${item.id}, this.value)">
+                    ${options}
+                </select>
+            </div>
+        `;
+    }
+
+    renderBulkVariants(item) {
+        if (!item || !item.isBulk || !Array.isArray(item.bulkVariants)) return '';
+        const rows = item.bulkVariants.map((variant, index) => {
+            const sizeLabel = this.formatSizeName(variant.size);
+            const escapedSize = this.escapeJsString(variant.size);
+            return `
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-purple-200 bg-white p-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-2xl bg-purple-100 text-purple-700 font-semibold flex items-center justify-center">${index + 1}</div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-900">${this.escapeHtml(sizeLabel)}</p>
+                            <p class="text-xs text-gray-500">Size quantity</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="number"
+                               min="0"
+                               max="999"
+                               value="${variant.quantity}"
+                               class="w-20 px-3 py-2 text-center text-base font-bold border-2 border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
+                               onchange="event.stopPropagation(); app.updateBulkVariantQuantity(${item.id}, '${escapedSize}', this.value)">
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        return `
+            <div class="mt-4 rounded-2xl bg-purple-50/60 border border-purple-200 p-4 space-y-3">
+                <div class="text-xs font-semibold text-purple-700 uppercase tracking-wide">Bulk sizes</div>
+                ${rows}
+            </div>
+        `;
     }
 
     // Remove uploaded design and reset UI
@@ -822,6 +925,50 @@ renderProducts() {
         }
     }
 
+    updateBulkVariantQuantity(itemId, variantSize, newQuantity) {
+        const item = this.cart.find(entry => entry.id === itemId && entry.isBulk);
+        if (!item || !Array.isArray(item.bulkVariants)) return;
+
+        const qty = Math.max(0, parseInt(newQuantity, 10) || 0);
+        const variant = item.bulkVariants.find(v => v.size === variantSize);
+        if (!variant) return;
+
+        if (qty === 0) {
+            item.bulkVariants = item.bulkVariants.filter(v => v.size !== variantSize);
+        } else {
+            variant.quantity = qty;
+        }
+
+        item.quantity = item.bulkVariants.reduce((sum, v) => sum + (parseInt(v.quantity, 10) || 0), 0);
+
+        if (item.quantity <= 0 || item.bulkVariants.length === 0) {
+            this.removeFromCart(itemId);
+            return;
+        }
+
+        item.name = this.buildCartItemName(item);
+        this.updateCartDisplay();
+    }
+
+    updateCartItemSize(itemId, newSize) {
+        const validSize = this.sizeOptions.some(option => option.value === newSize);
+        if (!validSize) {
+            this.showError('Please select a valid size option.');
+            return;
+        }
+
+        const item = this.cart.find(item => item.id === itemId);
+        if (!item) return;
+
+        item.size = newSize;
+        if (!item.baseName) {
+            item.baseName = item.name;
+        }
+        item.name = this.buildCartItemName(item);
+
+        this.updateCartDisplay();
+    }
+
     updateCartDisplay() {
         const cartCount = document.getElementById('cart-count');
         const cartItems = document.getElementById('cart-items');
@@ -867,12 +1014,24 @@ renderProducts() {
                 </div>
             `;
         } else {
-            cartItems.innerHTML = this.cart.map((item, index) => `
-                <div class="group relative bg-white rounded-xl border-2 border-gray-100 hover:border-blue-200 p-4 transition-all duration-200 hover:shadow-md" style="animation: slideIn 0.3s ease-out ${index * 0.05}s backwards;">
-                    <div class="flex items-start gap-4">
-                        <!-- Thumbnail -->
-                        <div class="relative flex-shrink-0">
-                            <div class="w-20 h-20 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden border-2 border-gray-200 group-hover:border-blue-300 transition-colors shadow-sm">
+            cartItems.innerHTML = this.cart.map((item, index) => {
+                const sizeControl = !item.isBulk ? this.renderSizeControl(item) : '';
+                const bulkVariantsUI = item.isBulk ? this.renderBulkVariants(item) : '';
+                const teeStyleLabel = item.teeStyle ? this.formatTeeStyleName(item.teeStyle) : null;
+                return `
+                <div class="group relative bg-white rounded-2xl border-2 border-gray-100 hover:border-blue-200 p-4 sm:p-5 transition-all duration-200 hover:shadow-lg" style="animation: slideIn 0.3s ease-out ${index * 0.05}s backwards;">
+                    <button
+                        onclick="app.removeFromCart(${item.id})"
+                        class="absolute top-3 right-3 w-9 h-9 bg-red-50 hover:bg-red-100 text-red-500 hover:text-red-700 rounded-full flex items-center justify-center transition-all duration-200"
+                        title="Remove item"
+                    >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden border-2 border-gray-200 group-hover:border-blue-300 transition-colors shadow-sm">
                                 ${
                                     item.designPreview
                                         ? `<img src="${item.designPreview}" alt="${this.escapeHtml(item.name)}" class="w-full h-full object-cover" />`
@@ -885,85 +1044,72 @@ renderProducts() {
                             </div>
                         </div>
 
-                        <!-- Item Details -->
-                        <div class="flex-grow min-w-0">
-                            <h4 class="font-semibold text-gray-900 mb-1 truncate">${this.escapeHtml(item.name)}</h4>
-
-                            <!-- Badges Row -->
-                            <div class="flex flex-wrap items-center gap-2 mb-2">
-                                <!-- Quality Badge -->
-                                ${item.quality ? `
-                                    <div class="inline-flex items-center gap-1 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 px-2 py-1 rounded-full">
-                                        <svg class="w-3 h-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                        </svg>
-                                        <span class="text-xs font-medium text-purple-700 capitalize">${this.escapeHtml(item.quality)}</span>
-                                    </div>
+                        <div class="flex-1 min-w-0 flex flex-col gap-3">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1 truncate">${this.escapeHtml(item.name)}</h4>
+                                <div class="flex flex-wrap items-center gap-2">
+                                ${item.isBulk ? `
+                                    <span class="inline-flex items-center bg-purple-50 border border-purple-200 px-3 py-1 rounded-full text-purple-700 text-xs font-semibold">
+                                        Bulk order
+                                    </span>
                                 ` : ''}
-
-                                <!-- Size Badge -->
-                                ${item.size ? `
-                                    <div class="inline-flex items-center gap-1 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 px-2 py-1 rounded-full">
-                                        <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                                        </svg>
-                                        <span class="text-xs font-medium text-blue-700 uppercase">${this.escapeHtml(item.size.replace('-', ' '))}</span>
-                                    </div>
+                                ${teeStyleLabel ? `
+                                    <span class="inline-flex items-center bg-blue-50 border border-blue-200 px-3 py-1 rounded-full text-blue-700 text-xs font-semibold">
+                                        ${this.escapeHtml(teeStyleLabel)}
+                                    </span>
                                 ` : ''}
+                                </div>
                             </div>
 
-                            <!-- Quantity Selector & Price -->
-                            <div class="flex items-center justify-between gap-3">
-                                <!-- Quantity Selector -->
-                                <div class="flex items-center gap-2">
-                                    <span class="text-xs text-gray-500 font-medium">Qty:</span>
-                                    <div class="flex items-center bg-gray-50 border-2 border-gray-200 rounded-lg overflow-hidden">
-                                        <button
-                                            onclick="event.stopPropagation(); app.updateCartItemQuantity(${item.id}, ${item.quantity - 1})"
-                                            class="px-2.5 py-1 bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-bold transition-colors border-r-2 border-gray-200 disabled:opacity-30 disabled:cursor-not-allowed"
-                                            ${item.quantity <= 1 ? 'disabled' : ''}
-                                            title="Decrease quantity"
-                                        >
-                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M20 12H4"></path>
-                                            </svg>
-                                        </button>
-                                        <div class="px-3 py-1 bg-white min-w-[2.5rem] text-center">
-                                            <span class="text-sm font-bold text-gray-900">${item.quantity}</span>
-                                        </div>
-                                        <button
-                                            onclick="event.stopPropagation(); app.updateCartItemQuantity(${item.id}, ${item.quantity + 1})"
-                                            class="px-2.5 py-1 bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-bold transition-colors border-l-2 border-gray-200 disabled:opacity-30 disabled:cursor-not-allowed"
-                                            ${item.quantity >= 99 ? 'disabled' : ''}
-                                            title="Increase quantity"
-                                        >
-                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
+                            ${sizeControl ? `<div>${sizeControl}</div>` : ''}
+                            ${bulkVariantsUI}
 
-                                <!-- Price -->
-                                <div class="flex items-center gap-1.5 text-sm">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-gray-100">
+                                ${item.isBulk ? `
+                                    <div>
+                                        <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Qty</p>
+                                        <p class="text-lg font-bold text-gray-900">${item.quantity}</p>
+                                    </div>
+                                ` : `
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xs text-gray-500 font-medium">Qty:</span>
+                                        <div class="flex items-center bg-gray-50 border-2 border-gray-200 rounded-lg overflow-hidden">
+                                            <button
+                                                onclick="event.stopPropagation(); app.updateCartItemQuantity(${item.id}, ${item.quantity - 1})"
+                                                class="px-2.5 py-1 bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-bold transition-colors border-r-2 border-gray-200 ${item.quantity <= 1 ? 'opacity-50 cursor-not-allowed' : ''}"
+                                                ${item.quantity <= 1 ? 'disabled' : ''}
+                                                title="Decrease quantity"
+                                            >
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M20 12H4"></path>
+                                                </svg>
+                                            </button>
+                                            <div class="px-3 py-1 bg-white min-w-[2.5rem] text-center">
+                                                <span class="text-sm font-bold text-gray-900">${item.quantity}</span>
+                                            </div>
+                                            <button
+                                                onclick="event.stopPropagation(); app.updateCartItemQuantity(${item.id}, ${item.quantity + 1})"
+                                                class="px-2.5 py-1 bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-600 font-bold transition-colors border-l-2 border-gray-200 ${item.quantity >= 99 ? 'opacity-50 cursor-not-allowed' : ''}"
+                                                ${item.quantity >= 99 ? 'disabled' : ''}
+                                                title="Increase quantity"
+                                            >
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                `}
+
+                                <div class="flex items-center gap-1.5 text-sm sm:text-base">
                                     <span class="font-bold text-gray-900">$${(item.price || 0).toFixed(2)}</span>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Remove Button -->
-                        <button
-                            onclick="app.removeFromCart(${item.id})"
-                            class="flex-shrink-0 w-8 h-8 bg-red-50 hover:bg-red-100 text-red-500 hover:text-red-700 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:scale-110"
-                            title="Remove item"
-                        >
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                            </svg>
-                        </button>
                     </div>
                 </div>
-            `).join('');
+            `;
+            }).join('');
         }
 
         // Update total with better formatting
@@ -1024,6 +1170,13 @@ renderProducts() {
             .replace(/>/g, "&gt;")
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#039;");
+    }
+
+    escapeJsString(value) {
+        if (!value && value !== 0) return '';
+        return String(value)
+            .replace(/\\/g, '\\\\')
+            .replace(/'/g, "\\'");
     }
 
     showNotification(message, type = 'success') {
